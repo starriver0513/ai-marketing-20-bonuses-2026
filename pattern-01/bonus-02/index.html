@@ -1,0 +1,3017 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>特典02: THE・DIRECTORY | AIマーケ実践特典</title>
+  <meta name="description" content="【自分オリジナルのローカルフォルダを一撃構築】事業部分け / ナレッジ割り振り / Claude.md / AGENTS.md / Skill配置 / セキュリティ対策。AI経営に必要な全ての処理をたった1個のプロンプトで実現し、ゼロから最短最速で自分最適のディレクトリ構造をワンクリック構築する完全マニュアル。">
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    :root {
+      color-scheme: dark;
+      --black: #05000d;
+      --deep: #140025;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.14);
+      --white: #fff;
+      --muted: rgba(255, 255, 255, 0.72);
+      --pink: #ef22df;
+      --purple: #7f39ff;
+      --blue: #275bff;
+      --cyan: #50e4ff;
+      --yellow: #fff24a;
+      --line: rgba(255, 255, 255, 0.18);
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      font-family: "Noto Sans JP", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+      color: var(--white);
+      background: var(--black);
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    .selector-page,
+    .pattern-page,
+    .detail-page {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .selector-page {
+      background:
+        radial-gradient(circle at 14% 12%, rgba(127, 57, 255, 0.55), transparent 26%),
+        radial-gradient(circle at 88% 26%, rgba(74, 32, 180, 0.28), transparent 28%),
+        linear-gradient(135deg, #020007 0%, #08000f 48%, #030006 100%);
+    }
+    .selector-hero,
+    .selector-patterns,
+    .selector-note,
+    .pattern-hero,
+    .bonus-section,
+    .detail-hero,
+    .detail-content {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .selector-hero {
+      min-height: 66vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 76px 0 40px;
+    }
+    .circuit-bg,
+    .pattern-page::before,
+    .detail-page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.28;
+      background-image:
+        linear-gradient(90deg, transparent 0 92%, rgba(255, 255, 255, 0.28) 92% 94%, transparent 94%),
+        linear-gradient(0deg, transparent 0 92%, rgba(255, 255, 255, 0.20) 92% 94%, transparent 94%);
+      background-size: 84px 84px;
+      mask-image: linear-gradient(120deg, black, transparent 72%);
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(46px, 9vw, 124px);
+      line-height: 0.92;
+      font-weight: 950;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      text-shadow: 0 0 28px rgba(239, 34, 223, 0.34);
+    }
+    h1 span { display: block; }
+    .lead {
+      max-width: 780px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.85;
+      overflow-wrap: anywhere;
+    }
+    .selector-meta,
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .selector-meta span,
+    .primary-cta,
+    .ghost-cta,
+    .detail-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 6px;
+      font-weight: 900;
+      font-size: 13px;
+      white-space: normal;
+    }
+    .selector-meta span {
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .selector-patterns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      padding-bottom: 42px;
+    }
+    .pattern-link {
+      min-height: 280px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+      transition: transform 240ms ease, border-color 240ms ease;
+    }
+    .pattern-link::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: conic-gradient(from 130deg, rgba(39, 91, 255, 0), rgba(239, 34, 223, 0.62), rgba(80, 228, 255, 0.24), rgba(39, 91, 255, 0));
+      animation: spin 9s linear infinite;
+      opacity: 0.52;
+    }
+    .pattern-link > * { position: relative; z-index: 1; }
+    .pattern-link:hover { transform: translateY(-6px); border-color: rgba(255, 255, 255, 0.5); }
+    .pattern-link span { color: var(--cyan); font-weight: 900; }
+    .pattern-link strong { margin-top: 12px; font-size: 30px; line-height: 1.05; }
+    .pattern-link small { margin-top: 12px; color: var(--muted); line-height: 1.7; font-size: 14px; }
+    .selector-note {
+      margin-bottom: 56px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .selector-note h2 { margin: 0 0 10px; }
+    .selector-note p { margin: 0; color: var(--muted); line-height: 1.8; }
+
+    .theme-dark-neon {
+      background:
+        radial-gradient(circle at 80% 14%, rgba(39, 91, 255, 0.44), transparent 24%),
+        radial-gradient(circle at 18% 36%, rgba(239, 34, 223, 0.34), transparent 28%),
+        linear-gradient(135deg, #05000d 0%, #150028 46%, #060011 100%);
+    }
+    .theme-white-roadmap {
+      color: #fff;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(39, 91, 255, 0.18), transparent 23%),
+        radial-gradient(circle at 86% 10%, rgba(127, 57, 255, 0.24), transparent 28%),
+        linear-gradient(135deg, #020007 0%, #090012 54%, #030006 100%);
+      --panel: rgba(255, 255, 255, 0.075);
+      --panel-strong: rgba(255, 255, 255, 0.12);
+      --line: rgba(255, 255, 255, 0.16);
+      --muted: rgba(255, 255, 255, 0.74);
+      --white: #fff;
+      --pink: #8f3dff;
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+    }
+    .theme-live-stage {
+      background:
+        linear-gradient(164deg, transparent 0 28%, rgba(239, 34, 223, 0.86) 29% 54%, transparent 55%),
+        radial-gradient(circle at 52% 25%, rgba(239, 34, 223, 0.36), transparent 20%),
+        linear-gradient(135deg, #03030a 0%, #120016 52%, #04000a 100%);
+    }
+    .top-nav {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 66px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      position: relative;
+      z-index: 5;
+    }
+    .top-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .pattern-hero {
+      min-height: 720px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.96fr) minmax(320px, 1.04fr);
+      gap: 36px;
+      align-items: center;
+      padding: 32px 0 56px;
+    }
+    .hero-copy { min-width: 0; }
+    .hero-actions a {
+      padding: 0 18px;
+      border: 1px solid var(--line);
+    }
+    .primary-cta {
+      color: white;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+      border-color: transparent !important;
+      box-shadow: 0 0 34px rgba(239, 34, 223, 0.26);
+    }
+    .ghost-cta { background: var(--panel); }
+    .hero-thumbnail,
+    .detail-thumb {
+      min-width: 0;
+      transform: rotate(-1.2deg);
+    }
+    .thumb-placeholder {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      min-height: 0;
+      border: 2px solid rgba(255, 255, 255, 0.24);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(39, 91, 255, 0.82), rgba(239, 34, 223, 0.82)),
+        #10001f;
+      box-shadow: var(--shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 22px;
+    }
+    .theme-white-roadmap .thumb-placeholder {
+      border-color: rgba(255, 255, 255, 0.18);
+      background:
+        linear-gradient(135deg, rgba(39, 91, 255, 0.52), rgba(143, 61, 255, 0.58)),
+        #090012;
+    }
+    .thumb-placeholder.has-image {
+      padding: 0;
+      background: #05000d;
+    }
+    .thumb-placeholder.has-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .thumb-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.42;
+    }
+    .thumb-glow {
+      position: absolute;
+      width: 50%;
+      aspect-ratio: 1;
+      top: -22%;
+      right: -12%;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.32);
+      filter: blur(8px);
+      animation: pulse 3.4s ease-in-out infinite;
+    }
+    .bonus-section {
+      padding: 72px 0 80px;
+    }
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px 24px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+    .section-heading p {
+      grid-column: 1 / -1;
+      margin: 0;
+      color: var(--pink);
+      font-weight: 950;
+    }
+    .section-heading h1,
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 68px);
+      line-height: 1;
+    }
+    .theme-white-roadmap .section-heading h1 {
+      text-shadow:
+        0 10px 28px rgba(42, 92, 255, 0.28),
+        0 3px 10px rgba(143, 61, 255, 0.28);
+    }
+    .section-heading span {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+      max-width: 360px;
+      line-height: 1.7;
+    }
+    .bonus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .bonus-card {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+    .bonus-card:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    .bonus-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .bonus-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+    .bonus-topline b {
+      color: var(--muted);
+      font-weight: 900;
+    }
+    .bonus-card h2 {
+      margin: 14px 0 0;
+      min-height: 64px;
+      font-size: 24px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+    .bonus-card p {
+      min-height: 84px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 12px 0 0;
+    }
+    .detail-link {
+      width: 100%;
+      margin-top: auto;
+      color: white;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+    }
+    .detail-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+      gap: 36px;
+      align-items: center;
+      padding: 46px 0 40px;
+    }
+    .detail-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.58fr);
+      gap: 18px;
+      padding-bottom: 80px;
+    }
+    .detail-panel,
+    .next-bonus {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    .theme-white-roadmap .detail-panel,
+    .theme-white-roadmap .detail-stat-grid div,
+    .theme-white-roadmap .detail-map div,
+    .theme-white-roadmap .info-card-grid div,
+    .theme-white-roadmap .step-list div,
+    .theme-white-roadmap .source-links a,
+    .theme-white-roadmap .source-note {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+    .detail-panel h2 {
+      margin: 0 0 18px;
+      font-size: 28px;
+    }
+    .detail-panel p {
+      color: var(--muted);
+      line-height: 1.85;
+      margin: 0;
+    }
+    .deliverable-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .deliverable-grid div {
+      min-height: 104px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: var(--panel-strong);
+    }
+    .deliverable-grid span {
+      display: block;
+      width: 30px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+    }
+    .deliverable-grid p {
+      margin-top: 18px;
+      color: var(--white);
+      font-weight: 900;
+    }
+    .next-bonus {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 220px;
+      background: linear-gradient(135deg, rgba(39, 91, 255, 0.35), rgba(239, 34, 223, 0.35)), var(--panel);
+    }
+    .next-bonus span {
+      color: var(--yellow);
+      font-weight: 950;
+      margin-bottom: 10px;
+    }
+    .next-bonus strong {
+      font-size: 28px;
+      line-height: 1.25;
+    }
+    .rich-hero h1 {
+      font-size: clamp(38px, 6vw, 82px);
+      line-height: 1.03;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+    .hero-badges span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .detail-rich {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      padding: 0 0 80px;
+    }
+    .detail-wide,
+    .source-note,
+    .detail-stat-grid,
+    .detail-map {
+      grid-column: 1 / -1;
+    }
+    .source-note {
+      margin: 0;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--muted);
+      line-height: 1.8;
+      font-weight: 800;
+    }
+    .detail-stat-grid,
+    .detail-map,
+    .info-card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .detail-stat-grid div,
+    .detail-map div,
+    .info-card-grid div,
+    .step-list div,
+    .source-links a {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 18px;
+      min-width: 0;
+    }
+    .detail-stat-grid span,
+    .detail-map span,
+    .info-card-grid span,
+    .step-list span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      min-height: 26px;
+      padding: 0 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+      color: white;
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .detail-stat-grid strong,
+    .detail-map strong,
+    .info-card-grid strong,
+    .step-list strong,
+    .source-links span {
+      display: block;
+      margin-top: 12px;
+      color: var(--white);
+      font-size: 19px;
+      line-height: 1.35;
+      font-weight: 950;
+      overflow-wrap: anywhere;
+    }
+    .detail-stat-grid p,
+    .detail-map p,
+    .info-card-grid p,
+    .step-list p,
+    .source-links small {
+      display: block;
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 14px;
+    }
+    .detail-panel ul {
+      margin: 16px 0 0;
+      padding-left: 1.25em;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+    .detail-panel li + li {
+      margin-top: 8px;
+    }
+    .step-list {
+      display: grid;
+      gap: 12px;
+    }
+    .code-panel {
+      margin: 16px 0 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(4, 1, 12, 0.86);
+      color: #f7f4ff;
+      overflow-x: auto;
+      white-space: pre;
+      line-height: 1.65;
+      font-size: 13px;
+    }
+    .code-shell {
+      margin-top: 16px;
+    }
+    .code-shell .code-panel {
+      margin-top: 10px;
+    }
+    .code-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .code-actions button {
+      appearance: none;
+      border: 1px solid rgba(127, 57, 255, 0.32);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(127, 57, 255, 0.95), rgba(239, 34, 223, 0.9));
+      color: #fff;
+      cursor: pointer;
+      font-weight: 900;
+      letter-spacing: 0;
+      padding: 10px 14px;
+      transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+    }
+    .code-actions button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(127, 57, 255, 0.22);
+    }
+    .code-actions button:active {
+      transform: translateY(0);
+      opacity: 0.82;
+    }
+    .anchor-nav {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .anchor-nav a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 56px;
+      padding: 12px 16px;
+      border: 1px solid rgba(127, 57, 255, 0.22);
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      background: linear-gradient(135deg, rgba(50, 22, 95, 0.92), rgba(105, 48, 190, 0.82));
+      box-shadow: 0 14px 34px rgba(40, 16, 82, 0.18);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+    .anchor-nav a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(239, 34, 223, 0.5);
+      box-shadow: 0 18px 38px rgba(105, 48, 190, 0.24);
+    }
+    .anchor-nav span {
+      font-weight: 950;
+      line-height: 1.35;
+    }
+    .anchor-nav small {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.45;
+      text-align: right;
+    }
+    .theme-white-roadmap .code-panel {
+      background: #120824;
+      color: #fff;
+    }
+    .source-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .source-links a {
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+    .source-links a:hover {
+      transform: translateY(-3px);
+      border-color: rgba(239, 34, 223, 0.48);
+    }
+    .guide-page.theme-dark-neon,
+    .guide-page.theme-white-roadmap,
+    .guide-page.theme-live-stage {
+      color: #241631;
+      background: #f5f6fa;
+      --white: #241631;
+      --muted: #675a72;
+      --panel: #fff;
+      --panel-strong: #fff7fd;
+      --line: rgba(80, 53, 112, 0.14);
+      --shadow: 0 22px 60px rgba(52, 27, 91, 0.12);
+    }
+    .guide-page {
+      overflow: visible;
+    }
+    .guide-page::before {
+      display: none;
+    }
+    .guide-top-nav {
+      min-height: 60px;
+      justify-content: space-between;
+      color: #31213d;
+    }
+    .guide-top-nav a {
+      background: #fff;
+      border-color: rgba(80, 53, 112, 0.14);
+      box-shadow: 0 10px 28px rgba(52, 27, 91, 0.08);
+    }
+    .guide-shell {
+      width: min(860px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 0 0 88px;
+    }
+    .guide-header {
+      padding: 8px 0 28px;
+    }
+    .guide-main-visual .thumb-placeholder {
+      border: none;
+      border-radius: 0;
+      box-shadow: 0 16px 42px rgba(52, 27, 91, 0.16);
+    }
+    .guide-title-card {
+      margin: 22px auto 0;
+      padding: 24px;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, #2a1455 0%, #55239d 58%, #8f3dff 100%);
+      box-shadow: 0 18px 44px rgba(88, 35, 157, 0.24);
+    }
+    .guide-title-card .eyebrow {
+      color: #ff79dc;
+      margin-bottom: 12px;
+    }
+    .guide-title-card h1 {
+      font-size: clamp(28px, 6vw, 52px);
+      line-height: 1.16;
+      text-shadow: none;
+    }
+    .guide-title-card .lead {
+      max-width: none;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+    .guide-title-card .hero-badges span {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+    .guide-actions {
+      width: min(620px, 100%);
+      margin: 16px auto 0;
+      display: grid;
+      gap: 8px;
+    }
+    .guide-action {
+      min-height: 54px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      color: #fff;
+      text-align: center;
+      font-weight: 950;
+      background: linear-gradient(180deg, #33de12 0%, #16a900 100%);
+      border: 1px solid rgba(10, 127, 0, 0.28);
+      box-shadow: 0 12px 26px rgba(28, 187, 0, 0.22);
+    }
+    .guide-action small {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+    .guide-content {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
+    .guide-page .source-note,
+    .guide-page .detail-panel {
+      margin: 0 0 22px;
+      padding: 26px;
+      border: 1px solid #eadff6;
+      border-top: 5px solid #ef22df;
+      border-radius: 8px;
+      color: #241631;
+      background: #fff;
+      box-shadow: 0 16px 36px rgba(52, 27, 91, 0.09);
+    }
+    .guide-page .source-note {
+      color: #5c4f66;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .guide-section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      min-height: 30px;
+      padding: 0 10px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 950;
+      background: linear-gradient(90deg, #ef22df, #7f39ff);
+    }
+    .guide-page .detail-panel h2 {
+      margin: 0 0 16px;
+      color: #241631;
+      font-size: clamp(24px, 4vw, 34px);
+      line-height: 1.32;
+    }
+    .guide-page .detail-panel p,
+    .guide-page .detail-panel ul,
+    .guide-page .detail-panel li {
+      color: #5c4f66;
+      font-size: 15px;
+      line-height: 1.95;
+    }
+    .guide-page .info-card-grid,
+    .guide-page .source-links {
+      grid-template-columns: 1fr;
+    }
+    .guide-page .info-card-grid div,
+    .guide-page .step-list div {
+      background: #fff7fd;
+      border-color: #f2d8f4;
+      box-shadow: none;
+    }
+    .guide-page .info-card-grid strong,
+    .guide-page .step-list strong {
+      color: #241631;
+    }
+    .guide-page .info-card-grid p,
+    .guide-page .step-list p {
+      color: #5c4f66;
+    }
+    .guide-page .source-links a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 58px;
+      padding: 12px 18px;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(180deg, #33de12 0%, #16a900 100%);
+      border-color: rgba(10, 127, 0, 0.24);
+      box-shadow: 0 10px 24px rgba(28, 187, 0, 0.16);
+    }
+    .guide-page .source-links span {
+      color: #fff;
+      margin-top: 0;
+    }
+    .guide-page .source-links small {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .guide-page .code-panel {
+      background: #241034;
+      color: #fff;
+      border-color: rgba(127, 57, 255, 0.26);
+      white-space: pre-wrap;
+    }
+    .guide-page .next-bonus {
+      width: min(620px, 100%);
+      min-height: auto;
+      margin: 36px auto 0;
+      padding: 18px 22px;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(90deg, #2f7dff, #8f3dff);
+      border: none;
+      box-shadow: 0 16px 34px rgba(47, 125, 255, 0.18);
+    }
+    .guide-page .next-bonus span {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .guide-page .next-bonus strong {
+      color: #fff;
+      font-size: 19px;
+    }
+    .hero-effects span {
+      position: absolute;
+      pointer-events: none;
+    }
+    .orb {
+      width: 150px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 18px solid rgba(239, 34, 223, 0.58);
+      animation: float 6s ease-in-out infinite;
+    }
+    .orb-a { top: 80px; right: 6%; }
+    .orb-b { bottom: 180px; left: -40px; border-color: rgba(39, 91, 255, 0.58); animation-delay: -2s; }
+    .slash {
+      width: 220px;
+      height: 120px;
+      background: repeating-linear-gradient(135deg, rgba(255,255,255,0.6) 0 4px, transparent 4px 16px);
+      opacity: 0.38;
+      transform: rotate(-12deg);
+    }
+    .slash-a { top: 18%; left: 4%; }
+    .slash-b { right: 3%; bottom: 10%; }
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeUp 640ms ease both;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.34; }
+      50% { transform: scale(1.18); opacity: 0.52; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 980px) {
+      .selector-patterns,
+      .pattern-hero,
+      .detail-hero,
+      .detail-content {
+        grid-template-columns: 1fr;
+      }
+      .detail-stat-grid,
+      .detail-map,
+      .info-card-grid,
+      .source-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .bonus-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-thumbnail,
+      .detail-thumb {
+        transform: none;
+      }
+      .detail-content {
+        padding-bottom: 56px;
+      }
+      .guide-shell {
+        width: min(860px, calc(100% - 28px));
+      }
+      .guide-page .detail-rich {
+        width: 100%;
+        padding: 0;
+      }
+    }
+    @media (max-width: 620px) {
+      .selector-hero,
+      .selector-patterns,
+      .selector-note,
+      .pattern-hero,
+      .bonus-section,
+      .detail-hero,
+      .detail-content,
+      .top-nav {
+        width: min(100% - 28px, 1180px);
+      }
+      .selector-hero {
+        min-height: auto;
+        padding-top: 54px;
+      }
+      .selector-patterns {
+        grid-template-columns: 1fr;
+      }
+      .pattern-link {
+        min-height: 230px;
+      }
+      .pattern-hero {
+        min-height: auto;
+        padding-top: 18px;
+      }
+      h1 {
+        font-size: clamp(42px, 18vw, 74px);
+        line-height: 0.98;
+      }
+      .lead {
+        font-size: 16px;
+      }
+      .section-heading {
+        grid-template-columns: 1fr;
+      }
+      .bonus-card h2 {
+        min-height: auto;
+        font-size: 21px;
+      }
+      .bonus-card p {
+        min-height: auto;
+      }
+      .deliverable-grid {
+        grid-template-columns: 1fr;
+      }
+      .detail-rich {
+        width: min(100% - 28px, 1180px);
+        grid-template-columns: 1fr;
+        padding-bottom: 56px;
+      }
+      .detail-stat-grid,
+      .detail-map,
+      .info-card-grid,
+      .source-links {
+        grid-template-columns: 1fr;
+      }
+      .thumb-placeholder {
+        padding: 16px;
+      }
+      .thumb-placeholder strong {
+        font-size: clamp(28px, 10vw, 46px);
+      }
+      .top-nav {
+        justify-content: flex-start;
+      }
+      .guide-top-nav {
+        justify-content: space-between;
+      }
+      .guide-title-card,
+      .guide-page .detail-panel {
+        padding: 20px;
+      }
+      .guide-title-card h1 {
+        font-size: clamp(27px, 10vw, 42px);
+      }
+      .guide-page .detail-rich {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body class="theme-dark-neon">
+  
+      <main class="detail-page guide-page theme-dark-neon">
+        <nav class="top-nav guide-top-nav">
+          <a href="/ai-marketing-20-bonuses-2026/pattern-01/">特典一覧</a>
+        </nav>
+        <article class="guide-shell">
+          <header class="guide-header">
+            <div class="guide-main-visual">
+            
+    <div class="thumb-placeholder dark-neon has-image" aria-label="BONUS 02">
+      <img src="/ai-marketing-20-bonuses-2026/assets/bonuses/bonus-02.png" alt="特典02: THE・DIRECTORY" loading="lazy">
+    </div>
+  
+            </div>
+            <div class="guide-title-card">
+              <p class="eyebrow">BONUS 02 / LOCAL AI DIRECTORY</p>
+              <h1><span>THE・DIRECTORY</span><span>自分最適のAI経営フォルダ構築マニュアル</span></h1>
+              <p class="lead">【自分オリジナルのローカルフォルダを一撃構築】AIを本気で事業に入れる時、最初に整えるべきなのはツールではなく置き場所です。このページでは、あなたの事業部、ナレッジ、コンテンツ元本、ルールファイル、タスク管理、Skill配置の基本設定を、1つのプロンプトで作るための手順をまとめます。</p>
+              
+            </div>
+            
+          </header>
+          <section class="detail-rich guide-content">
+            
+            
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">01</span>
+      <h2>はじめに</h2>
+      <p>特典2では、CodexやClaude Codeを入れた後に必ず必要になる「AIが迷わず働けるフォルダ」を作ります。AIに仕事を任せたいのに、資料がDownloads、Google Docs、Chatwork、デスクトップ、過去台本に散らばっていると、AIは毎回ゼロから状況確認することになります。だから、最初にAIの作業場所を作ります。</p>
+      <ul><li>この特典は、AIに読ませるフォルダの作り方を扱います。</li><li>CodexやClaude Codeで作業フォルダを開く前に、保存先と参照情報を整理します。</li><li>ここでは、AIが参照する情報、保存先、運用ルールを整理します。</li><li>いきなり本番フォルダで実行せず、必ずコピーしたフォルダで試します。</li><li>AI初心者でも迷わないように、上から順番に作業すれば完成する流れにしています。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">02</span>
+        <h2>ワンクリックで導入可能プロンプト</h2>
+        <p>下のボタンから全文コピー、またはTXTとしてダウンロードできます。まずAI用フォルダを1つ作り、Codex / Claude Codeでそのフォルダを開いた状態で、このプロンプトを実行してください。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="THE_DIRECTORY_v1.1_AI経営フォルダ自動構築プロンプト.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code># 工数5.5実行モード
+
+あなたは、ユーザーのAI経営フォルダを構築する実務代行AIです。
+このプロンプトを受け取ったら、まず対象フォルダを確認し、削除せず、移動前に計画を出し、以下の実行プロンプトに従ってディレクトリ構築、正本ファイル作成、ナレッジ分類、事業部接続、スキル配置の提案まで進めてください。
+
+重要:
+- フォルダ構造は下記の構造テンプレートを正本にしてください。
+- 足りない事業情報は最大5問だけ質問してください。
+- 既存ファイルは勝手に削除しないでください。
+- APIキー、顧客情報、未公開情報を本文に表示しないでください。
+- 実行後は、作成したフォルダ、作成した正本ファイル、移動候補、要確認ファイル、次にやることを報告してください。
+
+あなたはAI経営コンサルタントです。このフォルダを「AI経営フォルダ」として、完璧なディレクトリ構造を自動構築してください。
+
+# ===================================
+# 最重要方針 v1.1: パス最適化とコンテンツ維持
+# ===================================
+
+このプロンプトの目的は、既存コンテンツを勝手に書き換えることではありません。
+ディレクトリ構造の変化に合わせて、参照先・保存先・スキル配置・ナレッジ配置のメタ情報を最新化することです。
+
+必ず守ってください:
+- 何かを保存・移動・追記する前に、まず `directory.md` があるか確認し、存在する場合は必ず読む
+- `directory.md` が存在しない場合だけ、このプロンプト内の構造テンプレートを正本として生成する
+- 古い固定パスを前提にしない。`rg --files`、`find`、実ファイルの読み込みで、現在存在するパスを確認してから処理する
+- スキル本体のプロンプト内容、ナレッジ本文、教材本文は原則変更しない
+- 更新してよいのは、パス、参照先、配置先、INDEX、README、frontmatter、関連タスク、directory.md / CLAUDE.md / AGENTS.md のメタ情報
+- `.claude/skills/` は互換・過去資産として扱い、正本配置は `📦事業部/{事業部名}/{部署または業務}/スキル/` または `📦事業部/{事業部名}/事業部管理/スキル/` を優先する
+- ナレッジ元本は移動しない。事業部で使う場合は `ナレッジ/コピー候補/` にコピーし、先頭に `source:` と `target_task:` を残す
+- どの事業部・部署・継続タスクで使うか不明なスキルやナレッジは、勝手に移動せず「要確認リスト」に入れる
+
+# ===================================
+# 📋 あなたの事業情報（ここを埋めてください）
+# ===================================
+
+## 基本情報
+- 名前: （例: 山田太郎）
+- 屋号/法人名: （例: 株式会社〇〇 / 個人事業主）
+- 事業の一言説明: （例: SNSマーケティングのコンサルティング事業）
+
+## 事業部の定義（あなたの事業を「部署」に分けてください）
+# 分け方のヒント: 「誰かに丸投げできる単位」で分ける
+# 例1: コーチング事業なら → SNS集客部 / 商品部 / セールス部 / 顧客対応部 / 経理部
+# 例2: EC事業なら → 仕入部 / 商品開発部 / 集客部 / カスタマーサポート部 / 経理部
+# 例3: コンテンツ販売なら → コンテンツ制作部 / 集客部 / セールス部 / 受講生対応部 / 経理部
+# 最初は3〜5個で十分です。後からいくらでも追加できます。
+
+事業部リスト:
+1. （例: SNS事業部）— 担当範囲の説明（例: YouTube/X/Instagram での集客・発信全般）
+2. （例: 商品事業部）— 担当範囲の説明（例: 講座・コンサル・コンテンツの企画運営）
+3. （例: セールス部）— 担当範囲の説明（例: セミナー販売・LP・個別相談）
+4. （例: 経理部）— 担当範囲の説明（例: 請求・入金管理・確定申告準備）
+5. （必要なら追加）
+
+## SNSで使っている媒体（該当するものだけ残してください）
+- YouTube / X（Twitter）/ Instagram / TikTok / Facebook / Note / Voicy / LINE / メルマガ
+
+## 商品ラインアップ（現在販売中 or 企画中のもの）
+1. （例: AIマーケティング講座 — 月額5万円のオンラインスクール）
+2. （例: 個別コンサル — 1回3万円の単発相談）
+3. （必要なら追加）
+
+# ===================================
+# 🔧 以下はAIへの実行指示（編集不要）
+# ===================================
+
+## Phase 1: 現状スキャン
+
+このフォルダ内の全ファイルを走査し、以下を把握してください:
+- ファイル総数、種類（.md / .txt / .docx / .pdf / 画像 / 音声 / 動画 / その他）
+- 各ファイルの内容を簡易分析（タイトル・冒頭200文字を読む）
+- ナレッジテンプレート3種（パーソナル/プロダクト/コンテンツ）の有無を確認
+- 既存の正本ファイル（`directory.md` / `CLAUDE.md` / `AGENTS.md` / `CODEX.md` / `タスク管理ルール.md`）の有無を確認
+- スキル候補の所在を確認（`.claude/skills/`、`📦事業部/**/スキル/`、`📦事業部/**/事業部管理/スキル/`）
+- ナレッジ候補の所在を確認（`🌐共通ナレッジ/`、`📦事業部/**/ナレッジ/`、`📦事業部/**/ナレッジ/コピー候補/`）
+
+スキャン完了後、以下を報告してください:
+- 「〇〇個のファイルを確認しました」
+- 「ナレッジテンプレート: パーソナル[有/無] / プロダクト[有/無] / コンテンツ[有/無]」
+- 「正本ファイル: directory.md[有/無] / CLAUDE.md[有/無] / AGENTS.md[有/無]」
+- 「スキル候補: .claude配下〇件 / 事業部配下〇件」
+- 事業情報の不明点があれば最大5つまで質問（それ以上は聞かない）
+
+## Phase 2: ディレクトリ構造の構築
+
+上記の事業情報をもとに、以下の構造を構築してください。
+
+### 構築するフォルダ構造
+
+```
+{AI経営フォルダ名}/
+│
+├── .claude/                          ← Claude Code設定・互換ハーネス（自動生成）
+│   └── rules/
+│       └── ARCHITECTURE.md           ← 設計思想（自動生成）
+│
+├── CLAUDE.md                         ← Claude Codeが毎回読むエントリポイント（自動生成）
+├── AGENTS.md                         ← Codexが毎回読むエントリポイント（Codex利用時に自動生成）
+├── directory.md                      ← 出力先判断マップ（自動生成）
+├── タスク管理ルール.md                ← タスク運用ルール（自動生成）
+│
+├── 🌐共通ナレッジ/                    ← 事業部横断の知識ベース
+│   ├── _INDEX.md
+│   ├── 📌共通ナレッジ/               ← AIが加工・体系化した横断知識
+│   │   ├── パーソナルナレッジ/        ← あなた自身の人格・価値観・経験
+│   │   │   ├── _INDEX.md
+│   │   │   ├── 01_価値観.md
+│   │   │   ├── 02_経歴_実績.md
+│   │   │   ├── 03_専門領域.md
+│   │   │   ├── 04_発信スタイル.md
+│   │   │   └── 05_原体験.md
+│   │   │
+│   │   ├── プロダクトナレッジ/        ← 商品設計・ペルソナ・差別化
+│   │   │   ├── _INDEX.md
+│   │   │   ├── 01_ペルソナ.md
+│   │   │   ├── 02_USP_差別化.md
+│   │   │   ├── 03_商品設計.md
+│   │   │   ├── 04_価格戦略.md
+│   │   │   └── 05_オファー設計.md
+│   │   │
+│   │   ├── コンテンツナレッジ/        ← 文体・口調・コンテンツの型
+│   │   │   ├── _INDEX.md
+│   │   │   ├── 01_文体_口調ルール.md
+│   │   │   ├── 02_コンテンツ型集.md
+│   │   │   ├── 03_発信戦略.md
+│   │   │   └── 04_FB集約.md
+│   │   │
+│   │   ├── タスク攻略ナレッジ/        ← 各タスクのHow-to知識
+│   │   │   ├── _INDEX.md
+│   │   │   ├── Webマーケ理論/
+│   │   │   ├── AIツール活用/
+│   │   │   └── ビジネス_経営/
+│   │   │
+│   │   └── 情報源_リサーチ/           ← 調査結果・競合分析
+│   │       └── _INDEX.md
+│   │
+│   └── 📌コンテンツ元本/             ← 外部ツールからの未加工データ
+│       ├── _INDEX.md
+│       └── {SaaSごとのフォルダ}/      ← Google_Docs/ LINE/ Zoom/ 等、使っているものだけ作る
+│
+├── 📦事業部/                          ← あなたの事業部群（ここが本体）
+│   ├── _INDEX.md
+│   │
+│   ├── {事業部1の名前}/
+│   │   ├── タスク.md                  ← この事業部のタスク一元管理
+│   │   ├── 事業部管理/                ← 管理系情報を集約
+│   │   │   ├── _INDEX.md
+│   │   │   ├── スキル/                ← 事業部横断・管理系スキル
+│   │   │   ├── スキルカタログ/
+│   │   │   ├── ナレッジ/
+│   │   │   ├── SOP/
+│   │   │   ├── 議事録/
+│   │   │   ├── 学び/
+│   │   │   └── タスクアーカイブ/
+│   │   ├── {部署または業務フォルダ}/    ← 実務を進める単位
+│   │   │   ├── _部署OS.md
+│   │   │   ├── _継続タスク.md
+│   │   │   ├── ナレッジ/
+│   │   │   │   ├── _INDEX.md
+│   │   │   │   └── コピー候補/         ← 共通ナレッジからの業務用コピー
+│   │   │   ├── スキル/                ← この業務で使うAIスキル
+│   │   │   │   └── _INDEX.md
+│   │   │   ├── 手順書/
+│   │   │   └── 改善ログ.md
+│   │   └── {必要な部署・媒体・商品を追加}
+│   │
+│   ├── {事業部2の名前}/
+│   │   └── （同上の構造）
+│   │
+│   └── {事業部Nの名前}/
+│       └── （同上の構造）
+│
+└── 🗂️アーカイブ/                     ← 過去データ・参照対象外
+    └── _INDEX.md
+```
+
+### 事業部内サブフォルダの設計ルール
+
+事業部ごとに、その事業部の機能に合わせたサブフォルダを作ってください。
+各事業部の直下は `タスク.md`、`事業部管理/`、部署または業務フォルダを基本形にします。
+スキルとナレッジは、単に置くだけでなく「どの継続タスクで使うか」まで `_継続タスク.md` と `タスク.md` に接続してください。
+
+**SNS系事業部の場合:**
+```
+SNS事業部/
+├── タスク.md
+├── 事業部管理/
+│   ├── スキル/
+│   ├── スキルカタログ/
+│   └── ナレッジ/
+├── YouTube/            ← 媒体別
+│   ├── _部署OS.md
+│   ├── _継続タスク.md
+│   ├── 企画/
+│   ├── 台本/
+│   ├── サムネイル/
+│   ├── リサーチ/
+│   ├── ナレッジ/
+│   │   └── コピー候補/
+│   └── スキル/
+├── X/
+│   ├── _部署OS.md
+│   ├── _継続タスク.md
+│   ├── 投稿/
+│   ├── リサーチ/
+│   ├── ナレッジ/
+│   └── スキル/
+├── Instagram/
+│   ├── _部署OS.md
+│   ├── _継続タスク.md
+│   ├── リール/
+│   ├── フィード/
+│   ├── ストーリーズ/
+│   ├── ナレッジ/
+│   └── スキル/
+└── {使っている他のSNS}/
+```
+
+**商品・プロダクト系事業部の場合:**
+```
+商品事業部/
+├── タスク.md
+├── 事業部管理/
+│   ├── スキル/
+│   ├── スキルカタログ/
+│   └── ナレッジ/
+├── {商品名1}/
+│   ├── _部署OS.md
+│   ├── _継続タスク.md
+│   ├── カリキュラム/
+│   ├── 教材/
+│   ├── 受講生対応/
+│   ├── ナレッジ/
+│   │   └── コピー候補/
+│   └── スキル/
+├── {商品名2}/
+│   └── （同上）
+└── CS_サポート/
+    ├── _部署OS.md
+    ├── _継続タスク.md
+    ├── 質問対応/
+    ├── ナレッジ/
+    └── スキル/
+```
+
+**セールス系事業部の場合:**
+```
+セールス部/
+├── タスク.md
+├── 事業部管理/
+│   ├── スキル/
+│   └── スキルカタログ/
+├── セミナーセールス/{_部署OS.md, _継続タスク.md, ナレッジ, スキル}
+├── 個別相談/{_部署OS.md, _継続タスク.md, ナレッジ, スキル}
+└── LP_セールスページ/{_部署OS.md, _継続タスク.md, ナレッジ, スキル}
+```
+
+**経理系事業部の場合:**
+```
+経理部/
+├── タスク.md
+├── 事業部管理/
+│   ├── SOP/
+│   ├── ナレッジ/
+│   └── スキル/
+├── 法人経費/ or 個人経費/
+├── 証憑/{_部署OS.md, _継続タスク.md, ナレッジ, スキル}
+├── 契約書管理/{_部署OS.md, _継続タスク.md, ナレッジ, スキル}
+└── 確定申告/{_部署OS.md, _継続タスク.md, ナレッジ, スキル}
+```
+
+**その他（リストマーケ/経営企画/AI活用 等）:**
+事業部の責任範囲に応じて、機能別のサブフォルダを設計してください。
+
+## Phase 3: 既存ファイルの振り分け
+
+Phase 1 でスキャンした全ファイルを、以下の判断フローで振り分けてください。
+すでに `directory.md` が存在する場合は、この判断フローより `directory.md` を優先し、必要に応じてこのv1.1方針を追記してください。
+
+### 振り分け判断フロー
+
+```
+ファイルを1つ取り出す
+    ↓
+Q1. ナレッジテンプレートの1つか?（パーソナル/プロダクト/コンテンツ）
+    YES → 🌐共通ナレッジ/📌共通ナレッジ/{該当ナレッジ}/ に配置
+    NO  → Q2
+    ↓
+Q2. 事業部横断で再利用される「抽象的な知識」か?
+    YES → 🌐共通ナレッジ/📌共通ナレッジ/{該当カテゴリ}/ に配置
+    NO  → Q3
+    ↓
+Q3. 外部ツールからの未加工データか?（Googleドキュメント/スプレッドシート/音声/動画 等）
+    YES → 🌐共通ナレッジ/📌コンテンツ元本/{ツール名}/ に配置
+    NO  → Q4
+    ↓
+Q4. AIスキルまたはスキル関連ファイルか?
+    ├─ YES → Q4-A
+    └─ NO  → Q5
+    ↓
+Q4-A. どの事業部・部署・継続タスクで使うか?
+    ├─ 明確 → 📦事業部/{事業部名}/{部署または業務}/スキル/{スキル名}/ に配置または参照接続
+    ├─ 事業部横断 → 📦事業部/{事業部名}/事業部管理/スキル/{スキル名}/ に配置または参照接続
+    └─ 不明 → 要確認リストへ（勝手に中身を書き換えない）
+    ↓
+Q5. どの事業部の仕事に直結するか?
+    ├─ 特定の事業部に属する → 📦事業部/{事業部名}/{部署または業務}/{適切なサブフォルダ}/
+    ├─ 複数の事業部で使う → Q2 に戻る（共通ナレッジの可能性）
+    └─ どこにも属さない → Q6
+    ↓
+Q6. 将来使う可能性はあるか?
+    YES → 🗂️アーカイブ/ に退避
+    NO  → そのまま放置（後で判断）
+```
+
+### 振り分けルール
+
+- **元本は1箇所**（同じ元本を複数箇所にばら撒かない）
+- 事業部で使うナレッジは、元本を動かさず `ナレッジ/コピー候補/` へコピーし、`source:` と `target_task:` を先頭に残す
+- スキル本文は原則変更しない。変更してよいのは、パス、参照先、README、INDEX、frontmatter、関連タスクなどのメタ情報
+- `.claude/skills/` から事業部配下へ移す場合は、まずコピーまたはミラーで動作確認し、必要なら互換用READMEやリンクを残す
+- ファイル名は `YYYY-MM-DD_{種類}_{テーマ}.md` に統一
+- バイナリファイル（音声/動画/画像）は `.md` のメタファイルを隣に作る
+- 振り分けに迷ったら事業部側に置く（後で共通ナレッジに昇格できる）
+
+振り分け完了後、以下を報告してください:
+- 各フォルダに何ファイル入ったか一覧
+- スキル配置の更新件数（.claude配下 / 事業部配下 / 要確認）
+- ナレッジコピー候補の作成件数（source / target_task つき）
+- 振り分けに迷ったファイルのリスト（あれば）
+
+## Phase 4: CLAUDE.md の自動生成
+
+以下のテンプレートをもとに、ユーザーの事業情報に合わせた CLAUDE.md を生成してください。
+
+### CLAUDE.md テンプレート
+
+```markdown
+# CLAUDE.md — {名前} AI経営ディスパッチャー
+
+&gt; 全出力日本語。何かを出力・保存する前に必ず directory.md を Read する。
+
+## 最優先: 何かを出力・保存する前に必ずRead
+
+| 優先 | ファイル | 役割 |
+|---|---|---|
+| **1** | `directory.md` | **出力先判断の正本マップ** |
+| **2** | `タスク管理ルール.md` | **タスク.md 運用の正本** |
+| 3 | `.claude/rules/*.md` | 核心ルール |
+| 4 | `📦事業部/**/スキル/` | 事業部・部署単位のスキル正本 |
+
+**鉄則:**
+- 何かを保存する前に → `directory.md` の判断フローを辿る
+- タスク関連の動作 → `タスク管理ルール.md` のフォーマット遵守
+- スキル実行・改善 → まず `📦事業部/**/スキル/` と `📦事業部/**/事業部管理/スキル/` を探す
+- `.claude/skills/` は互換・過去資産として扱い、正本は事業部配下を優先
+
+## 事業部ドリブン
+
+| 事業部 | 責任範囲 |
+|---|---|
+{事業部テーブルをユーザー定義から生成}
+
+各事業部に `タスク.md` 1ファイル。媒体別・施策別ファイルは作らない。
+各事業部の実務は `事業部 → 部署または業務 → 継続タスク → スキル/ナレッジ/手順書` で運用する。
+
+## AI経営の運用方針
+
+1. **directory.md を最優先 Read** → 出力先を確定
+2. **タスク.md を毎日 Read** → スケジュール把握 → 自律提案
+3. **事業部ドリブン** → スキルとナレッジを担当事業部・部署・継続タスクへ接続
+4. **ナレッジ3分類**（パーソナル/プロダクト/コンテンツ）を共通ナレッジで運用
+5. **コンテンツ元本** に外部ツールからのダウンロード物を集約
+6. **ナレッジコピー運用** → 元本は動かさず、事業部側の `ナレッジ/コピー候補/` に `source:` と `target_task:` つきでコピー
+
+## 仕事タイプ別ルーティング
+
+{ユーザーの事業部に合わせたキーワード→事業部ルーティングテーブルを生成}
+
+## 出力先に迷ったら
+
+1. `directory.md` の判断フローを辿る
+2. 特定の事業部に属するか? → 📦事業部/{事業部名}/
+3. 横断的な知識か? → 🌐共通ナレッジ/
+4. スキルなら `📦事業部/{事業部名}/{部署または業務}/スキル/` を優先
+5. それでも迷ったら1問だけ確認する（最大2問）
+```
+
+## AGENTS.md の自動生成（Codex利用時）
+
+Codexでも使う場合は、CLAUDE.md と同じ方針で `AGENTS.md` も生成してください。
+内容は `directory.md`、`タスク管理ルール.md`、事業部配下スキル、保存前確認を最優先にします。
+
+## Phase 5: directory.md の自動生成
+
+以下のテンプレートをもとに、ユーザーの事業情報に合わせた directory.md を生成してください。
+
+### directory.md テンプレート
+
+```markdown
+# directory.md — 出力先判断の正本マップ
+
+&gt; **AIが何かを出力する前に必ずこのファイルを Read する。**
+
+**最終更新:** {今日の日付}
+
+---
+
+## 0. このファイルの位置づけ
+
+このファイルは「どこに何を保存するか」の最終決定権を持つ正本マップ。
+
+### AIの責務
+- **何かを保存する前に、必ずこのファイルを Read する**
+- 出力先に迷ったら判断フローを辿る
+- 「分からない」を理由に適当な場所に放り込まない
+
+---
+
+## 1. 設計思想
+
+### 原則1: 事業部ドリブン
+全ての成果物は「どの事業部の責任範囲か」で振り分ける。
+
+### 原則2: 共通ナレッジは横断知識のみ
+個別案件は事業部に。再利用される抽象知識だけが共通ナレッジ。
+
+### 原則3: ナレッジ3分類
+- **パーソナルナレッジ** = あなた自身の人格・価値観・経験
+- **プロダクトナレッジ** = 商品設計・ペルソナ・差別化
+- **コンテンツナレッジ** = 文体・口調・コンテンツの型
+
+### 原則4: タスクは事業部単位で1ファイル
+各事業部の直下に「タスク.md」1ファイル。
+
+### 原則5: スキルは事業部・部署・継続タスクに接続
+AIスキルは、できる限り `📦事業部/{事業部名}/{部署または業務}/スキル/` に配置する。
+事業部横断や管理系のスキルは `📦事業部/{事業部名}/事業部管理/スキル/` に置く。
+`.claude/skills/` は互換・過去資産として扱い、正本は事業部配下を優先する。
+
+### 原則6: 元本は動かさず業務用コピーで磨く
+共通ナレッジやコンテンツ元本は原則移動しない。
+事業部で使う場合は `ナレッジ/コピー候補/` にコピーし、`source:` と `target_task:` を残す。
+
+---
+
+## 2. 全体構造マップ
+
+{Phase 2 で実際に構築した構造マップをここに記載}
+
+---
+
+## 3. 出力先判断フロー（必ず辿る）
+
+何か成果物・情報を保存したい
+    ↓
+Q1. 事業部横断で再利用される「抽象的な知識」か?
+    YES → 🌐共通ナレッジ/📌共通ナレッジ/{該当分類}/
+    NO  → Q2
+    ↓
+Q2. 外部ツールからの未加工データか?
+    YES → 🌐共通ナレッジ/📌コンテンツ元本/{ツール名}/
+    NO  → Q3
+    ↓
+Q3. どの事業部の責任範囲か?
+{ユーザーの事業部に合わせた分岐を生成}
+    ↓
+Q4. スキル関連か?
+    YES → 📦事業部/{事業部名}/{部署または業務}/スキル/ または 事業部管理/スキル/
+    NO  → Q5
+    ↓
+Q5. タスク管理関連か?
+    YES → 各事業部の タスク.md に追記
+    NO  → 該当フォルダに YYYY-MM-DD_*.md で保存
+
+---
+
+## 4. 共通ナレッジの判断ルール
+
+### パーソナルナレッジ
+**入れるもの:** あなたの価値観・人生観・過去の経験・専門性・発信スタイル
+**入れないもの:** 個別の出来事 → 各事業部
+
+### プロダクトナレッジ
+**入れるもの:** 商品横断のペルソナ・差別化戦略・価格戦略・オファー設計
+**入れないもの:** 個別商品の運用ノウハウ → 事業部/{商品名}/ナレッジ/
+
+### コンテンツナレッジ
+**入れるもの:** 文体ルール・コンテンツの型・FB集約・ブランドボイス
+**入れないもの:** 個別の記事や投稿 → 事業部/{媒体}/{機能}/
+
+### スキルとナレッジの接続ルール
+**スキル:** 事業部・部署・継続タスクのどれで使うかを明記して配置する。
+**ナレッジ:** 元本は共通ナレッジに残し、実務で使うコピーだけを事業部側で改善する。
+**変更禁止:** スキル本文やナレッジ本文は、依頼がない限り書き換えない。パス・参照先・INDEX・README・関連タスクだけを更新する。
+
+---
+
+## 5. 事業部の判断ルール
+
+{ユーザーの事業部ごとに、判断キーワードと振り分け先を生成}
+
+---
+
+## 6. 命名規則
+
+### ファイル名
+YYYY-MM-DD_[種類]_[テーマ名].[拡張子]
+- 日付は必ず先頭
+- 種類ラベル: 台本/企画/リサーチ/ナレッジ/議事録 等
+
+### フォルダ名
+- 日本語OK
+- アンダースコア区切り
+
+---
+
+## 7. 事業部の追加方法
+
+新しい事業部を追加したい時:
+1. 📦事業部/ の下に新フォルダを作成
+2. タスク.md を作成
+3. 事業部管理/ を作成し、スキル/、スキルカタログ/、ナレッジ/ を作成
+4. 主要な部署または業務フォルダを作成し、_部署OS.md、_継続タスク.md、ナレッジ/コピー候補/、スキル/ を接続
+5. このファイル（directory.md）の §2 構造マップと §5 判断ルールに追記
+6. CLAUDE.md / AGENTS.md の事業部テーブルに追記
+```
+
+## Phase 6: タスク管理ルール.md の自動生成
+
+以下の内容で タスク管理ルール.md を生成してください:
+
+```markdown
+# タスク管理ルール.md
+
+&gt; 各事業部の `タスク.md` 1ファイルに集約し、AIが自律的に提案・更新する。
+
+---
+
+## タスク.md の標準フォーマット
+
+各事業部の直下に タスク.md を1ファイルのみ配置。以下のフォーマットに従う:
+
+### タスク.md テンプレート
+
+---
+事業部: {事業部名}
+最終更新: YYYY-MM-DD HH:MM
+---
+
+# {事業部名} タスク管理
+
+## 🔥 進行中
+
+### [P0] {タスク名}
+- **期限**: YYYY-MM-DD
+- **担当**: {名前}
+- **進捗**: XX%（現在: ○○まで完了）
+- **次のアクション**: ○○
+
+### [P1] {タスク名}
+...
+
+## 📅 予定（未着手）
+
+### {タスク名}
+- **着手予定**: YYYY-MM-DD
+- **期限**: YYYY-MM-DD
+
+## 💭 アイディア
+
+### {タスク名}
+- **状態**: 構想中 / 調査中
+
+## ✅ 完了（直近30日）
+
+### YYYY-MM-DD — {タスク名}
+- 結果: ○○
+- 学び: ○○
+
+---
+
+## 優先度ルール
+
+- P0: 今日中（期限が今日/明日、売上直結）
+- P1: 今週中（期限3日以内）
+- P2: 今月中（期限2週間以内）
+- P3: 着手判断（期限なし、アイディア段階）
+```
+
+## Phase 7: .claude/rules/ARCHITECTURE.md の自動生成
+
+以下の内容で ARCHITECTURE.md を生成してください:
+
+```markdown
+# ARCHITECTURE.md — 設計思想
+
+&gt; このフォルダの設計思想を永続記録するファイル。
+
+---
+
+## 大原則
+
+### 原則1: 事業部ドリブン
+全ての成果物は「どの事業部の責任範囲か」で振り分ける。
+
+### 原則2: 共通ナレッジは横断知識のみ
+個別案件は事業部に。再利用される抽象知識だけが共通ナレッジ。
+
+### 原則3: ナレッジ3分類
+パーソナル（あなた自身）/ プロダクト（商品）/ コンテンツ（発信の型）
+
+### 原則4: タスクは事業部単位で1ファイル
+各事業部の直下に「タスク.md」1ファイルだけ。
+
+### 原則5: スキルは事業部・部署・継続タスクに紐づける
+`.claude/skills/` に寄せすぎず、実際に使う事業部・部署・継続タスクの `スキル/` に配置または参照接続する。
+スキル本文は原則変更せず、パスと参照先を最新化する。
+
+### 原則6: ナレッジ元本は動かさない
+共通ナレッジやコンテンツ元本は一次情報として残す。
+事業部で使う場合は `ナレッジ/コピー候補/` にコピーし、`source:` と `target_task:` を残す。
+
+### 原則7: フォルダに属さないものは新フォルダを作る
+既存フォルダに無理に押し込まない。新フォルダを作って _INDEX.md を同時作成。
+
+### 原則8: 事業部はいくらでも追加できる
+新しい事業を始めたら、📦事業部/ の下にフォルダを追加するだけ。
+既存の構造を壊さない。
+
+---
+
+## 構造の概要
+
+{Phase 2 で構築した構造のダイジェスト}
+
+---
+
+## 変更履歴
+
+| 日付 | 内容 |
+|---|---|
+| {今日の日付} | 初版作成。AI経営フォルダ自動構築プロンプトにより構築 |
+```
+
+## Phase 8: _INDEX.md の一括生成
+
+作成した全フォルダに _INDEX.md を配置してください。テンプレート:
+
+```markdown
+---
+created: {今日の日付}
+parent: {親フォルダへの相対パス}
+---
+
+# {フォルダ名}
+
+&gt; {このフォルダが扱う範囲の1行説明}
+
+## サブフォルダ一覧
+
+| フォルダ名 | 扱う内容 |
+|---|---|
+{実際のサブフォルダを列挙}
+
+## 使い方
+
+- {このフォルダに新しい情報を追加する時のルール}
+- スキル/ナレッジを追加する場合は、関連する事業部タスク、source、target_task を明記する
+```
+
+## Phase 9: 完了レポート
+
+全ての構築が完了したら、以下のフォーマットで報告してください:
+
+### 構築完了レポート
+
+1. **作成したフォルダ数**: 〇〇個
+2. **振り分けたファイル数**: 〇〇個
+3. **生成した管理ファイル数**: 〇〇個（CLAUDE.md / directory.md / タスク管理ルール.md / ARCHITECTURE.md / _INDEX.md × N）
+4. **スキル接続数**: 〇〇個（事業部配下へ接続 / 要確認）
+5. **ナレッジコピー候補数**: 〇〇個（source / target_task つき）
+
+### 構造マップ（実際に作成されたもの）
+{tree形式で全フォルダを表示}
+
+### 事業部一覧
+{事業部名 → 担当範囲 → 配下のサブフォルダ → タスク.md の初期タスク数}
+
+### 共通ナレッジ配置状況
+- パーソナルナレッジ: 〇〇件
+- プロダクトナレッジ: 〇〇件
+- コンテンツナレッジ: 〇〇件
+- コンテンツ元本: 〇〇件
+- その他: 〇〇件
+
+### スキル配置状況
+- 事業部配下に接続済み: 〇〇件
+- 事業部管理/スキル に接続済み: 〇〇件
+- `.claude/skills/` に残した互換・過去資産: 〇〇件
+- 要確認: 〇〇件
+
+### 次にやること（推奨）
+1. パーソナルナレッジが空なら → テンプレートに沿って自分の価値観・経験を書き出す
+2. プロダクトナレッジが空なら → 商品のペルソナ・USPを書き出す
+3. コンテンツナレッジが空なら → 普段の文体・口調のルールを書き出す
+4. 各事業部のタスク.md に、今抱えているタスクを書き出す
+5. よく使う作業があるなら、その事業部・部署の `スキル/` に接続する
+6. 新しい事業部が必要になったら「〇〇事業部を追加して」と言うだけでOK
+
+---
+
+## 事業部追加時のAI自動対応
+
+ユーザーが「〇〇事業部を追加して」と言ったら、以下を自動実行してください:
+
+1. 📦事業部/{新事業部名}/ フォルダを作成
+2. タスク.md を作成（テンプレートから）
+3. 事業部管理/ と スキル/、スキルカタログ/、ナレッジ/ を作成
+4. 事業部の責任範囲に合わせた部署または業務フォルダを作成（ユーザーに確認）
+5. 各部署に _部署OS.md、_継続タスク.md、ナレッジ/コピー候補/、スキル/ を作成
+6. directory.md の §2 構造マップに追記
+7. directory.md の §5 判断ルールに追記
+8. CLAUDE.md / AGENTS.md の事業部テーブルに追記
+9. 📦事業部/_INDEX.md に追記
+
+完了後「{事業部名}を追加しました。今後この事業部に関する出力は自動的にこのフォルダに振り分けられます」と報告。</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">03</span>
+        <h2>この特典2で完成するもの</h2>
+        <p>ゴールは「きれいなフォルダを作ること」ではありません。AIが、あなたの事業・商品・顧客・発信・ナレッジを理解し、出力先まで迷わず判断できる状態を作ることです。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>01</span>
+                  <strong>AI経営フォルダ</strong>
+                  <p>あなたの事業に合わせたルートフォルダを作ります。CodexでもClaude Codeでも同じフォルダを開けるようにします。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>事業部フォルダ</strong>
+                  <p>SNS、商品、セールス、リストマーケ、経理、経営企画、AI活用など、仕事を任せられる単位でフォルダを分けます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>共通ナレッジとコンテンツ元本</strong>
+                  <p>加工済みのナレッジと、Loom・Zoom・Plaud・Docsなどの元データを分けて管理します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>AGENTS.md / CLAUDE.md</strong>
+                  <p>CodexやClaude Codeが毎回読むルールファイルを作り、話し方、保存先、確認ルールを固定します。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>directory.md</strong>
+                  <p>何をどこに保存するかをAIが判断するための保存先一覧を作ります。今後フォルダを増やす時もここを更新します。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>タスク管理ルール</strong>
+                  <p>各事業部のタスクを1ファイルに集約し、AIが次にやることを追いやすくします。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">04</span>
+      <h2>なぜディレクトリ構造が重要なのか</h2>
+      <p>AIの出力が弱くなる原因は、AIの性能不足だけではありません。むしろ、AIが見るべき資料、守るべきルール、保存すべき場所が曖昧なまま作業していることが大きな原因です。ローカルフォルダは、AIにとっての職場です。机、棚、資料室、担当部署、ルールブックがあるから、AIは同じ品質で働きやすくなります。</p>
+      <ul><li>資料が散らばると、AIは毎回前提を取り違えやすくなります。</li><li>出力先が曖昧だと、完成物、下書き、元本、ナレッジが混ざります。</li><li>ルールファイルがないと、削除前確認、公開前チェック、口調、保存先が毎回ブレます。</li><li>事業部で分けると、SNS、商品、セールス、経理などを別々の担当AIに任せやすくなります。</li><li>今後Skillやエージェントチームを作る時も、置き場所が整理されているほど拡張しやすくなります。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">05</span>
+        <h2>THE DIRECTORYの中核思想</h2>
+        <p>ディレクトリは単なるファイル整理ではありません。AIが毎回ゼロから説明を受け直さず、事業の前提、判断、実績、ルールを引き継ぐための運用設計です。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>ORG</span>
+                  <strong>ディレクトリは会社の組織図</strong>
+                  <p>フォルダ階層は、どの事業部にどのAI社員を置き、どのマニュアルを読ませるかを決める設計図です。</p>
+                </div>
+              
+                <div>
+                  <span>LOOP</span>
+                  <strong>情報ループを回す</strong>
+                  <p>情報収集、構造化、検索要約、更新の4工程が回ると、AIが過去判断を引き継いで仕事を進められます。</p>
+                </div>
+              
+                <div>
+                  <span>DESIGN</span>
+                  <strong>実装より設計が重要</strong>
+                  <p>フォルダ階層、SoT、命名規則は後から直すほど重くなります。最初に人間が決めるべき領域です。</p>
+                </div>
+              
+                <div>
+                  <span>SIMPLE</span>
+                  <strong>先取り抽象化しない</strong>
+                  <p>最初から共通化しすぎず、同じものを3回書きそうになってから_sharedや共通ナレッジへ昇格します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">06</span>
+        <h2>4ステップの情報ループをフォルダに埋め込む</h2>
+        <p>THE DIRECTORYで一番大事なのは、AIが情報を集め、整理し、検索し、更新できる流れを止めないことです。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>情報収集</strong>
+                  <p>Chatwork、Gmail、X、Zoom録画、議事録、顧客DMなど、業務で発生する情報源を把握します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>構造化・ラベル付け</strong>
+                  <p>フォルダ階層、frontmatter、ファイル名、日付、事業部名をそろえ、検索しやすい形にします。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>検索要約</strong>
+                  <p>AIが横断検索し、必要な情報だけを要約できるよう、軽量なMarkdownとINDEXを用意します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>更新</strong>
+                  <p>正本ファイルを1箇所だけ更新します。同じ情報を複数箇所に書き、どれが正しいか分からない状態を避けます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">07</span>
+        <h2>AI社員が迷わない命名ルール</h2>
+        <p>フォルダ名、番号、アンダースコア、常時参照ファイルは、AIにとっての業務指示です。見た瞬間に読む、読まない、仮置き、正本を判断できるようにします。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>10 / 1</span>
+                  <strong>番号プレフィックス</strong>
+                  <p>外側は10刻み、内側は1刻みで並べます。後から事業部や部署を差し込める余白を残します。</p>
+                </div>
+              
+                <div>
+                  <span>_RULE</span>
+                  <strong>_RULE.md</strong>
+                  <p>その階層で絶対に守る規則を書きます。短く、原則だけにして、下位階層は補強だけにします。</p>
+                </div>
+              
+                <div>
+                  <span>_COMPANY</span>
+                  <strong>_COMPANY.md</strong>
+                  <p>会社や事業の入口情報を置きます。関連プロジェクトや事業部を紐づけ、AIが最初に理解する受付資料にします。</p>
+                </div>
+              
+                <div>
+                  <span>_STATUS</span>
+                  <strong>_STATUS.md</strong>
+                  <p>事業部の現在地、進行中の論点、次にやることなど、変化する情報を置きます。</p>
+                </div>
+              
+                <div>
+                  <span>_CONTRACT</span>
+                  <strong>_CONTRACT.md</strong>
+                  <p>スコープ、期間、金額、契約条件など、あまり変わらない重要情報を置きます。</p>
+                </div>
+              
+                <div>
+                  <span>_stock</span>
+                  <strong>_stock / _archive</strong>
+                  <p>動画、音声、画像、大容量PDF、旧版を隔離します。AIが常時読む軽量ナレッジとは分けます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">08</span>
+        <h2>SoTとdriftを防ぐ運用ルール</h2>
+        <p>同じ情報が複数箇所にあると、AIはどれを信じるべきか分からなくなります。THE DIRECTORYでは、正本の場所と更新ルールを明確にします。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>SOT</span>
+                  <strong>正本は1箇所に固定する</strong>
+                  <p>会社情報、商品情報、契約情報、講座情報は、それぞれ正本ファイルを決めます。コピー先ではなく正本を更新します。</p>
+                </div>
+              
+                <div>
+                  <span>STATIC</span>
+                  <strong>静的情報と動的情報を分ける</strong>
+                  <p>契約条件のように変わりにくい情報と、進捗や次アクションのように変わる情報を同じファイルに混ぜません。</p>
+                </div>
+              
+                <div>
+                  <span>MEETING</span>
+                  <strong>議事録はフラットに集約する</strong>
+                  <p>議事録は日付とテーマで並べ、後から横断検索できる形にします。案件ごとに細かく分けすぎると検索性が落ちます。</p>
+                </div>
+              
+                <div>
+                  <span>RULE</span>
+                  <strong>AGENTS.md / CLAUDE.mdを入口にする</strong>
+                  <p>CodexとClaude Codeが最初に読む業務マニュアルを用意し、保存先、禁止事項、作業順序を固定します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">09</span>
+        <h2>正本マップ：AI経営フォルダの完成形</h2>
+        <p>最新の正本マップでは、フォルダは「事業部ドリブン」で整理します。AIが勝手に別構造を作らないよう、まずこの完成形を理解してからワンクリックプロンプトを実行してください。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>ROOT</span>
+                  <strong>AI経営フォルダ直下</strong>
+                  <p>AGENTS.md / CODEX.md / CLAUDE.local.md / directory.md / タスク管理ルール.md を置き、AIが毎回読む入口を固定します。</p>
+                </div>
+              
+                <div>
+                  <span>7 DIV</span>
+                  <strong>現行7事業部</strong>
+                  <p>SNS事業部、プロダクト事業部、セールス、リストマーケ事業部、経理、経営企画、AI活用事業部を基本入口にします。</p>
+                </div>
+              
+                <div>
+                  <span>COMMON</span>
+                  <strong>共通ナレッジ</strong>
+                  <p>パーソナルナレッジ、プロダクトナレッジ、コンテンツナレッジを横断知識として分けます。元本と加工済みナレッジも混ぜません。</p>
+                </div>
+              
+                <div>
+                  <span>DEPT OS</span>
+                  <strong>部署OS / 継続タスク</strong>
+                  <p>各部署に _部署OS.md と _継続タスク.md を置き、Skillとナレッジをどの仕事で使うかまで接続します。</p>
+                </div>
+              
+                <div>
+                  <span>COPY</span>
+                  <strong>コピー候補</strong>
+                  <p>元本は動かさず、事業部で使う場合はナレッジ/コピー候補/へコピーし、source と target_task を残します。</p>
+                </div>
+              
+                <div>
+                  <span>SAFE</span>
+                  <strong>削除しない</strong>
+                  <p>不要ファイルは削除ではなく削除対象へ寄せる運用です。AIが勝手に削除・移動しない設計にします。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">10</span>
+        <h2>基本のディレクトリ構造テンプレート</h2>
+        <p>この構造を基本にします。ユーザーの事業部名や商品名は置き換えますが、共通ナレッジ、コンテンツ元本、事業部、事業部管理、部署または業務フォルダの考え方は維持します。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="the-directory-structure-template.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code>{AI経営フォルダ名}/
+│
+├── .claude/                          ← Claude Code設定・互換ハーネス（自動生成）
+│   └── rules/
+│       └── ARCHITECTURE.md           ← 設計思想（自動生成）
+│
+├── CLAUDE.md                         ← Claude Codeが毎回読むエントリポイント（自動生成）
+├── AGENTS.md                         ← Codexが毎回読むエントリポイント（Codex利用時に自動生成）
+├── directory.md                      ← 出力先判断マップ（自動生成）
+├── タスク管理ルール.md                ← タスク運用ルール（自動生成）
+│
+├── 🌐共通ナレッジ/                    ← 事業部横断の知識ベース
+│   ├── _INDEX.md
+│   ├── 📌共通ナレッジ/               ← AIが加工・体系化した横断知識
+│   │   ├── パーソナルナレッジ/        ← あなた自身の人格・価値観・経験
+│   │   │   ├── _INDEX.md
+│   │   │   ├── 01_価値観.md
+│   │   │   ├── 02_経歴_実績.md
+│   │   │   ├── 03_専門領域.md
+│   │   │   ├── 04_発信スタイル.md
+│   │   │   └── 05_原体験.md
+│   │   │
+│   │   ├── プロダクトナレッジ/        ← 商品設計・ペルソナ・差別化
+│   │   │   ├── _INDEX.md
+│   │   │   ├── 01_ペルソナ.md
+│   │   │   ├── 02_USP_差別化.md
+│   │   │   ├── 03_商品設計.md
+│   │   │   ├── 04_価格戦略.md
+│   │   │   └── 05_オファー設計.md
+│   │   │
+│   │   ├── コンテンツナレッジ/        ← 文体・口調・コンテンツの型
+│   │   │   ├── _INDEX.md
+│   │   │   ├── 01_文体_口調ルール.md
+│   │   │   ├── 02_コンテンツ型集.md
+│   │   │   ├── 03_発信戦略.md
+│   │   │   └── 04_FB集約.md
+│   │   │
+│   │   ├── タスク攻略ナレッジ/        ← 各タスクのHow-to知識
+│   │   │   ├── _INDEX.md
+│   │   │   ├── Webマーケ理論/
+│   │   │   ├── AIツール活用/
+│   │   │   └── ビジネス_経営/
+│   │   │
+│   │   └── 情報源_リサーチ/           ← 調査結果・競合分析
+│   │       └── _INDEX.md
+│   │
+│   └── 📌コンテンツ元本/             ← 外部ツールからの未加工データ
+│       ├── _INDEX.md
+│       └── {SaaSごとのフォルダ}/      ← Google_Docs/ LINE/ Zoom/ 等、使っているものだけ作る
+│
+├── 📦事業部/                          ← あなたの事業部群（ここが本体）
+│   ├── _INDEX.md
+│   │
+│   ├── {事業部1の名前}/
+│   │   ├── タスク.md                  ← この事業部のタスク一元管理
+│   │   ├── 事業部管理/                ← 管理系情報を集約
+│   │   │   ├── _INDEX.md
+│   │   │   ├── スキル/                ← 事業部横断・管理系スキル
+│   │   │   ├── スキルカタログ/
+│   │   │   ├── ナレッジ/
+│   │   │   ├── SOP/
+│   │   │   ├── 議事録/
+│   │   │   ├── 学び/
+│   │   │   └── タスクアーカイブ/
+│   │   ├── {部署または業務フォルダ}/    ← 実務を進める単位
+│   │   │   ├── _部署OS.md
+│   │   │   ├── _継続タスク.md
+│   │   │   ├── ナレッジ/
+│   │   │   │   ├── _INDEX.md
+│   │   │   │   └── コピー候補/         ← 共通ナレッジからの業務用コピー
+│   │   │   ├── スキル/                ← この業務で使うAIスキル
+│   │   │   │   └── _INDEX.md
+│   │   │   ├── 手順書/
+│   │   │   └── 改善ログ.md
+│   │   └── {必要な部署・媒体・商品を追加}
+│   │
+│   ├── {事業部2の名前}/
+│   │   └── （同上の構造）
+│   │
+│   └── {事業部Nの名前}/
+│       └── （同上の構造）
+│
+└── 🗂️アーカイブ/                     ← 過去データ・参照対象外
+    └── _INDEX.md</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">11</span>
+        <h2>完成形の簡易マップ</h2>
+        <p>まず全体像をつかむための簡易マップです。実行プロンプトでは、この考え方をもとに、事業内容に合わせて各事業部と部署を展開します。細かいフォルダは、AIが質問しながら必要な範囲だけ作ります。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="THE_DIRECTORY_正本フォルダ構造ミニテンプレート.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code>AI経営フォルダ/
+├── AGENTS.md
+├── CODEX.md
+├── CLAUDE.local.md
+├── directory.md
+├── タスク管理ルール.md
+├── 🌐共通ナレッジ/
+│   ├── 📌共通ナレッジ/
+│   │   ├── パーソナルナレッジ/
+│   │   ├── プロダクトナレッジ/
+│   │   └── コンテンツナレッジ/
+│   └── 📌コンテンツ元本/
+│       ├── Google_Docs/
+│       ├── Google_Sheets/
+│       ├── Loom/
+│       ├── Zoom/
+│       └── Chatwork/
+├── 📦事業部/
+│   ├── SNS事業部/
+│   ├── プロダクト事業部/
+│   ├── セールス/
+│   ├── リストマーケ事業部/
+│   ├── 経理/
+│   ├── 経営企画/
+│   └── AI活用事業部/
+└── 🗂️アーカイブ/
+
+各事業部/
+├── タスク.md
+├── 事業部管理/
+│   ├── スキル/
+│   ├── スキルカタログ/
+│   ├── ナレッジ/
+│   ├── SOP/
+│   ├── 議事録/
+│   └── タスクアーカイブ/
+└── 部署または業務フォルダ/
+    ├── _部署OS.md
+    ├── _継続タスク.md
+    ├── ナレッジ/
+    │   └── コピー候補/
+    ├── スキル/
+    ├── 手順書/
+    └── 改善ログ.md</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">12</span>
+        <h2>このプロンプトを使う順番</h2>
+        <p>初心者は、説明を全部読んでから作るより、先にプロンプトをコピーして、AIと一緒に確認しながら進める方が迷いにくいです。削除や移動は勝手に実行させず、必ず計画を確認してから進めます。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>AI用フォルダを1つ作る</strong>
+                  <p>デスクトップや書類フォルダに、AI経営フォルダなど分かりやすい名前のフォルダを1つ作ります。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>今持っている資料を雑多に入れる</strong>
+                  <p>メモ、台本、商品情報、過去投稿、講座資料、議事録などを最初は細かく整理せず入れます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>Codex / Claude Codeでフォルダを開く</strong>
+                  <p>AIに見てほしい対象を、そのフォルダに限定します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>上のプロンプトを実行する</strong>
+                  <p>AIにスキャン、質問、構造案、作成計画、実行後チェックまで出させます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>計画を確認してから実行する</strong>
+                  <p>既存ファイルの削除や勝手な書き換えを防ぐため、実行前に必ず作成・移動・要確認リストを確認します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">13</span>
+        <h2>構築代行AIへの依頼文</h2>
+        <p>上のTHE DIRECTORYプロンプトを渡したあと、AIに作業代行させるための追加依頼文です。プロンプト本文の構造を正本にし、勝手に別構造を作らせないための確認文として使ってください。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="構築代行AIへの依頼文.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code>これからTHE DIRECTORYのプロンプトを実行します。あなたは、私のAI経営フォルダ構築を代行する実務担当です。
+
+# 最重要
+- フォルダ構造は、私が渡したTHE DIRECTORYプロンプト本文を正本にしてください。
+- あなた独自のフォルダ構造を新しく作らないでください。
+- 既存ファイルを削除しないでください。
+- 移動・コピー・リネーム・追記を行う前に、必ず実行計画を出してください。
+- APIキー、顧客情報、未公開情報、個人情報を本文に表示しないでください。
+
+# まずやってほしいこと
+1. このフォルダ内をスキャンしてください。
+2. 既存の directory.md / CLAUDE.md / AGENTS.md / CODEX.md / タスク管理ルール.md があるか確認してください。
+3. 共通ナレッジ、コンテンツ元本、事業部、スキル、ナレッジコピー候補に分けられそうなファイルを一覧化してください。
+4. 足りない事業情報があれば、最大5問だけ質問してください。
+5. 実行前に、作成するフォルダ、作成する正本ファイル、コピー候補、要確認リストを出してください。
+
+# 実行後に報告してほしいこと
+- 作成したフォルダ数
+- 作成した管理ファイル
+- 既存ファイルの移動/コピー候補
+- 要確認ファイル
+- 次に私が確認すべきこと
+
+まずは実行せず、スキャン結果と実行計画だけ出してください。</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">14</span>
+        <h2>全体の進め方</h2>
+        <p>まずは安全にコピーで試し、AIにスキャンさせ、事業部を決め、フォルダを作らせ、既存ナレッジを振り分け、最後にルールファイルを確認します。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>STEP 01: AI用フォルダを1つ作る</strong>
+                  <p>最初は「AI_WORKSPACE」や「AI経営フォルダ」など、自分が迷わない名前で作ります。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>STEP 02: 既存資料を入れる</strong>
+                  <p>過去台本、講座メモ、商品資料、顧客Q&amp;A、Loom文字起こし、Chatworkメモなどを一度入れます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>STEP 03: 本番フォルダをコピーする</strong>
+                  <p>すでにAI用フォルダがある人は、本番ではなくコピーしたフォルダで試します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>STEP 04: Codex / Claude Codeで開く</strong>
+                  <p>導入済みのAIアプリから、コピーしたフォルダを開きます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>STEP 05: 実行プロンプトを貼る</strong>
+                  <p>このページのプロンプトを貼り、あなたの事業情報に合わせてフォルダ構造を作らせます。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>STEP 06: 完了レポートを確認する</strong>
+                  <p>作成フォルダ数、振り分けファイル数、迷ったファイル、次にやることを確認します。</p>
+                </div>
+              
+                <div>
+                  <span>07</span>
+                  <strong>STEP 07: 問題なければ本番へ反映する</strong>
+                  <p>コピー環境で納得できたら、本番フォルダに同じ設計を反映します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">15</span>
+        <h2>初心者が最初に理解すべき5つの用語</h2>
+        <p>ここが曖昧なままだと、後半のプロンプトが難しく見えます。まず意味を揃えます。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>ROOT</span>
+                  <strong>ルートフォルダ</strong>
+                  <p>AIが作業の起点にする一番上のフォルダです。この中にルール、資料、事業部、成果物を入れます。</p>
+                </div>
+              
+                <div>
+                  <span>SOURCE</span>
+                  <strong>コンテンツ元本</strong>
+                  <p>Loom、Zoom、Plaud、Google Docs、スプレッドシートなど、まだ加工していない一次データです。</p>
+                </div>
+              
+                <div>
+                  <span>KNOWLEDGE</span>
+                  <strong>共通ナレッジ</strong>
+                  <p>元本を分析して、AIが再利用しやすい形にした知識です。文体、商品、顧客理解などに使います。</p>
+                </div>
+              
+                <div>
+                  <span>BU</span>
+                  <strong>事業部</strong>
+                  <p>仕事を任せる単位です。SNS、商品、セールス、経理のように、担当領域ごとに分けます。</p>
+                </div>
+              
+                <div>
+                  <span>RULE</span>
+                  <strong>AGENTS.md / CLAUDE.md / directory.md</strong>
+                  <p>AIが毎回読む指示書です。どこを見るか、何を守るか、どこへ保存するかを固定します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">16</span>
+      <h2>事業部で分ける考え方</h2>
+      <p>フォルダは、ただの保管場所ではありません。AIに「この仕事はどの部署の責任か」を判断させるための設計です。会社にSNS担当、商品担当、セールス担当、経理担当がいるように、AIフォルダも仕事単位で分けます。</p>
+      <ul><li>SNS事業部: YouTube、X、Instagram、TikTokなどの集客と発信を扱う。</li><li>プロダクト事業部: 講座、教材、カリキュラム、受講生対応、商品改善を扱う。</li><li>セールス: セミナー、個別相談、LP、セールスコピー、インサイドセールスを扱う。</li><li>リストマーケ事業部: LINE、メルマガ、オープンチャット、ローンチ導線を扱う。</li><li>経理: 請求、領収書、証憑、freee、契約書、確定申告準備を扱う。</li><li>経営企画: 新商品企画、KPI、プロジェクト、アイディア、組織設計を扱う。</li><li>AI活用事業部: Codex、Claude Code、スキル管理、システム改善、AI運用を扱う。</li></ul>
+    </article>
+  
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">17</span>
+      <h2>共通ナレッジとコンテンツ元本を分ける</h2>
+      <p>初心者がやりがちな失敗は、録音文字起こし、Google Docs、過去投稿、商品資料、AIが作った要約を全部同じ場所に入れることです。元データと加工済みナレッジが混ざると、AIが「これはそのまま引用すべき情報なのか」「分析済みのルールなのか」を判断しにくくなります。</p>
+      <ul><li>コンテンツ元本: まだ加工していない一次データを入れる。Loom、Zoom、Plaud、Docs、Sheets、Chatworkなど。</li><li>共通ナレッジ: 元本を分析して、再利用しやすい形に整理した情報を入れる。</li><li>事業部ナレッジ: 特定の仕事で使う情報を入れる。YouTube台本用、X投稿用、セールスLP用など。</li><li>元本は動かさず残す。実務で使う場合はコピー候補として事業部側に置く。</li><li>あとから修正しやすいように、1つの巨大ファイルではなく、意味単位でファイルを分ける。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">18</span>
+        <h2>AIに読ませる情報の分け方</h2>
+        <p>まずはこの4つに分けると、AIが何を見ればいいか判断しやすくなります。細かい分類に迷うより、人格・商品・発信・元データを分けることを優先します。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>PERSONAL</span>
+                  <strong>パーソナルナレッジ</strong>
+                  <p>あなたの経歴、価値観、実績、口調、ストーリー、こだわり。AIに人格や文体を寄せるために使います。</p>
+                </div>
+              
+                <div>
+                  <span>PRODUCT</span>
+                  <strong>プロダクトナレッジ</strong>
+                  <p>商品名、対象者、カリキュラム、価格帯、サポート、差別化、顧客成果。販売物の理解に使います。</p>
+                </div>
+              
+                <div>
+                  <span>CONTENT</span>
+                  <strong>コンテンツナレッジ</strong>
+                  <p>過去投稿、台本、伸びた構成、タイトル、見出し、NG表現、改善FB。発信や制作の型に使います。</p>
+                </div>
+              
+                <div>
+                  <span>ORIGINAL</span>
+                  <strong>コンテンツ元本</strong>
+                  <p>Loom、Zoom、Plaud、Google Docs、Sheets、Chatworkなどの未加工データ。必要に応じてナレッジへ加工します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">19</span>
+        <h2>既存ナレッジを入れる順番</h2>
+        <p>最初から完璧に整理しようとしなくて大丈夫です。まずAIが見られる場所に置き、AIに一覧化させ、そこから事業部や共通ナレッジへ振り分けます。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>1. まず雑多に集める</strong>
+                  <p>Downloads、Google Docs、スプシ、Chatwork、Loom、Zoom、Plaud、過去台本、過去投稿を一度フォルダに集めます。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>2. AIにファイル一覧を作らせる</strong>
+                  <p>ファイル名、種類、内容、使えそうな事業部、公開注意情報を表にしてもらいます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>3. 元本とナレッジを分ける</strong>
+                  <p>未加工データはコンテンツ元本へ、分析済みのルールや型は共通ナレッジへ分けます。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>4. 事業部にコピー候補を置く</strong>
+                  <p>特定業務で使うナレッジは、元本を動かさず事業部側にコピー候補として置きます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>5. ファイル名を整える</strong>
+                  <p>後で自分もAIも探しやすいように、日付、種類、テーマが分かる名前へ整えます。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>6. _INDEX.mdを作る</strong>
+                  <p>各フォルダが何のための場所か、何を入れるか、どう使うかを短く書きます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">20</span>
+        <h2>実行後に必ず確認すること</h2>
+        <p>プロンプトを貼って終わりではありません。AIが作った構造が自分の仕事に合っているかを確認します。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>1. 削除されていないか確認する</strong>
+                  <p>この特典では削除しない運用を推奨します。ファイルが消えていないか最初に確認します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>2. 事業部名が自分の仕事に合っているか見る</strong>
+                  <p>SNS、商品、セールス、経理など、自分の仕事単位とズレていないか確認します。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>3. 共通ナレッジと元本が混ざっていないか見る</strong>
+                  <p>未加工データと分析済みナレッジが混ざると後で使いにくくなります。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>4. directory.mdを読む</strong>
+                  <p>AIが今後どこへ保存するかを判断する保存先一覧なので、自分でも一度確認します。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>5. AGENTS.md / CLAUDE.mdを読む</strong>
+                  <p>AIが守るルールが、あなたの運用に合っているか確認します。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>6. 迷ったファイルを決める</strong>
+                  <p>AIが判断に迷ったファイルは、自分でどの事業部か決めて追加指示します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">21</span>
+        <h2>AGENTS.mdテンプレート</h2>
+        <p>Codexに読ませるための最小テンプレートです。あなたのフォルダ名や事業部に合わせて書き換えてください。保存先判断を明確にするため、フォルダ名とルールを具体化します。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="AGENTS.mdテンプレート.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code># AGENTS.md
+
+このフォルダは、私のAI経営フォルダです。
+Codexは、このフォルダを作業ルートとして扱ってください。
+
+## 最優先ルール
+- 日本語で回答する
+- 作業前に関連ファイルを確認する
+- 何かを保存する前に directory.md を読む
+- タスクに関することは タスク管理ルール.md を読む
+- ファイル削除、上書き、外部公開、権限変更は事前に確認する
+- APIキー、パスワード、顧客情報、個人情報を公開物に入れない
+
+## フォルダの基本構造
+- 🌐共通ナレッジ/: 複数業務で使う横断知識
+- 🌐共通ナレッジ/📌コンテンツ元本/: Loom、Zoom、Plaud、Docsなどの未加工データ
+- 📦事業部/: 実務の主戦場。SNS、商品、セールス、経理などを分ける
+- 🗂️アーカイブ/: 今すぐ使わないが残すもの
+
+## 作業方針
+- 元本は勝手に移動しない
+- 事業部で使う情報はコピー候補として扱う
+- 迷ったら移動せず、確認リストに出す
+- 完了後は、何を作ったか、どこに置いたか、次に何をすべきかを報告する</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">22</span>
+        <h2>CLAUDE.mdテンプレート</h2>
+        <p>Claude Codeで同じフォルダを開く場合のテンプレートです。CodexとClaude Codeを併用する場合、基本方針は揃えておくと迷いません。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="CLAUDE.mdテンプレート.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code># CLAUDE.md
+
+このフォルダは、私のAI経営フォルダです。
+Claude Codeは、このフォルダを作業ルートとして扱ってください。
+
+## 毎回守ること
+- 日本語で回答する
+- 作業前に directory.md を確認する
+- タスク関連は タスク管理ルール.md を確認する
+- ファイル削除、上書き、公開、権限変更は必ず確認する
+- 秘密情報、顧客情報、APIキーを公開物に含めない
+
+## 役割
+Claude Codeは、資料整理、文章作成、HTML作成、台本作成、リサーチ整理、ルール更新を支援します。
+
+## 参照先
+- 保存先判断: directory.md
+- タスク管理: タスク管理ルール.md
+- 共通ナレッジ: 🌐共通ナレッジ/
+- 実務フォルダ: 📦事業部/
+
+## 完了報告
+作業後は、変更したファイル、作成したファイル、確認が必要な点、次のアクションを報告してください。</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">23</span>
+        <h2>directory.mdテンプレート</h2>
+        <p>directory.mdは、AIが保存先を判断するための保存先一覧です。フォルダ構造を変えたら、このファイルも更新します。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="directory.mdテンプレート.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code># directory.md
+
+このファイルは、このAI経営フォルダの保存先判断ルールです。
+AIは、何かを保存する前に必ずこのファイルを確認してください。
+
+## 基本思想
+- すべての成果物は、どの事業部の仕事かで判断する
+- 共通ナレッジは、複数事業部で使う横断知識だけを置く
+- コンテンツ元本は、未加工の一次データを置く
+- 迷ったファイルは勝手に移動せず、確認リストへ出す
+
+## 保存先判断
+1. 未加工の一次データか？
+   - YES: 🌐共通ナレッジ/📌コンテンツ元本/
+
+2. 複数業務で使う横断知識か？
+   - YES: 🌐共通ナレッジ/📌共通ナレッジ/
+
+3. 特定の事業部の仕事か？
+   - SNS発信: 📦事業部/SNS事業部/
+   - 商品・講座: 📦事業部/プロダクト事業部/
+   - セールス・LP: 📦事業部/セールス/
+   - LINE・メルマガ: 📦事業部/リストマーケ事業部/
+   - 経理・契約: 📦事業部/経理/
+   - 企画・KPI: 📦事業部/経営企画/
+   - AI運用: 📦事業部/AI活用事業部/
+
+4. 判断できないか？
+   - YES: 移動せず、確認リストに出す
+
+## 命名ルール
+- 可能なら YYYY-MM-DD_種類_テーマ.md にする
+- 日本語名OK
+- あとから自分とAIが見て意味が分かる名前にする
+
+## 更新ルール
+- 新しい事業部や大きなフォルダを作ったら、このファイルを更新する
+- 実態とこのファイルがズレていたら、更新案を出す</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">24</span>
+        <h2>タスク管理ルール.mdテンプレート</h2>
+        <p>タスクはフォルダ内に散らばらせず、事業部ごとに1つのタスク.mdへ集約します。これにより、AIが今日やるべきことを拾いやすくなります。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="タスク管理ルール.mdテンプレート.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code># タスク管理ルール.md
+
+このフォルダでは、タスクを事業部ごとのタスク.mdに集約します。
+
+## 優先度
+- P0: 今日中、売上直結、期限が今日または明日
+- P1: 今週中に進める
+- P2: 今月中に進める
+- P3: アイディア、着手判断待ち
+
+## タスク.mdの形式
+
+# {事業部名} タスク管理
+
+## 進行中
+
+### [P0] {タスク名}
+- 期限:
+- 担当:
+- 進捗:
+- 次のアクション:
+
+## 予定
+
+## アイディア
+
+## 完了
+
+## 運用ルール
+- 新しいタスクは該当事業部のタスク.mdへ追記する
+- 媒体別、案件別にタスクファイルを増やさない
+- 完了したら完了欄へ移動する
+- 毎回、P0とP1を優先して確認する</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">25</span>
+        <h2>ファイルを分ける時のルール</h2>
+        <p>1つの巨大なドキュメントをそのまま置くより、意味ごとにファイルを分けた方が、後からAIも人間も修正しやすくなります。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>同じテーマでまとめる</strong>
+                  <p>プロフィール、商品情報、顧客の声、セールスコピー、YouTube台本など、意味単位で分けます。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>ファイル名を短く分かりやすくする</strong>
+                  <p>AIにも人間にも伝わる名前にします。日付、種類、テーマを入れると検索しやすくなります。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>部分的に参照できる状態にする</strong>
+                  <p>セールス資料を作る時は商品ナレッジ、台本を作る時は文体ナレッジのように、必要な部分だけ使えるようにします。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>修正前提で置く</strong>
+                  <p>ナレッジは一度作って終わりではありません。AIにブラッシュアップさせながら改善します。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>元本は残す</strong>
+                  <p>元の文字起こしや資料は消さず、加工済みナレッジと分けて保管します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">26</span>
+        <h2>セキュリティ対策として最低限やること</h2>
+        <p>フォルダ自動構築では、便利さと同時に情報管理が重要になります。ここではディレクトリ構築時の最低限だけ入れます。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>01</span>
+                  <strong>本番ではなくコピーで試す</strong>
+                  <p>最初は必ずコピーしたフォルダで実行します。問題なければ本番に反映します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>削除は禁止にする</strong>
+                  <p>プロンプトとルールファイルに、AIが勝手に削除しないことを明記します。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>秘密情報を公開フォルダに入れない</strong>
+                  <p>APIキー、パスワード、顧客情報、管理画面URLは公開物や配布資料に混ぜません。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>移動前に計画を出させる</strong>
+                  <p>既存ファイルをいきなり移動させず、まず移動計画を出させて確認します。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>迷ったものは止める</strong>
+                  <p>AIが判断に迷ったファイルは、確認リストに出させます。無理に分類しません。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>公開前チェックを入れる</strong>
+                  <p>HTMLや配布資料として公開する前に、内部情報が混ざっていないか確認します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">27</span>
+        <h2>事業部を後から増やす方法</h2>
+        <p>最初から完璧な事業部設計にする必要はありません。AIでやることが増えたら、事業部を増やしてdirectory.mdを更新します。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>1. 新しい仕事を見つける</strong>
+                  <p>例: 経理もAIでやりたい、採用もAIで管理したい、広告運用もAI化したい。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>2. 事業部名を決める</strong>
+                  <p>誰が見ても責任範囲が分かる名前にします。迷う場合はAIに候補を出させます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>3. 事業部フォルダを作る</strong>
+                  <p>タスク.md、ナレッジ、スキル、必要なサブフォルダを作ります。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>4. directory.mdを更新する</strong>
+                  <p>今後その仕事の出力が新事業部に入るように判断ルールを追記します。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>5. AGENTS.md / CLAUDE.mdにも反映する</strong>
+                  <p>AIが毎回読むルールにも、新しい事業部の存在を反映します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">28</span>
+        <h2>事業部追加プロンプト</h2>
+        <p>新しい仕事をAIに任せたくなった時に使います。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="事業部追加プロンプト.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code>このAI経営フォルダに、新しい事業部を追加してください。
+
+## 追加したい事業部
+事業部名: （例: 広告運用事業部）
+責任範囲: （例: Meta広告、YouTube広告、広告クリエイティブ、ABテスト、数値分析）
+最初に任せたい仕事: （例: 広告クリエイティブ案の作成、日次数値レポート）
+
+## 実行ルール
+- 既存フォルダは壊さない
+- 新事業部フォルダ、タスク.md、ナレッジ、スキル、必要サブフォルダを作る
+- directory.mdに保存先判断ルールを追記する
+- AGENTS.md / CLAUDE.mdにも必要なら反映する
+- 完了後、作成したフォルダと次に入れるべき資料を報告する</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">29</span>
+        <h2>よくある失敗と対策</h2>
+        <p>特典2で一番大事なのは、勢いで本番フォルダを壊さないことと、分類を細かくしすぎて使えない構造にしないことです。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>MISS 01</span>
+                  <strong>本番フォルダでいきなり実行する</strong>
+                  <p>必ずコピーで試します。うまくいった構造だけ本番に反映します。</p>
+                </div>
+              
+                <div>
+                  <span>MISS 02</span>
+                  <strong>分類を細かくしすぎる</strong>
+                  <p>最初は事業部と主要媒体だけで十分です。あとから増やせます。</p>
+                </div>
+              
+                <div>
+                  <span>MISS 03</span>
+                  <strong>元本とナレッジを混ぜる</strong>
+                  <p>元の録音・文字起こしと、分析済みナレッジは分けます。</p>
+                </div>
+              
+                <div>
+                  <span>MISS 04</span>
+                  <strong>directory.mdを更新しない</strong>
+                  <p>フォルダだけ増やして保存先一覧を更新しないと、AIが保存先を間違えます。</p>
+                </div>
+              
+                <div>
+                  <span>MISS 05</span>
+                  <strong>タスクが散らばる</strong>
+                  <p>各事業部のタスク.mdに集約します。媒体ごとにタスクファイルを増やしすぎません。</p>
+                </div>
+              
+                <div>
+                  <span>MISS 06</span>
+                  <strong>秘密情報を混ぜる</strong>
+                  <p>APIキー、顧客情報、管理画面情報は、公開物や配布用ナレッジから分けます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">30</span>
+        <h2>最終チェックリスト</h2>
+        <p>ここまで完了すれば、AIが資料を読み、保存先を判断し、事業部ごとに仕事を進める基本設定ができます。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>コピー環境で実行した</strong>
+                  <p>本番フォルダではなく、コピーしたフォルダでテストできている。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>事業部フォルダがある</strong>
+                  <p>自分の仕事に合わせた事業部が作られている。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>共通ナレッジと元本が分かれている</strong>
+                  <p>加工済みナレッジと未加工データが混ざっていない。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>AGENTS.md / CLAUDE.mdがある</strong>
+                  <p>AIが毎回読むルールファイルが作られている。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>directory.mdがある</strong>
+                  <p>保存先判断の保存先一覧が作られている。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>タスク管理ルールがある</strong>
+                  <p>事業部ごとのタスク.md運用が決まっている。</p>
+                </div>
+              
+                <div>
+                  <span>07</span>
+                  <strong>迷ったファイルが確認できている</strong>
+                  <p>AIが判断に迷ったものを、人間が確認できる状態になっている。</p>
+                </div>
+              
+                <div>
+                  <span>08</span>
+                  <strong>次にSkill化する候補が見えている</strong>
+                  <p>繰り返し発生する仕事を1つ選び、Skill化候補として残す。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+            <a class="next-bonus detail-wide" href="/ai-marketing-20-bonuses-2026/pattern-01/bonus-03/">
+              <span>次の特典へ</span>
+              <strong>特典03: 導入必須AIツール完全解説</strong>
+            </a>
+          </section>
+        </article>
+      </main>
+    
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    document.querySelectorAll("[data-tilt]").forEach((card) => {
+      card.addEventListener("pointermove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = "rotateX(" + (-y * 4).toFixed(2) + "deg) rotateY(" + (x * 4).toFixed(2) + "deg)";
+      });
+      card.addEventListener("pointerleave", () => {
+        card.style.transform = "";
+      });
+    });
+
+    document.querySelectorAll("[data-copy-code]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const shell = button.closest(".code-shell");
+        const code = shell?.querySelector("code")?.innerText || "";
+        if (!code) return;
+        try {
+          await navigator.clipboard.writeText(code);
+          const label = button.textContent;
+          button.textContent = "コピー済み";
+          window.setTimeout(() => {
+            button.textContent = label;
+          }, 1600);
+        } catch (error) {
+          button.textContent = "コピーできませんでした";
+        }
+      });
+    });
+
+    document.querySelectorAll("[data-download-code]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const shell = button.closest(".code-shell");
+        const code = shell?.querySelector("code")?.innerText || "";
+        if (!code) return;
+        const blob = new Blob([code], { type: "text/plain;charset=utf-8" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = button.dataset.filename || "prompt.txt";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(link.href), 1200);
+      });
+    });
+  </script>
+</body>
+</html>

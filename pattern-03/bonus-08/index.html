@@ -1,0 +1,2049 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>特典08: AI駆動型𝕏自動運用ロードマップ2.0 | 特典LIVEライブラリ</title>
+  <meta name="description" content="【おさるのX運用を完全AI化】超ニッチジャンル &amp; 圧倒的後発スタートにもかかわらず、開始5年でX経由売上25億円、10万フォロワーを達成したX運用を丸ごとAIで回すワークフローを全公開。X記事、X記事サムネ、長文ポスト、短文ポスト、リサーチ、投稿作成、リライト、Skill/プロンプト改善、自動予約投稿、カレンダー管理まで最安値&amp;最大効率で回すロードマップ。">
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    :root {
+      color-scheme: dark;
+      --black: #05000d;
+      --deep: #140025;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.14);
+      --white: #fff;
+      --muted: rgba(255, 255, 255, 0.72);
+      --pink: #ef22df;
+      --purple: #7f39ff;
+      --blue: #275bff;
+      --cyan: #50e4ff;
+      --yellow: #fff24a;
+      --line: rgba(255, 255, 255, 0.18);
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      font-family: "Noto Sans JP", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+      color: var(--white);
+      background: var(--black);
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    .selector-page,
+    .pattern-page,
+    .detail-page {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .selector-page {
+      background:
+        radial-gradient(circle at 14% 12%, rgba(127, 57, 255, 0.55), transparent 26%),
+        radial-gradient(circle at 88% 26%, rgba(74, 32, 180, 0.28), transparent 28%),
+        linear-gradient(135deg, #020007 0%, #08000f 48%, #030006 100%);
+    }
+    .selector-hero,
+    .selector-patterns,
+    .selector-note,
+    .pattern-hero,
+    .bonus-section,
+    .detail-hero,
+    .detail-content {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .selector-hero {
+      min-height: 66vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 76px 0 40px;
+    }
+    .circuit-bg,
+    .pattern-page::before,
+    .detail-page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.28;
+      background-image:
+        linear-gradient(90deg, transparent 0 92%, rgba(255, 255, 255, 0.28) 92% 94%, transparent 94%),
+        linear-gradient(0deg, transparent 0 92%, rgba(255, 255, 255, 0.20) 92% 94%, transparent 94%);
+      background-size: 84px 84px;
+      mask-image: linear-gradient(120deg, black, transparent 72%);
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(46px, 9vw, 124px);
+      line-height: 0.92;
+      font-weight: 950;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      text-shadow: 0 0 28px rgba(239, 34, 223, 0.34);
+    }
+    h1 span { display: block; }
+    .lead {
+      max-width: 780px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.85;
+      overflow-wrap: anywhere;
+    }
+    .selector-meta,
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .selector-meta span,
+    .primary-cta,
+    .ghost-cta,
+    .detail-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 6px;
+      font-weight: 900;
+      font-size: 13px;
+      white-space: normal;
+    }
+    .selector-meta span {
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .selector-patterns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      padding-bottom: 42px;
+    }
+    .pattern-link {
+      min-height: 280px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+      transition: transform 240ms ease, border-color 240ms ease;
+    }
+    .pattern-link::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: conic-gradient(from 130deg, rgba(39, 91, 255, 0), rgba(239, 34, 223, 0.62), rgba(80, 228, 255, 0.24), rgba(39, 91, 255, 0));
+      animation: spin 9s linear infinite;
+      opacity: 0.52;
+    }
+    .pattern-link > * { position: relative; z-index: 1; }
+    .pattern-link:hover { transform: translateY(-6px); border-color: rgba(255, 255, 255, 0.5); }
+    .pattern-link span { color: var(--cyan); font-weight: 900; }
+    .pattern-link strong { margin-top: 12px; font-size: 30px; line-height: 1.05; }
+    .pattern-link small { margin-top: 12px; color: var(--muted); line-height: 1.7; font-size: 14px; }
+    .selector-note {
+      margin-bottom: 56px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .selector-note h2 { margin: 0 0 10px; }
+    .selector-note p { margin: 0; color: var(--muted); line-height: 1.8; }
+
+    .theme-dark-neon {
+      background:
+        radial-gradient(circle at 80% 14%, rgba(39, 91, 255, 0.44), transparent 24%),
+        radial-gradient(circle at 18% 36%, rgba(239, 34, 223, 0.34), transparent 28%),
+        linear-gradient(135deg, #05000d 0%, #150028 46%, #060011 100%);
+    }
+    .theme-white-roadmap {
+      color: #fff;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(39, 91, 255, 0.18), transparent 23%),
+        radial-gradient(circle at 86% 10%, rgba(127, 57, 255, 0.24), transparent 28%),
+        linear-gradient(135deg, #020007 0%, #090012 54%, #030006 100%);
+      --panel: rgba(255, 255, 255, 0.075);
+      --panel-strong: rgba(255, 255, 255, 0.12);
+      --line: rgba(255, 255, 255, 0.16);
+      --muted: rgba(255, 255, 255, 0.74);
+      --white: #fff;
+      --pink: #8f3dff;
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+    }
+    .theme-live-stage {
+      background:
+        linear-gradient(164deg, transparent 0 28%, rgba(239, 34, 223, 0.86) 29% 54%, transparent 55%),
+        radial-gradient(circle at 52% 25%, rgba(239, 34, 223, 0.36), transparent 20%),
+        linear-gradient(135deg, #03030a 0%, #120016 52%, #04000a 100%);
+    }
+    .top-nav {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 66px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      position: relative;
+      z-index: 5;
+    }
+    .top-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .pattern-hero {
+      min-height: 720px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.96fr) minmax(320px, 1.04fr);
+      gap: 36px;
+      align-items: center;
+      padding: 32px 0 56px;
+    }
+    .hero-copy { min-width: 0; }
+    .hero-actions a {
+      padding: 0 18px;
+      border: 1px solid var(--line);
+    }
+    .primary-cta {
+      color: white;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+      border-color: transparent !important;
+      box-shadow: 0 0 34px rgba(239, 34, 223, 0.26);
+    }
+    .ghost-cta { background: var(--panel); }
+    .hero-thumbnail,
+    .detail-thumb {
+      min-width: 0;
+      transform: rotate(-1.2deg);
+    }
+    .thumb-placeholder {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      min-height: 0;
+      border: 2px solid rgba(255, 255, 255, 0.24);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(39, 91, 255, 0.82), rgba(239, 34, 223, 0.82)),
+        #10001f;
+      box-shadow: var(--shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 22px;
+    }
+    .theme-white-roadmap .thumb-placeholder {
+      border-color: rgba(255, 255, 255, 0.18);
+      background:
+        linear-gradient(135deg, rgba(39, 91, 255, 0.52), rgba(143, 61, 255, 0.58)),
+        #090012;
+    }
+    .thumb-placeholder.has-image {
+      padding: 0;
+      background: #05000d;
+    }
+    .thumb-placeholder.has-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .thumb-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.42;
+    }
+    .thumb-glow {
+      position: absolute;
+      width: 50%;
+      aspect-ratio: 1;
+      top: -22%;
+      right: -12%;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.32);
+      filter: blur(8px);
+      animation: pulse 3.4s ease-in-out infinite;
+    }
+    .bonus-section {
+      padding: 72px 0 80px;
+    }
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px 24px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+    .section-heading p {
+      grid-column: 1 / -1;
+      margin: 0;
+      color: var(--pink);
+      font-weight: 950;
+    }
+    .section-heading h1,
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 68px);
+      line-height: 1;
+    }
+    .theme-white-roadmap .section-heading h1 {
+      text-shadow:
+        0 10px 28px rgba(42, 92, 255, 0.28),
+        0 3px 10px rgba(143, 61, 255, 0.28);
+    }
+    .section-heading span {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+      max-width: 360px;
+      line-height: 1.7;
+    }
+    .bonus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .bonus-card {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+    .bonus-card:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    .bonus-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .bonus-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+    .bonus-topline b {
+      color: var(--muted);
+      font-weight: 900;
+    }
+    .bonus-card h2 {
+      margin: 14px 0 0;
+      min-height: 64px;
+      font-size: 24px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+    .bonus-card p {
+      min-height: 84px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 12px 0 0;
+    }
+    .detail-link {
+      width: 100%;
+      margin-top: auto;
+      color: white;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+    }
+    .detail-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+      gap: 36px;
+      align-items: center;
+      padding: 46px 0 40px;
+    }
+    .detail-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.58fr);
+      gap: 18px;
+      padding-bottom: 80px;
+    }
+    .detail-panel,
+    .next-bonus {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    .theme-white-roadmap .detail-panel,
+    .theme-white-roadmap .detail-stat-grid div,
+    .theme-white-roadmap .detail-map div,
+    .theme-white-roadmap .info-card-grid div,
+    .theme-white-roadmap .step-list div,
+    .theme-white-roadmap .source-links a,
+    .theme-white-roadmap .source-note {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+    .detail-panel h2 {
+      margin: 0 0 18px;
+      font-size: 28px;
+    }
+    .detail-panel p {
+      color: var(--muted);
+      line-height: 1.85;
+      margin: 0;
+    }
+    .deliverable-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .deliverable-grid div {
+      min-height: 104px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: var(--panel-strong);
+    }
+    .deliverable-grid span {
+      display: block;
+      width: 30px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+    }
+    .deliverable-grid p {
+      margin-top: 18px;
+      color: var(--white);
+      font-weight: 900;
+    }
+    .next-bonus {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 220px;
+      background: linear-gradient(135deg, rgba(39, 91, 255, 0.35), rgba(239, 34, 223, 0.35)), var(--panel);
+    }
+    .next-bonus span {
+      color: var(--yellow);
+      font-weight: 950;
+      margin-bottom: 10px;
+    }
+    .next-bonus strong {
+      font-size: 28px;
+      line-height: 1.25;
+    }
+    .rich-hero h1 {
+      font-size: clamp(38px, 6vw, 82px);
+      line-height: 1.03;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+    .hero-badges span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .detail-rich {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      padding: 0 0 80px;
+    }
+    .detail-wide,
+    .source-note,
+    .detail-stat-grid,
+    .detail-map {
+      grid-column: 1 / -1;
+    }
+    .source-note {
+      margin: 0;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--muted);
+      line-height: 1.8;
+      font-weight: 800;
+    }
+    .detail-stat-grid,
+    .detail-map,
+    .info-card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .detail-stat-grid div,
+    .detail-map div,
+    .info-card-grid div,
+    .step-list div,
+    .source-links a {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 18px;
+      min-width: 0;
+    }
+    .detail-stat-grid span,
+    .detail-map span,
+    .info-card-grid span,
+    .step-list span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      min-height: 26px;
+      padding: 0 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+      color: white;
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .detail-stat-grid strong,
+    .detail-map strong,
+    .info-card-grid strong,
+    .step-list strong,
+    .source-links span {
+      display: block;
+      margin-top: 12px;
+      color: var(--white);
+      font-size: 19px;
+      line-height: 1.35;
+      font-weight: 950;
+      overflow-wrap: anywhere;
+    }
+    .detail-stat-grid p,
+    .detail-map p,
+    .info-card-grid p,
+    .step-list p,
+    .source-links small {
+      display: block;
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 14px;
+    }
+    .detail-panel ul {
+      margin: 16px 0 0;
+      padding-left: 1.25em;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+    .detail-panel li + li {
+      margin-top: 8px;
+    }
+    .step-list {
+      display: grid;
+      gap: 12px;
+    }
+    .code-panel {
+      margin: 16px 0 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(4, 1, 12, 0.86);
+      color: #f7f4ff;
+      overflow-x: auto;
+      white-space: pre;
+      line-height: 1.65;
+      font-size: 13px;
+    }
+    .code-shell {
+      margin-top: 16px;
+    }
+    .code-shell .code-panel {
+      margin-top: 10px;
+    }
+    .code-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .code-actions button {
+      appearance: none;
+      border: 1px solid rgba(127, 57, 255, 0.32);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(127, 57, 255, 0.95), rgba(239, 34, 223, 0.9));
+      color: #fff;
+      cursor: pointer;
+      font-weight: 900;
+      letter-spacing: 0;
+      padding: 10px 14px;
+      transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+    }
+    .code-actions button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(127, 57, 255, 0.22);
+    }
+    .code-actions button:active {
+      transform: translateY(0);
+      opacity: 0.82;
+    }
+    .anchor-nav {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .anchor-nav a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 56px;
+      padding: 12px 16px;
+      border: 1px solid rgba(127, 57, 255, 0.22);
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      background: linear-gradient(135deg, rgba(50, 22, 95, 0.92), rgba(105, 48, 190, 0.82));
+      box-shadow: 0 14px 34px rgba(40, 16, 82, 0.18);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+    .anchor-nav a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(239, 34, 223, 0.5);
+      box-shadow: 0 18px 38px rgba(105, 48, 190, 0.24);
+    }
+    .anchor-nav span {
+      font-weight: 950;
+      line-height: 1.35;
+    }
+    .anchor-nav small {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.45;
+      text-align: right;
+    }
+    .theme-white-roadmap .code-panel {
+      background: #120824;
+      color: #fff;
+    }
+    .source-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .source-links a {
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+    .source-links a:hover {
+      transform: translateY(-3px);
+      border-color: rgba(239, 34, 223, 0.48);
+    }
+    .guide-page.theme-dark-neon,
+    .guide-page.theme-white-roadmap,
+    .guide-page.theme-live-stage {
+      color: #241631;
+      background: #f5f6fa;
+      --white: #241631;
+      --muted: #675a72;
+      --panel: #fff;
+      --panel-strong: #fff7fd;
+      --line: rgba(80, 53, 112, 0.14);
+      --shadow: 0 22px 60px rgba(52, 27, 91, 0.12);
+    }
+    .guide-page {
+      overflow: visible;
+    }
+    .guide-page::before {
+      display: none;
+    }
+    .guide-top-nav {
+      min-height: 60px;
+      justify-content: space-between;
+      color: #31213d;
+    }
+    .guide-top-nav a {
+      background: #fff;
+      border-color: rgba(80, 53, 112, 0.14);
+      box-shadow: 0 10px 28px rgba(52, 27, 91, 0.08);
+    }
+    .guide-shell {
+      width: min(860px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 0 0 88px;
+    }
+    .guide-header {
+      padding: 8px 0 28px;
+    }
+    .guide-main-visual .thumb-placeholder {
+      border: none;
+      border-radius: 0;
+      box-shadow: 0 16px 42px rgba(52, 27, 91, 0.16);
+    }
+    .guide-title-card {
+      margin: 22px auto 0;
+      padding: 24px;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, #2a1455 0%, #55239d 58%, #8f3dff 100%);
+      box-shadow: 0 18px 44px rgba(88, 35, 157, 0.24);
+    }
+    .guide-title-card .eyebrow {
+      color: #ff79dc;
+      margin-bottom: 12px;
+    }
+    .guide-title-card h1 {
+      font-size: clamp(28px, 6vw, 52px);
+      line-height: 1.16;
+      text-shadow: none;
+    }
+    .guide-title-card .lead {
+      max-width: none;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+    .guide-title-card .hero-badges span {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+    .guide-actions {
+      width: min(620px, 100%);
+      margin: 16px auto 0;
+      display: grid;
+      gap: 8px;
+    }
+    .guide-action {
+      min-height: 54px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      color: #fff;
+      text-align: center;
+      font-weight: 950;
+      background: linear-gradient(180deg, #33de12 0%, #16a900 100%);
+      border: 1px solid rgba(10, 127, 0, 0.28);
+      box-shadow: 0 12px 26px rgba(28, 187, 0, 0.22);
+    }
+    .guide-action small {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+    .guide-content {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
+    .guide-page .source-note,
+    .guide-page .detail-panel {
+      margin: 0 0 22px;
+      padding: 26px;
+      border: 1px solid #eadff6;
+      border-top: 5px solid #ef22df;
+      border-radius: 8px;
+      color: #241631;
+      background: #fff;
+      box-shadow: 0 16px 36px rgba(52, 27, 91, 0.09);
+    }
+    .guide-page .source-note {
+      color: #5c4f66;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .guide-section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      min-height: 30px;
+      padding: 0 10px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 950;
+      background: linear-gradient(90deg, #ef22df, #7f39ff);
+    }
+    .guide-page .detail-panel h2 {
+      margin: 0 0 16px;
+      color: #241631;
+      font-size: clamp(24px, 4vw, 34px);
+      line-height: 1.32;
+    }
+    .guide-page .detail-panel p,
+    .guide-page .detail-panel ul,
+    .guide-page .detail-panel li {
+      color: #5c4f66;
+      font-size: 15px;
+      line-height: 1.95;
+    }
+    .guide-page .info-card-grid,
+    .guide-page .source-links {
+      grid-template-columns: 1fr;
+    }
+    .guide-page .info-card-grid div,
+    .guide-page .step-list div {
+      background: #fff7fd;
+      border-color: #f2d8f4;
+      box-shadow: none;
+    }
+    .guide-page .info-card-grid strong,
+    .guide-page .step-list strong {
+      color: #241631;
+    }
+    .guide-page .info-card-grid p,
+    .guide-page .step-list p {
+      color: #5c4f66;
+    }
+    .guide-page .source-links a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 58px;
+      padding: 12px 18px;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(180deg, #33de12 0%, #16a900 100%);
+      border-color: rgba(10, 127, 0, 0.24);
+      box-shadow: 0 10px 24px rgba(28, 187, 0, 0.16);
+    }
+    .guide-page .source-links span {
+      color: #fff;
+      margin-top: 0;
+    }
+    .guide-page .source-links small {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .guide-page .code-panel {
+      background: #241034;
+      color: #fff;
+      border-color: rgba(127, 57, 255, 0.26);
+      white-space: pre-wrap;
+    }
+    .guide-page .next-bonus {
+      width: min(620px, 100%);
+      min-height: auto;
+      margin: 36px auto 0;
+      padding: 18px 22px;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(90deg, #2f7dff, #8f3dff);
+      border: none;
+      box-shadow: 0 16px 34px rgba(47, 125, 255, 0.18);
+    }
+    .guide-page .next-bonus span {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .guide-page .next-bonus strong {
+      color: #fff;
+      font-size: 19px;
+    }
+    .hero-effects span {
+      position: absolute;
+      pointer-events: none;
+    }
+    .orb {
+      width: 150px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 18px solid rgba(239, 34, 223, 0.58);
+      animation: float 6s ease-in-out infinite;
+    }
+    .orb-a { top: 80px; right: 6%; }
+    .orb-b { bottom: 180px; left: -40px; border-color: rgba(39, 91, 255, 0.58); animation-delay: -2s; }
+    .slash {
+      width: 220px;
+      height: 120px;
+      background: repeating-linear-gradient(135deg, rgba(255,255,255,0.6) 0 4px, transparent 4px 16px);
+      opacity: 0.38;
+      transform: rotate(-12deg);
+    }
+    .slash-a { top: 18%; left: 4%; }
+    .slash-b { right: 3%; bottom: 10%; }
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeUp 640ms ease both;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.34; }
+      50% { transform: scale(1.18); opacity: 0.52; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 980px) {
+      .selector-patterns,
+      .pattern-hero,
+      .detail-hero,
+      .detail-content {
+        grid-template-columns: 1fr;
+      }
+      .detail-stat-grid,
+      .detail-map,
+      .info-card-grid,
+      .source-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .bonus-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-thumbnail,
+      .detail-thumb {
+        transform: none;
+      }
+      .detail-content {
+        padding-bottom: 56px;
+      }
+      .guide-shell {
+        width: min(860px, calc(100% - 28px));
+      }
+      .guide-page .detail-rich {
+        width: 100%;
+        padding: 0;
+      }
+    }
+    @media (max-width: 620px) {
+      .selector-hero,
+      .selector-patterns,
+      .selector-note,
+      .pattern-hero,
+      .bonus-section,
+      .detail-hero,
+      .detail-content,
+      .top-nav {
+        width: min(100% - 28px, 1180px);
+      }
+      .selector-hero {
+        min-height: auto;
+        padding-top: 54px;
+      }
+      .selector-patterns {
+        grid-template-columns: 1fr;
+      }
+      .pattern-link {
+        min-height: 230px;
+      }
+      .pattern-hero {
+        min-height: auto;
+        padding-top: 18px;
+      }
+      h1 {
+        font-size: clamp(42px, 18vw, 74px);
+        line-height: 0.98;
+      }
+      .lead {
+        font-size: 16px;
+      }
+      .section-heading {
+        grid-template-columns: 1fr;
+      }
+      .bonus-card h2 {
+        min-height: auto;
+        font-size: 21px;
+      }
+      .bonus-card p {
+        min-height: auto;
+      }
+      .deliverable-grid {
+        grid-template-columns: 1fr;
+      }
+      .detail-rich {
+        width: min(100% - 28px, 1180px);
+        grid-template-columns: 1fr;
+        padding-bottom: 56px;
+      }
+      .detail-stat-grid,
+      .detail-map,
+      .info-card-grid,
+      .source-links {
+        grid-template-columns: 1fr;
+      }
+      .thumb-placeholder {
+        padding: 16px;
+      }
+      .thumb-placeholder strong {
+        font-size: clamp(28px, 10vw, 46px);
+      }
+      .top-nav {
+        justify-content: flex-start;
+      }
+      .guide-top-nav {
+        justify-content: space-between;
+      }
+      .guide-title-card,
+      .guide-page .detail-panel {
+        padding: 20px;
+      }
+      .guide-title-card h1 {
+        font-size: clamp(27px, 10vw, 42px);
+      }
+      .guide-page .detail-rich {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body class="theme-live-stage">
+  
+      <main class="detail-page guide-page theme-live-stage">
+        <nav class="top-nav guide-top-nav">
+          <a href="/ai-marketing-20-bonuses-2026/pattern-03/">特典一覧</a>
+        </nav>
+        <article class="guide-shell">
+          <header class="guide-header">
+            <div class="guide-main-visual">
+            
+    <div class="thumb-placeholder live-stage has-image" aria-label="BONUS 08">
+      <img src="/ai-marketing-20-bonuses-2026/assets/bonuses/bonus-08.png" alt="特典08: AI駆動型𝕏自動運用ロードマップ2.0" loading="lazy">
+    </div>
+  
+            </div>
+            <div class="guide-title-card">
+              <p class="eyebrow">BONUS 08 / X AI OPERATION</p>
+              <h1><span>AI駆動型𝕏</span><span>自動運用ロードマップ2.0</span><span>X記事 / 長文 / 短文対応版</span></h1>
+              <p class="lead">おさるのX運用をAIで再現するための実践マニュアルです。X経由売上25億円、10万フォロワーを達成した運用を、リサーチ、ナレッジ化、投稿作成、X記事、図解、品質チェック、予約投稿、改善まで分解し、Codex / Claude Codeで実行できる形にまとめました。</p>
+              
+            </div>
+            
+          </header>
+          <section class="detail-rich guide-content">
+            
+            
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">01</span>
+        <h2>X運用特化GPTs</h2>
+        
+        
+    <div class="source-links">
+      
+            <a href="#" target="_blank" rel="noreferrer">
+              <span>GPTsを受け取る</span>
+              <small></small>
+            </a>
+          
+    </div>
+  
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">02</span>
+      <h2>はじめに：X運用は投稿文だけでは終わらない</h2>
+      <p>Xはテキスト中心のSNSなので、AIとの相性が高い媒体です。ただし、AIに「投稿を書いて」と頼むだけでは、どこかで見たような文章になりやすいです。成果を出すには、投稿前のリサーチ、アカウント設計、ナレッジ整理、投稿型の選択、品質チェック、投稿後の改善までを一つの作業として扱う必要があります。</p>
+      <ul><li>Xは投稿量が必要になりやすい媒体なので、AIで継続できる作業にします。</li><li>投稿文だけでなく、リサーチ、分析、改善理由まで残します。</li><li>手動投稿から始め、必要になったら予約投稿やAPI連携へ進みます。</li><li>公開文面には、制作過程の説明を混ぜず、読者に必要な情報だけを整理します。</li><li>Xだけに絞って整理します。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">03</span>
+        <h2>X運用はこの順番で進める</h2>
+        <p>初心者は、この順番を固定してください。いきなり自動投稿やAPI連携へ進むより、先に投稿判断の材料を作る方が失敗しにくいです。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>アカウントのコンセプトを決める</strong>
+                  <p>誰に、何を、どの立場で伝えるのかを決めます。投稿ごとにテーマが変わると、読者がフォローする理由を判断しにくくなります。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>投稿に使うナレッジを整える</strong>
+                  <p>自分の実績、商品情報、顧客の悩み、過去投稿、反応が良かった投稿、避けたい表現をまとめます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>今反応が出ている投稿を調べる</strong>
+                  <p>X検索、SocialData、X APIなどを使い、直近で反応している投稿を集めます。古い成功例だけで判断しません。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>投稿の目的を選ぶ</strong>
+                  <p>認知拡大、信頼形成、申込や登録の案内で、投稿の作り方は変わります。目的を決めてから書き始めます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>AIで複数案を作る</strong>
+                  <p>Codex / Claude Codeに、短文、長文、X記事、図解用本文、引用投稿用本文などを作らせます。1案だけで決めません。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>品質チェックを入れる</strong>
+                  <p>AIっぽさ、一般論、過度な自分語り、表面コピー、事実確認、案内の自然さを確認します。</p>
+                </div>
+              
+                <div>
+                  <span>07</span>
+                  <strong>投稿または予約する</strong>
+                  <p>最初は手動投稿で問題ありません。慣れてきたらTypefully、OmniSocials、API連携などを検討します。</p>
+                </div>
+              
+                <div>
+                  <span>08</span>
+                  <strong>反応を見て改善する</strong>
+                  <p>インプレッション、保存、引用、いいね、返信、プロフィール閲覧、登録数を見て、次の投稿に反映します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">04</span>
+        <h2>この特典で作るX運用の全体像</h2>
+        <p>X運用を、毎回の思いつき投稿ではなく、再現しやすい制作工程として整理します。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>RESEARCH</span>
+                  <strong>リサーチ</strong>
+                  <p>反応が出ている投稿、同ジャンルのアカウント、検索コマンド、SocialData、X APIで投稿材料を集めます。</p>
+                </div>
+              
+                <div>
+                  <span>KNOWLEDGE</span>
+                  <strong>ナレッジ整理</strong>
+                  <p>実績、商品情報、顧客の悩み、過去投稿、反応が出た理由、避けたい表現をAIが使える形にします。</p>
+                </div>
+              
+                <div>
+                  <span>POST</span>
+                  <strong>短文・長文ポスト</strong>
+                  <p>100〜200字の短文、4,000字以上の長文、連投形式、引用投稿などを目的別に作ります。</p>
+                </div>
+              
+                <div>
+                  <span>ARTICLE</span>
+                  <strong>X記事</strong>
+                  <p>深いテーマをまとめる長尺コンテンツとして扱います。通常ポストとは別の制作工程で作ります。</p>
+                </div>
+              
+                <div>
+                  <span>VISUAL</span>
+                  <strong>図解・記事サムネ</strong>
+                  <p>保存されやすい図解、X記事用サムネ、要約画像を作り、本文とセットで使います。</p>
+                </div>
+              
+                <div>
+                  <span>AUTOMATION</span>
+                  <strong>予約・承認・改善</strong>
+                  <p>投稿カレンダー、予約投稿、Slack確認、反応データの記録までを段階的に整えます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">05</span>
+        <h2>最初に用意する情報</h2>
+        <p>AIに良い投稿を書かせるために、最初に下記を用意します。多くの人は、ここを飛ばして文章だけ作らせるので、一般論が増えます。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>01</span>
+                  <strong>アカウント情報</strong>
+                  <p>誰に向けて何を発信するのか、プロフィール、肩書き、扱うテーマ、最終的に案内したい商品を整理します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>実績・事例</strong>
+                  <p>自分の実績、顧客の成果、相談内容、失敗から改善した内容などをまとめます。数字は確認できるものだけ使います。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>商品・サービス情報</strong>
+                  <p>無料特典、LINE、セミナー、個別相談、講座、サポート内容、案内したいURLを整理します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>投稿素材</strong>
+                  <p>過去の投稿、過去に反応が良かった文章、反応が悪かった文章、返信、引用、保存されやすかったテーマを集めます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>読者の悩み</strong>
+                  <p>DM、個別相談、コメント、セミナー質問、アンケートで出た言葉をそのまま残します。属性よりも実際の表現を優先します。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>NG表現</strong>
+                  <p>使わない言い回し、煽りすぎる表現、AIっぽい表現、商品と合わない表現を一覧化します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">06</span>
+      <h2>アカウントコンセプトを先に決める</h2>
+      <p>Xでは、投稿が単体で見られることも多いですが、プロフィールに来た時に「この人は何の人か」が分からないとフォローされにくくなります。投稿作成の前に、アカウントのコンセプトを短く言語化します。</p>
+      <ul><li>誰に向けて発信するのかを決めます。</li><li>何の問題を扱うのかを決めます。</li><li>他の発信者と何が違うのかを決めます。</li><li>最終的にどの商品や無料案内につながるのかを決めます。</li><li>投稿の口調、使う単語、避ける単語を決めます。</li></ul>
+    </article>
+  
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">07</span>
+      <h2>ナレッジ化で必ず残す判断理由</h2>
+      <p>投稿本文だけを集めても、AIは何を真似すべきか判断しにくくなります。反応が出た投稿を保存する時は、本文だけでなく、なぜ反応したのかも残します。</p>
+      <ul><li>冒頭文で何を言っているか。</li><li>読者のどんな悩みを扱っているか。</li><li>保存されそうな要素があるか。</li><li>引用されやすい主張があるか。</li><li>商品や無料案内に自然につながる内容か。</li><li>自分のアカウントで扱うなら、どこを変えるべきか。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">08</span>
+        <h2>リサーチで見る指標の優先順位</h2>
+        <p>Xの投稿を調べる時は、いいね数だけで判断しません。保存、引用、表示回数、フォロー数との比率を見ます。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>インプレッションを見る</strong>
+                  <p>どれだけ表示されたかを確認します。フォロワー数の3〜5倍以上表示されている投稿は、反応が強い候補として扱います。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>保存を見る</strong>
+                  <p>あとで見返したい投稿かどうかを判断します。手順、チェックリスト、比較、図解は保存されやすいです。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>引用を見る</strong>
+                  <p>他の人が自分の意見を添えて紹介したくなる主張かどうかを確認します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>いいねを見る</strong>
+                  <p>反応の分かりやすい指標ですが、いいねだけで投稿の価値を判断しません。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>フォロワー数との比率を見る</strong>
+                  <p>大規模アカウントの数字だけを見ず、フォロワー数に対してどれだけ反応が大きいかを確認します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">09</span>
+        <h2>X検索コマンドの基本セット</h2>
+        <p>手動リサーチで使う検索例です。検索結果は投稿本文、表示回数、保存されそうな要素、引用されそうな主張に分けて整理します。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="X検索コマンドの基本セット.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code>from:ユーザーID min_faves:100
+
+キーワード min_faves:100 since:2026-05-01 until:2026-05-28
+
+キーワード exclude:replies min_faves:50
+
+キーワード filter:videos min_faves:50
+
+&quot;完全一致で探したい言葉&quot; min_faves:50</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">10</span>
+        <h2>投稿の目的は3つに分ける</h2>
+        <p>X投稿は、すべて同じ目的で作りません。目的が違えば、文章量、構成、案内の仕方も変わります。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>AWARENESS</span>
+                  <strong>認知拡大ポスト</strong>
+                  <p>まだあなたを知らない人に届く投稿です。図解、逆張り、チェックリスト、保存されやすい整理、引用されやすい主張を使います。</p>
+                </div>
+              
+                <div>
+                  <span>TRUST</span>
+                  <strong>信頼形成ポスト</strong>
+                  <p>フォロー後の読者に、専門性、考え方、判断基準、実践手順を伝える投稿です。浅い一般論で終わらせません。</p>
+                </div>
+              
+                <div>
+                  <span>CV</span>
+                  <strong>申込・登録につなげる投稿</strong>
+                  <p>LINE、セミナー、個別相談、無料PDF受け取り、動画視聴につなげる投稿です。売り込みだけではなく、成果と具体的な変化を見せます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">11</span>
+      <h2>認知拡大ポスト：図解投稿を作る</h2>
+      <p>図解投稿は、手順、比較、チェックリスト、初心者が間違えやすい項目、あとから確認したい内容と相性が良いです。画像だけで完結させず、本文で補足し、保存や引用につながるようにします。</p>
+      <ul><li>同ジャンルで反応が出ている図解投稿を集めます。</li><li>画像に入れる見出し、項目、並べ方を先に決めます。</li><li>初心者が一目で理解できる順番にします。</li><li>本文では、画像で伝えきれない前提や使い方を補足します。</li><li>投稿後は、保存、引用、プロフィール閲覧を確認します。</li></ul>
+    </article>
+  
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">12</span>
+      <h2>認知拡大ポスト：逆張り投稿を作る</h2>
+      <p>逆張り投稿は、ただ否定する投稿ではありません。一般的に信じられている考えに対して、別の見方を提示し、読者が納得できる理由まで入れる投稿です。煽りだけで終わると信頼を落とすので、根拠と具体例を必ず入れます。</p>
+      <ul><li>世間でよく言われている一般論を出します。</li><li>その一般論のどこに問題があるかを整理します。</li><li>反対意見を短く言い切ります。</li><li>納得できる理由と具体例を入れます。</li><li>最後に読者が何を見直すべきかを示します。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">13</span>
+        <h2>信頼形成ポストの作り方</h2>
+        <p>信頼形成ポストでは、読者に「この人は分かっている」と感じてもらう必要があります。情報を出し惜しみするより、具体的な手順、判断基準、よくある失敗を丁寧に出します。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>読者がつまずく場面を選ぶ</strong>
+                  <p>投稿テーマは、自分が話したいことではなく、読者が実際に止まりやすい場面から選びます。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>原因を言語化する</strong>
+                  <p>なぜ成果が出ないのか、表面的な問題ではなく、判断や手順のズレとして説明します。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>解決手順を出す</strong>
+                  <p>精神論ではなく、何をどう確認し、どの順番で進めるかを書きます。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>実績や事例を入れる</strong>
+                  <p>確認できる数字や事例だけを入れます。数字を盛らず、過去の成果と一致させます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>次の行動を自然に案内する</strong>
+                  <p>LINE、セミナー、個別相談、固定ポストなど、読者が次に確認できる場所を示します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">14</span>
+        <h2>申込・登録につなげる投稿の作り方</h2>
+        <p>登録や申込につなげる投稿は、強く売り込むより、読者が自分にも必要だと判断できる材料を出します。顧客の変化、具体的な支援内容、行動後に得られるものを整理します。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>成果事例を1つ選ぶ</strong>
+                  <p>複数の成果を詰め込まず、1つの事例を深く扱います。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>ビフォーアフターを整理する</strong>
+                  <p>行動前に何に困っていて、行動後に何が変わったかを書きます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>支援内容を具体化する</strong>
+                  <p>何を教えたのか、何を整えたのか、どの手順で改善したのかを説明します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>読者への関係を示す</strong>
+                  <p>読者が同じ問題を抱えているなら、どこから見直すべきかを書きます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>次に確認する場所を案内する</strong>
+                  <p>LINE、セミナー、動画、無料PDF、個別相談など、次の行動を一つに絞って案内します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">15</span>
+      <h2>短文ポストと長文ポストの使い分け</h2>
+      <p>短文は、タイムラインで止まってもらうために使います。長文は、考え方や手順を深く伝えるために使います。どちらか一方だけではなく、テーマに合わせて使い分けます。</p>
+      <ul><li>短文は100〜200字を目安に、主張を短く出します。</li><li>長文は4,000字以上でも扱えます。深いテーマ、教育、事例解説に向いています。</li><li>長文で反応が出たテーマは、短文や図解に再利用できます。</li><li>短文で反応が出たテーマは、長文やX記事へ拡張できます。</li><li>投稿の目的が違うので、同じ文章を短く切るだけではなく、構成を変えます。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">16</span>
+        <h2>X記事で扱う4つの型</h2>
+        <p>X記事は、通常の短文投稿より多くの情報を入れられる長文コンテンツです。高反応の記事データでは、主に4つの型に整理できます。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>TYPE A</span>
+                  <strong>海外事例翻訳型</strong>
+                  <p>海外の成功事例、トレンド、マーケティング事例を日本語で体系化します。新しい情報を扱いやすく、ネタ切れしにくい型です。</p>
+                </div>
+              
+                <div>
+                  <span>TYPE B</span>
+                  <strong>ストーリー×ノウハウ融合型</strong>
+                  <p>人物や企業の変化をストーリーとして見せながら、読者が使えるノウハウへ落とし込みます。感情と実用性を両立します。</p>
+                </div>
+              
+                <div>
+                  <span>TYPE C</span>
+                  <strong>ノウハウ直球型</strong>
+                  <p>すぐ使える手順、チェックリスト、ツール活用、設定方法をまとめます。保存されやすい実用型です。</p>
+                </div>
+              
+                <div>
+                  <span>TYPE D</span>
+                  <strong>体験談×気づき型</strong>
+                  <p>実体験や失敗談から学びを出します。発信者の人間味を出しながら、読者の行動につなげます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">17</span>
+      <h2>X記事サムネの考え方</h2>
+      <p>X記事サムネは、記事を読む前に内容を判断してもらうための画像です。細かい説明を詰め込むのではなく、上・中・下の3行で、対象者、テーマ、得られる結果を短く伝えます。</p>
+      <ul><li>上段は対象者、権威性、数字など、読む理由を作る文言にします。</li><li>中段はツール名、テーマ、中心となる論点を入れます。</li><li>下段は結果、手順、完全解説など、読むメリットを短く伝えます。</li><li>AIマーケ講座のトンマナに合わせる場合は、濃紺、紫、マゼンタ系を基本にします。</li><li>タイトル全文を画像に入れず、短い3行に圧縮します。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">18</span>
+        <h2>X記事制作 完全攻略</h2>
+        <p>X記事は、長く書けばよいわけではありません。最初にネタ元、タイトル、冒頭、章立て、CTAまで決めてから作ります。特に、数字、固有名詞、意外性、保存したくなる導入、章ごとの小見出しが重要です。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>ネタ元を決める</strong>
+                  <p>海外事例、成功事例、マーケティング事例、実体験、過去投稿などから、読者にとって新しく有益なテーマを選びます。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>タイトルに数字・固有名詞・意外性を入れる</strong>
+                  <p>高反応記事では、金額、期間、人数、サービス名、意外な結果がタイトルに入っています。抽象的なタイトルにしません。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>冒頭で保存理由を作る</strong>
+                  <p>誰向けの内容なのか、なぜ今読むべきなのか、あとで見返す価値があるのかを冒頭で伝えます。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>本編は章立てで整理する</strong>
+                  <p>事例、理由、手順、注意点、実践ステップを章ごとに分けます。読者が途中で迷わない流れにします。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>弱点や注意点も書く</strong>
+                  <p>良い面だけではなく、実践時に詰まりやすい点、誤解しやすい点、必要な前提も入れると信頼につながります。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>CTAは本文の流れと一致させる</strong>
+                  <p>LINE、セミナー、無料PDF、個別相談などへ案内する場合は、本文で扱った悩みや解決策と自然につなげます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">19</span>
+        <h2>X記事のネタ元として使う情報</h2>
+        <p>X記事は、思いつきで書くより、信頼できる情報源と自分の解釈を組み合わせる方が強くなります。公開前には、出典の扱いと事実確認を行います。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>SOURCE 01</span>
+                  <strong>海外ニュースレター</strong>
+                  <p>SNSやマーケティングの最新情報を拾い、まだ日本語で広がっていない論点を見つけます。</p>
+                </div>
+              
+                <div>
+                  <span>SOURCE 02</span>
+                  <strong>マーケティング事例サイト</strong>
+                  <p>LP、広告、メール、UX、ケーススタディなど、成功事例を記事化する材料にします。</p>
+                </div>
+              
+                <div>
+                  <span>SOURCE 03</span>
+                  <strong>海外・国内の高反応記事</strong>
+                  <p>タイトル、冒頭、章立て、CTAの流れを分析し、自分のテーマに変換します。文章はそのまま使いません。</p>
+                </div>
+              
+                <div>
+                  <span>SOURCE 04</span>
+                  <strong>自分の実体験・顧客事例</strong>
+                  <p>ただの翻訳や紹介で終わらせず、自分の経験、顧客の悩み、商品文脈に接続します。</p>
+                </div>
+              
+                <div>
+                  <span>SOURCE 05</span>
+                  <strong>既存の投稿反応</strong>
+                  <p>短文や長文で反応が出たテーマを、X記事として深掘りします。反応が弱いテーマを無理に長文化しません。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">20</span>
+        <h2>X記事と長文ポストを分ける</h2>
+        <p>X記事は、通常投稿とは別枠で考えます。X Premiumが必要で、APIや外部ツールで通常投稿と同じように扱えない場合があります。通常投稿の自動化を先に整え、必要になったらX記事を追加する順番で進めます。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>長文</span>
+                  <strong>タイムラインで読ませる</strong>
+                  <p>主張、理由、具体例、まとめを一続きの文章にします。短文から反応が出たテーマを深掘りする時に使います。</p>
+                </div>
+              
+                <div>
+                  <span>記事</span>
+                  <strong>見出しで読ませる</strong>
+                  <p>H2/H3、引用、画像、要約、導入、CTAを分けます。検索・保存・共有される長尺コンテンツとして扱います。</p>
+                </div>
+              
+                <div>
+                  <span>画像</span>
+                  <strong>記事サムネを作る</strong>
+                  <p>対象者、テーマ、読むメリットを3行程度に圧縮します。本文タイトルをそのまま画像に入れません。</p>
+                </div>
+              
+                <div>
+                  <span>確認</span>
+                  <strong>利用可否を確認する</strong>
+                  <p>X記事の利用条件や表示仕様はアカウントやプランで変わる可能性があるため、投稿前に自分の画面で確認します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">21</span>
+        <h2>X記事投稿3点セット</h2>
+        <p>X記事を作ったら、記事単体で終わらせず、要約と告知もセットで作ります。長尺コンテンツを一度作り、短文、図解、案内投稿へ展開します。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>本記事を作る</strong>
+                  <p>見出し、目次、引用、画像、最後の案内まで含めた本編を作ります。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>要約図解を作る</strong>
+                  <p>記事の中心内容を1枚または複数枚の図解にし、保存されやすい形にします。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>告知投稿を作る</strong>
+                  <p>記事を読む理由、対象者、得られる内容を短文で伝え、本記事へ誘導します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>反応を記録する</strong>
+                  <p>記事閲覧、保存、引用、プロフィール閲覧、登録数を記録し、次の記事テーマに反映します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">22</span>
+        <h2>AI投稿作成の基本フロー</h2>
+        <p>AIに投稿を書かせる時は、毎回同じ流れで作ります。いきなり本文を書かせないことで、一般論や表面コピーを減らせます。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>反応が出ている投稿を選ぶ</strong>
+                  <p>自分のジャンルに変換しやすい投稿を選びます。ジャンルが遠すぎる投稿は採用しません。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>反応理由を分析する</strong>
+                  <p>冒頭文、テーマ、悩み、保存要素、引用要素、構成を分けて見ます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>自分のテーマに置き換える</strong>
+                  <p>元投稿の文章を使わず、自分の商品、読者、実績、テーマに合わせます。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>複数案を作る</strong>
+                  <p>短文、長文、図解用、申込案内用など、目的別に複数案を作ります。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>品質チェックする</strong>
+                  <p>AIっぽさ、過度な自分語り、事実確認、読者の理解しやすさを確認します。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>投稿後の反応を記録する</strong>
+                  <p>反応が良かった理由、悪かった理由、次に変える点を残します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">23</span>
+        <h2>品質チェックで見る項目</h2>
+        <p>AIが作った投稿は、そのまま投稿せずに確認します。特にXでは、AIっぽい一般論や、参考投稿に近すぎる文章が出やすいです。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>01</span>
+                  <strong>ノウハウが主軸になっているか</strong>
+                  <p>発信者の話ばかりではなく、読者が使える情報が中心になっているか確認します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>表面コピーに見えないか</strong>
+                  <p>参考投稿の言い回し、順番、具体例が近すぎないか確認します。構造は学び、文章は作り直します。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>AIっぽい表現が残っていないか</strong>
+                  <p>抽象論、きれいすぎるまとめ、意味の薄い強調、誰でも言える一般論を削ります。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>事実確認できているか</strong>
+                  <p>数字、実績、ツール仕様、料金、利用条件は、確認できるものだけ使います。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>次回改善できるか</strong>
+                  <p>投稿後に何を見て改善するかが残っているか確認します。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>案内が自然か</strong>
+                  <p>LINE、セミナー、個別相談などへの案内が、本文内容とつながっているか確認します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">24</span>
+        <h2>Skill化する作業</h2>
+        <p>毎回同じ指示を貼るのではなく、繰り返す作業はSkill化します。作るべきなのは、投稿本文だけではなく、リサーチ、分析、品質チェック、改善記録まで含めた作業です。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>リサーチSkill</strong>
+                  <p>検索コマンド、SocialData、X APIから投稿候補を集め、反応理由を整理するSkillです。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>投稿作成Skill</strong>
+                  <p>短文、長文、図解用本文、申込案内用本文を目的別に作るSkillです。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>X記事Skill</strong>
+                  <p>長尺テーマを、見出し、目次、記事サムネ、要約図解まで含めて作るSkillです。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>品質チェックSkill</strong>
+                  <p>AIっぽさ、事実確認、表面コピー、案内の自然さを確認するSkillです。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>改善Skill</strong>
+                  <p>投稿後の反応を見て、次回の投稿ルールやNG表現リストに反映するSkillです。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">25</span>
+        <h2>投稿と予約投稿の3段階</h2>
+        <p>最初から完全自動化しなくて大丈夫です。運用レベルに合わせて、手動、予約、API連携の順で進めます。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>LEVEL 1</span>
+                  <strong>AIが下書き、人間が投稿</strong>
+                  <p>最初はこの形で十分です。AIに複数案を作らせ、人間が確認して投稿します。</p>
+                </div>
+              
+                <div>
+                  <span>LEVEL 2</span>
+                  <strong>予約投稿ツールに入れる</strong>
+                  <p>投稿本数が増えたら、TypefullyやOmniSocialsなどで予約投稿とカレンダー管理を行います。</p>
+                </div>
+              
+                <div>
+                  <span>LEVEL 3</span>
+                  <strong>API / MCPで連携する</strong>
+                  <p>投稿、取得、分析、承認フローまでつなげる段階です。通常投稿から始め、必要な範囲だけ連携します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">26</span>
+      <h2>API連携でできること</h2>
+      <p>X APIやSocialDataは、投稿を自動化するためだけに使うものではありません。リサーチ、投稿取得、反応データの確認、分析材料の整理にも使います。手動投稿だけなら、API連携は必須ではありません。</p>
+      <ul><li>反応が出ている投稿を検索・取得する。</li><li>投稿本文、表示回数、いいね、返信、引用などを整理する。</li><li>投稿候補をAIに渡せる形式にする。</li><li>投稿後の反応を記録する。</li><li>予約投稿や承認フローと組み合わせる。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">27</span>
+        <h2>Slack承認フローの考え方</h2>
+        <p>完全自動で投稿する前に、人間確認を挟む流れを作ると事故が減ります。AIが下書きを作り、Slackなどに投稿候補を送り、人間がOKしたものだけ予約または投稿します。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>AIが投稿候補を作る</strong>
+                  <p>リサーチとナレッジをもとに、投稿候補を複数作ります。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>品質チェックを通す</strong>
+                  <p>AIっぽさ、事実確認、案内の自然さを確認します。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>Slackへ送る</strong>
+                  <p>投稿文、投稿目的、参考にした構造、見るべき指標をまとめて確認場所へ送ります。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>人間が承認する</strong>
+                  <p>OK、修正、見送りの判断をします。外部公開前に必ず確認します。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>予約または投稿する</strong>
+                  <p>承認されたものだけ、Typefully、OmniSocials、手動投稿、API連携へ進めます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">28</span>
+      <h2>OmniSocialsとTypefullyの使い分け</h2>
+      <p>予約投稿やカレンダー管理は、最初からAPIだけで作る必要はありません。X中心で予約を組むならTypefully、複数SNSへの展開やカレンダー管理までまとめたい場合はOmniSocialsのような管理ツールを検討します。どのツールでも、投稿前の確認と投稿後の反応記録を残すことが重要です。</p>
+      <ul><li>最初は手動投稿でも問題ありません。</li><li>投稿本数が増えたら予約投稿ツールを使います。</li><li>複数媒体へ展開する場合は、カレンダー管理できるツールを使います。</li><li>ツール仕様によって、通常ポスト、長文、X記事の扱いが異なる場合があります。</li><li>自動化する場合も、最初は承認フローを入れます。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">29</span>
+        <h2>投稿カレンダーに入れる項目</h2>
+        <p>投稿カレンダーは、日付と本文だけでは足りません。投稿目的、使ったリサーチ、見るべき指標まで入れると、改善に使いやすくなります。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>投稿日・投稿時間</strong>
+                  <p>いつ投稿したかを残します。反応が出やすい時間帯を後から確認します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>投稿目的</strong>
+                  <p>認知拡大、信頼形成、申込・登録案内のどれかを入れます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>投稿形式</strong>
+                  <p>短文、長文、図解、引用、X記事、告知などを入れます。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>投稿本文</strong>
+                  <p>投稿した本文を残します。あとから再利用や改善をしやすくします。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>見る指標</strong>
+                  <p>インプレッション、保存、引用、返信、プロフィール閲覧、登録数などを入れます。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>改善メモ</strong>
+                  <p>なぜ良かったか、なぜ弱かったか、次に変える点を残します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">30</span>
+        <h2>0フォロワーから始める場合</h2>
+        <p>まだフォロワーが少ない場合は、最初から完璧な自動化を狙うより、投稿量と改善記録を止めないことを優先します。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>1日1〜2投稿から始める</strong>
+                  <p>最初は投稿を止めないことを優先します。短文と長文を混ぜて、反応が出るテーマを確認します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>短文と長文を両方試す</strong>
+                  <p>100〜200字の短文と、4,000字以上の長文を両方作ります。どちらに反応が出るかを見ます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>伸びているアカウントへ引用や返信をする</strong>
+                  <p>自分の投稿だけでなく、同ジャンルの投稿への質の高い返信や引用も行います。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>反応の揺れに振り回されない</strong>
+                  <p>1本ごとの数字で判断しすぎず、投稿テーマ、冒頭文、文章量、案内内容をまとめて見ます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>AIで継続できる状態を作る</strong>
+                  <p>ネタ出し、下書き、品質チェック、投稿カレンダーまでをAIに任せ、止まらない運用にします。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">31</span>
+      <h2>X運用で避けること</h2>
+      <p>AIで量産できるからこそ、やってはいけないことも明確にします。短期的に反応が出ても、信頼を落とす運用は避けます。</p>
+      <ul><li>参考投稿の文章や具体例をそのまま使わない。</li><li>事実確認できない実績や数字を入れない。</li><li>煽りだけで理由がない投稿を出さない。</li><li>毎回同じ構成や言い回しにしない。</li><li>商品案内だけの投稿を連発しない。</li><li>承認前に自動投稿しない。</li><li>認証情報をチャット、公開ページ、Slack本文に出さない。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">32</span>
+        <h2>最終チェックリスト</h2>
+        <p>このページの内容を実行する時は、下記を満たしてから投稿・予約・自動化へ進みます。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>CHECK 01</span>
+                  <strong>コンセプト</strong>
+                  <p>誰に何を伝えるアカウントかが説明できる。</p>
+                </div>
+              
+                <div>
+                  <span>CHECK 02</span>
+                  <strong>ナレッジ</strong>
+                  <p>実績、商品情報、読者の悩み、過去投稿、NG表現が整理されている。</p>
+                </div>
+              
+                <div>
+                  <span>CHECK 03</span>
+                  <strong>リサーチ</strong>
+                  <p>今反応が出ている投稿を見て、反応理由を分析している。</p>
+                </div>
+              
+                <div>
+                  <span>CHECK 04</span>
+                  <strong>投稿目的</strong>
+                  <p>認知拡大、信頼形成、申込・登録案内のどれかを決めている。</p>
+                </div>
+              
+                <div>
+                  <span>CHECK 05</span>
+                  <strong>品質チェック</strong>
+                  <p>AIっぽさ、表面コピー、事実確認、案内の自然さを確認している。</p>
+                </div>
+              
+                <div>
+                  <span>CHECK 06</span>
+                  <strong>改善</strong>
+                  <p>投稿後に見る指標と、次回に反映する項目を残している。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+            <a class="next-bonus detail-wide" href="/ai-marketing-20-bonuses-2026/pattern-03/bonus-09/">
+              <span>次の特典へ</span>
+              <strong>特典09: おさる式 商品作成Skill</strong>
+            </a>
+          </section>
+        </article>
+      </main>
+    
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    document.querySelectorAll("[data-tilt]").forEach((card) => {
+      card.addEventListener("pointermove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = "rotateX(" + (-y * 4).toFixed(2) + "deg) rotateY(" + (x * 4).toFixed(2) + "deg)";
+      });
+      card.addEventListener("pointerleave", () => {
+        card.style.transform = "";
+      });
+    });
+
+    document.querySelectorAll("[data-copy-code]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const shell = button.closest(".code-shell");
+        const code = shell?.querySelector("code")?.innerText || "";
+        if (!code) return;
+        try {
+          await navigator.clipboard.writeText(code);
+          const label = button.textContent;
+          button.textContent = "コピー済み";
+          window.setTimeout(() => {
+            button.textContent = label;
+          }, 1600);
+        } catch (error) {
+          button.textContent = "コピーできませんでした";
+        }
+      });
+    });
+
+    document.querySelectorAll("[data-download-code]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const shell = button.closest(".code-shell");
+        const code = shell?.querySelector("code")?.innerText || "";
+        if (!code) return;
+        const blob = new Blob([code], { type: "text/plain;charset=utf-8" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = button.dataset.filename || "prompt.txt";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(link.href), 1200);
+      });
+    });
+  </script>
+</body>
+</html>

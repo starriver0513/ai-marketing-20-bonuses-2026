@@ -1,0 +1,1922 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>特典05: 鉄壁セキュリティ対策設定10選 | AIマーケ実践特典</title>
+  <meta name="description" content="【知らなかったじゃ済まされない】グループ累計100億販売しても炎上ゼロ。おさるチームのAIセキュリティ対策の極意。コンテンツ・情報資産、顧客データ・APIキーを安全に扱うための設定10選。">
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    :root {
+      color-scheme: dark;
+      --black: #05000d;
+      --deep: #140025;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.14);
+      --white: #fff;
+      --muted: rgba(255, 255, 255, 0.72);
+      --pink: #ef22df;
+      --purple: #7f39ff;
+      --blue: #275bff;
+      --cyan: #50e4ff;
+      --yellow: #fff24a;
+      --line: rgba(255, 255, 255, 0.18);
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      font-family: "Noto Sans JP", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+      color: var(--white);
+      background: var(--black);
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    .selector-page,
+    .pattern-page,
+    .detail-page {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .selector-page {
+      background:
+        radial-gradient(circle at 14% 12%, rgba(127, 57, 255, 0.55), transparent 26%),
+        radial-gradient(circle at 88% 26%, rgba(74, 32, 180, 0.28), transparent 28%),
+        linear-gradient(135deg, #020007 0%, #08000f 48%, #030006 100%);
+    }
+    .selector-hero,
+    .selector-patterns,
+    .selector-note,
+    .pattern-hero,
+    .bonus-section,
+    .detail-hero,
+    .detail-content {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .selector-hero {
+      min-height: 66vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 76px 0 40px;
+    }
+    .circuit-bg,
+    .pattern-page::before,
+    .detail-page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.28;
+      background-image:
+        linear-gradient(90deg, transparent 0 92%, rgba(255, 255, 255, 0.28) 92% 94%, transparent 94%),
+        linear-gradient(0deg, transparent 0 92%, rgba(255, 255, 255, 0.20) 92% 94%, transparent 94%);
+      background-size: 84px 84px;
+      mask-image: linear-gradient(120deg, black, transparent 72%);
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(46px, 9vw, 124px);
+      line-height: 0.92;
+      font-weight: 950;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      text-shadow: 0 0 28px rgba(239, 34, 223, 0.34);
+    }
+    h1 span { display: block; }
+    .lead {
+      max-width: 780px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.85;
+      overflow-wrap: anywhere;
+    }
+    .selector-meta,
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .selector-meta span,
+    .primary-cta,
+    .ghost-cta,
+    .detail-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 6px;
+      font-weight: 900;
+      font-size: 13px;
+      white-space: normal;
+    }
+    .selector-meta span {
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .selector-patterns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      padding-bottom: 42px;
+    }
+    .pattern-link {
+      min-height: 280px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+      transition: transform 240ms ease, border-color 240ms ease;
+    }
+    .pattern-link::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: conic-gradient(from 130deg, rgba(39, 91, 255, 0), rgba(239, 34, 223, 0.62), rgba(80, 228, 255, 0.24), rgba(39, 91, 255, 0));
+      animation: spin 9s linear infinite;
+      opacity: 0.52;
+    }
+    .pattern-link > * { position: relative; z-index: 1; }
+    .pattern-link:hover { transform: translateY(-6px); border-color: rgba(255, 255, 255, 0.5); }
+    .pattern-link span { color: var(--cyan); font-weight: 900; }
+    .pattern-link strong { margin-top: 12px; font-size: 30px; line-height: 1.05; }
+    .pattern-link small { margin-top: 12px; color: var(--muted); line-height: 1.7; font-size: 14px; }
+    .selector-note {
+      margin-bottom: 56px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .selector-note h2 { margin: 0 0 10px; }
+    .selector-note p { margin: 0; color: var(--muted); line-height: 1.8; }
+
+    .theme-dark-neon {
+      background:
+        radial-gradient(circle at 80% 14%, rgba(39, 91, 255, 0.44), transparent 24%),
+        radial-gradient(circle at 18% 36%, rgba(239, 34, 223, 0.34), transparent 28%),
+        linear-gradient(135deg, #05000d 0%, #150028 46%, #060011 100%);
+    }
+    .theme-white-roadmap {
+      color: #fff;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(39, 91, 255, 0.18), transparent 23%),
+        radial-gradient(circle at 86% 10%, rgba(127, 57, 255, 0.24), transparent 28%),
+        linear-gradient(135deg, #020007 0%, #090012 54%, #030006 100%);
+      --panel: rgba(255, 255, 255, 0.075);
+      --panel-strong: rgba(255, 255, 255, 0.12);
+      --line: rgba(255, 255, 255, 0.16);
+      --muted: rgba(255, 255, 255, 0.74);
+      --white: #fff;
+      --pink: #8f3dff;
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+    }
+    .theme-live-stage {
+      background:
+        linear-gradient(164deg, transparent 0 28%, rgba(239, 34, 223, 0.86) 29% 54%, transparent 55%),
+        radial-gradient(circle at 52% 25%, rgba(239, 34, 223, 0.36), transparent 20%),
+        linear-gradient(135deg, #03030a 0%, #120016 52%, #04000a 100%);
+    }
+    .top-nav {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 66px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      position: relative;
+      z-index: 5;
+    }
+    .top-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .pattern-hero {
+      min-height: 720px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.96fr) minmax(320px, 1.04fr);
+      gap: 36px;
+      align-items: center;
+      padding: 32px 0 56px;
+    }
+    .hero-copy { min-width: 0; }
+    .hero-actions a {
+      padding: 0 18px;
+      border: 1px solid var(--line);
+    }
+    .primary-cta {
+      color: white;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+      border-color: transparent !important;
+      box-shadow: 0 0 34px rgba(239, 34, 223, 0.26);
+    }
+    .ghost-cta { background: var(--panel); }
+    .hero-thumbnail,
+    .detail-thumb {
+      min-width: 0;
+      transform: rotate(-1.2deg);
+    }
+    .thumb-placeholder {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      min-height: 0;
+      border: 2px solid rgba(255, 255, 255, 0.24);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(39, 91, 255, 0.82), rgba(239, 34, 223, 0.82)),
+        #10001f;
+      box-shadow: var(--shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 22px;
+    }
+    .theme-white-roadmap .thumb-placeholder {
+      border-color: rgba(255, 255, 255, 0.18);
+      background:
+        linear-gradient(135deg, rgba(39, 91, 255, 0.52), rgba(143, 61, 255, 0.58)),
+        #090012;
+    }
+    .thumb-placeholder.has-image {
+      padding: 0;
+      background: #05000d;
+    }
+    .thumb-placeholder.has-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .thumb-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.42;
+    }
+    .thumb-glow {
+      position: absolute;
+      width: 50%;
+      aspect-ratio: 1;
+      top: -22%;
+      right: -12%;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.32);
+      filter: blur(8px);
+      animation: pulse 3.4s ease-in-out infinite;
+    }
+    .bonus-section {
+      padding: 72px 0 80px;
+    }
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px 24px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+    .section-heading p {
+      grid-column: 1 / -1;
+      margin: 0;
+      color: var(--pink);
+      font-weight: 950;
+    }
+    .section-heading h1,
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 68px);
+      line-height: 1;
+    }
+    .theme-white-roadmap .section-heading h1 {
+      text-shadow:
+        0 10px 28px rgba(42, 92, 255, 0.28),
+        0 3px 10px rgba(143, 61, 255, 0.28);
+    }
+    .section-heading span {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+      max-width: 360px;
+      line-height: 1.7;
+    }
+    .bonus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .bonus-card {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+    .bonus-card:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    .bonus-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .bonus-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+    .bonus-topline b {
+      color: var(--muted);
+      font-weight: 900;
+    }
+    .bonus-card h2 {
+      margin: 14px 0 0;
+      min-height: 64px;
+      font-size: 24px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+    .bonus-card p {
+      min-height: 84px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 12px 0 0;
+    }
+    .detail-link {
+      width: 100%;
+      margin-top: auto;
+      color: white;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+    }
+    .detail-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+      gap: 36px;
+      align-items: center;
+      padding: 46px 0 40px;
+    }
+    .detail-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.58fr);
+      gap: 18px;
+      padding-bottom: 80px;
+    }
+    .detail-panel,
+    .next-bonus {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    .theme-white-roadmap .detail-panel,
+    .theme-white-roadmap .detail-stat-grid div,
+    .theme-white-roadmap .detail-map div,
+    .theme-white-roadmap .info-card-grid div,
+    .theme-white-roadmap .step-list div,
+    .theme-white-roadmap .source-links a,
+    .theme-white-roadmap .source-note {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+    .detail-panel h2 {
+      margin: 0 0 18px;
+      font-size: 28px;
+    }
+    .detail-panel p {
+      color: var(--muted);
+      line-height: 1.85;
+      margin: 0;
+    }
+    .deliverable-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .deliverable-grid div {
+      min-height: 104px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: var(--panel-strong);
+    }
+    .deliverable-grid span {
+      display: block;
+      width: 30px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+    }
+    .deliverable-grid p {
+      margin-top: 18px;
+      color: var(--white);
+      font-weight: 900;
+    }
+    .next-bonus {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 220px;
+      background: linear-gradient(135deg, rgba(39, 91, 255, 0.35), rgba(239, 34, 223, 0.35)), var(--panel);
+    }
+    .next-bonus span {
+      color: var(--yellow);
+      font-weight: 950;
+      margin-bottom: 10px;
+    }
+    .next-bonus strong {
+      font-size: 28px;
+      line-height: 1.25;
+    }
+    .rich-hero h1 {
+      font-size: clamp(38px, 6vw, 82px);
+      line-height: 1.03;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+    .hero-badges span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .detail-rich {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      padding: 0 0 80px;
+    }
+    .detail-wide,
+    .source-note,
+    .detail-stat-grid,
+    .detail-map {
+      grid-column: 1 / -1;
+    }
+    .source-note {
+      margin: 0;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--muted);
+      line-height: 1.8;
+      font-weight: 800;
+    }
+    .detail-stat-grid,
+    .detail-map,
+    .info-card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .detail-stat-grid div,
+    .detail-map div,
+    .info-card-grid div,
+    .step-list div,
+    .source-links a {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 18px;
+      min-width: 0;
+    }
+    .detail-stat-grid span,
+    .detail-map span,
+    .info-card-grid span,
+    .step-list span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      min-height: 26px;
+      padding: 0 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+      color: white;
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .detail-stat-grid strong,
+    .detail-map strong,
+    .info-card-grid strong,
+    .step-list strong,
+    .source-links span {
+      display: block;
+      margin-top: 12px;
+      color: var(--white);
+      font-size: 19px;
+      line-height: 1.35;
+      font-weight: 950;
+      overflow-wrap: anywhere;
+    }
+    .detail-stat-grid p,
+    .detail-map p,
+    .info-card-grid p,
+    .step-list p,
+    .source-links small {
+      display: block;
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 14px;
+    }
+    .detail-panel ul {
+      margin: 16px 0 0;
+      padding-left: 1.25em;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+    .detail-panel li + li {
+      margin-top: 8px;
+    }
+    .step-list {
+      display: grid;
+      gap: 12px;
+    }
+    .code-panel {
+      margin: 16px 0 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(4, 1, 12, 0.86);
+      color: #f7f4ff;
+      overflow-x: auto;
+      white-space: pre;
+      line-height: 1.65;
+      font-size: 13px;
+    }
+    .code-shell {
+      margin-top: 16px;
+    }
+    .code-shell .code-panel {
+      margin-top: 10px;
+    }
+    .code-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .code-actions button {
+      appearance: none;
+      border: 1px solid rgba(127, 57, 255, 0.32);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(127, 57, 255, 0.95), rgba(239, 34, 223, 0.9));
+      color: #fff;
+      cursor: pointer;
+      font-weight: 900;
+      letter-spacing: 0;
+      padding: 10px 14px;
+      transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+    }
+    .code-actions button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(127, 57, 255, 0.22);
+    }
+    .code-actions button:active {
+      transform: translateY(0);
+      opacity: 0.82;
+    }
+    .anchor-nav {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .anchor-nav a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 56px;
+      padding: 12px 16px;
+      border: 1px solid rgba(127, 57, 255, 0.22);
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      background: linear-gradient(135deg, rgba(50, 22, 95, 0.92), rgba(105, 48, 190, 0.82));
+      box-shadow: 0 14px 34px rgba(40, 16, 82, 0.18);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+    .anchor-nav a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(239, 34, 223, 0.5);
+      box-shadow: 0 18px 38px rgba(105, 48, 190, 0.24);
+    }
+    .anchor-nav span {
+      font-weight: 950;
+      line-height: 1.35;
+    }
+    .anchor-nav small {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.45;
+      text-align: right;
+    }
+    .theme-white-roadmap .code-panel {
+      background: #120824;
+      color: #fff;
+    }
+    .source-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .source-links a {
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+    .source-links a:hover {
+      transform: translateY(-3px);
+      border-color: rgba(239, 34, 223, 0.48);
+    }
+    .guide-page.theme-dark-neon,
+    .guide-page.theme-white-roadmap,
+    .guide-page.theme-live-stage {
+      color: #241631;
+      background: #f5f6fa;
+      --white: #241631;
+      --muted: #675a72;
+      --panel: #fff;
+      --panel-strong: #fff7fd;
+      --line: rgba(80, 53, 112, 0.14);
+      --shadow: 0 22px 60px rgba(52, 27, 91, 0.12);
+    }
+    .guide-page {
+      overflow: visible;
+    }
+    .guide-page::before {
+      display: none;
+    }
+    .guide-top-nav {
+      min-height: 60px;
+      justify-content: space-between;
+      color: #31213d;
+    }
+    .guide-top-nav a {
+      background: #fff;
+      border-color: rgba(80, 53, 112, 0.14);
+      box-shadow: 0 10px 28px rgba(52, 27, 91, 0.08);
+    }
+    .guide-shell {
+      width: min(860px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 0 0 88px;
+    }
+    .guide-header {
+      padding: 8px 0 28px;
+    }
+    .guide-main-visual .thumb-placeholder {
+      border: none;
+      border-radius: 0;
+      box-shadow: 0 16px 42px rgba(52, 27, 91, 0.16);
+    }
+    .guide-title-card {
+      margin: 22px auto 0;
+      padding: 24px;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, #2a1455 0%, #55239d 58%, #8f3dff 100%);
+      box-shadow: 0 18px 44px rgba(88, 35, 157, 0.24);
+    }
+    .guide-title-card .eyebrow {
+      color: #ff79dc;
+      margin-bottom: 12px;
+    }
+    .guide-title-card h1 {
+      font-size: clamp(28px, 6vw, 52px);
+      line-height: 1.16;
+      text-shadow: none;
+    }
+    .guide-title-card .lead {
+      max-width: none;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+    .guide-title-card .hero-badges span {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+    .guide-actions {
+      width: min(620px, 100%);
+      margin: 16px auto 0;
+      display: grid;
+      gap: 8px;
+    }
+    .guide-action {
+      min-height: 54px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      color: #fff;
+      text-align: center;
+      font-weight: 950;
+      background: linear-gradient(180deg, #33de12 0%, #16a900 100%);
+      border: 1px solid rgba(10, 127, 0, 0.28);
+      box-shadow: 0 12px 26px rgba(28, 187, 0, 0.22);
+    }
+    .guide-action small {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+    .guide-content {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
+    .guide-page .source-note,
+    .guide-page .detail-panel {
+      margin: 0 0 22px;
+      padding: 26px;
+      border: 1px solid #eadff6;
+      border-top: 5px solid #ef22df;
+      border-radius: 8px;
+      color: #241631;
+      background: #fff;
+      box-shadow: 0 16px 36px rgba(52, 27, 91, 0.09);
+    }
+    .guide-page .source-note {
+      color: #5c4f66;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .guide-section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      min-height: 30px;
+      padding: 0 10px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 950;
+      background: linear-gradient(90deg, #ef22df, #7f39ff);
+    }
+    .guide-page .detail-panel h2 {
+      margin: 0 0 16px;
+      color: #241631;
+      font-size: clamp(24px, 4vw, 34px);
+      line-height: 1.32;
+    }
+    .guide-page .detail-panel p,
+    .guide-page .detail-panel ul,
+    .guide-page .detail-panel li {
+      color: #5c4f66;
+      font-size: 15px;
+      line-height: 1.95;
+    }
+    .guide-page .info-card-grid,
+    .guide-page .source-links {
+      grid-template-columns: 1fr;
+    }
+    .guide-page .info-card-grid div,
+    .guide-page .step-list div {
+      background: #fff7fd;
+      border-color: #f2d8f4;
+      box-shadow: none;
+    }
+    .guide-page .info-card-grid strong,
+    .guide-page .step-list strong {
+      color: #241631;
+    }
+    .guide-page .info-card-grid p,
+    .guide-page .step-list p {
+      color: #5c4f66;
+    }
+    .guide-page .source-links a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 58px;
+      padding: 12px 18px;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(180deg, #33de12 0%, #16a900 100%);
+      border-color: rgba(10, 127, 0, 0.24);
+      box-shadow: 0 10px 24px rgba(28, 187, 0, 0.16);
+    }
+    .guide-page .source-links span {
+      color: #fff;
+      margin-top: 0;
+    }
+    .guide-page .source-links small {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .guide-page .code-panel {
+      background: #241034;
+      color: #fff;
+      border-color: rgba(127, 57, 255, 0.26);
+      white-space: pre-wrap;
+    }
+    .guide-page .next-bonus {
+      width: min(620px, 100%);
+      min-height: auto;
+      margin: 36px auto 0;
+      padding: 18px 22px;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(90deg, #2f7dff, #8f3dff);
+      border: none;
+      box-shadow: 0 16px 34px rgba(47, 125, 255, 0.18);
+    }
+    .guide-page .next-bonus span {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .guide-page .next-bonus strong {
+      color: #fff;
+      font-size: 19px;
+    }
+    .hero-effects span {
+      position: absolute;
+      pointer-events: none;
+    }
+    .orb {
+      width: 150px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 18px solid rgba(239, 34, 223, 0.58);
+      animation: float 6s ease-in-out infinite;
+    }
+    .orb-a { top: 80px; right: 6%; }
+    .orb-b { bottom: 180px; left: -40px; border-color: rgba(39, 91, 255, 0.58); animation-delay: -2s; }
+    .slash {
+      width: 220px;
+      height: 120px;
+      background: repeating-linear-gradient(135deg, rgba(255,255,255,0.6) 0 4px, transparent 4px 16px);
+      opacity: 0.38;
+      transform: rotate(-12deg);
+    }
+    .slash-a { top: 18%; left: 4%; }
+    .slash-b { right: 3%; bottom: 10%; }
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeUp 640ms ease both;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.34; }
+      50% { transform: scale(1.18); opacity: 0.52; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 980px) {
+      .selector-patterns,
+      .pattern-hero,
+      .detail-hero,
+      .detail-content {
+        grid-template-columns: 1fr;
+      }
+      .detail-stat-grid,
+      .detail-map,
+      .info-card-grid,
+      .source-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .bonus-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-thumbnail,
+      .detail-thumb {
+        transform: none;
+      }
+      .detail-content {
+        padding-bottom: 56px;
+      }
+      .guide-shell {
+        width: min(860px, calc(100% - 28px));
+      }
+      .guide-page .detail-rich {
+        width: 100%;
+        padding: 0;
+      }
+    }
+    @media (max-width: 620px) {
+      .selector-hero,
+      .selector-patterns,
+      .selector-note,
+      .pattern-hero,
+      .bonus-section,
+      .detail-hero,
+      .detail-content,
+      .top-nav {
+        width: min(100% - 28px, 1180px);
+      }
+      .selector-hero {
+        min-height: auto;
+        padding-top: 54px;
+      }
+      .selector-patterns {
+        grid-template-columns: 1fr;
+      }
+      .pattern-link {
+        min-height: 230px;
+      }
+      .pattern-hero {
+        min-height: auto;
+        padding-top: 18px;
+      }
+      h1 {
+        font-size: clamp(42px, 18vw, 74px);
+        line-height: 0.98;
+      }
+      .lead {
+        font-size: 16px;
+      }
+      .section-heading {
+        grid-template-columns: 1fr;
+      }
+      .bonus-card h2 {
+        min-height: auto;
+        font-size: 21px;
+      }
+      .bonus-card p {
+        min-height: auto;
+      }
+      .deliverable-grid {
+        grid-template-columns: 1fr;
+      }
+      .detail-rich {
+        width: min(100% - 28px, 1180px);
+        grid-template-columns: 1fr;
+        padding-bottom: 56px;
+      }
+      .detail-stat-grid,
+      .detail-map,
+      .info-card-grid,
+      .source-links {
+        grid-template-columns: 1fr;
+      }
+      .thumb-placeholder {
+        padding: 16px;
+      }
+      .thumb-placeholder strong {
+        font-size: clamp(28px, 10vw, 46px);
+      }
+      .top-nav {
+        justify-content: flex-start;
+      }
+      .guide-top-nav {
+        justify-content: space-between;
+      }
+      .guide-title-card,
+      .guide-page .detail-panel {
+        padding: 20px;
+      }
+      .guide-title-card h1 {
+        font-size: clamp(27px, 10vw, 42px);
+      }
+      .guide-page .detail-rich {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body class="theme-dark-neon">
+  
+      <main class="detail-page guide-page theme-dark-neon">
+        <nav class="top-nav guide-top-nav">
+          <a href="/ai-marketing-20-bonuses-2026/pattern-01/">特典一覧</a>
+        </nav>
+        <article class="guide-shell">
+          <header class="guide-header">
+            <div class="guide-main-visual">
+            
+    <div class="thumb-placeholder dark-neon has-image" aria-label="BONUS 05">
+      <img src="/ai-marketing-20-bonuses-2026/assets/bonuses/bonus-05.png" alt="特典05: 鉄壁セキュリティ対策設定10選" loading="lazy">
+    </div>
+  
+            </div>
+            <div class="guide-title-card">
+              <p class="eyebrow">BONUS 05 / AI SECURITY SETTINGS</p>
+              <h1><span>鉄壁セキュリティ</span><span>対策設定10選</span></h1>
+              <p class="lead">AIでSNS運用、API連携、文字起こし、Google Workspace、UTAGE、GitHub公開を扱う前に、最初に設定するセキュリティ項目をまとめました。対象はAI初心者です。APIキー、顧客情報、講座資料、未公開コンテンツを外部に出さずに、Codex / Claude Code / ChatGPT / Google / GitHubを使うための実務手順です。</p>
+              
+            </div>
+            
+          </header>
+          <section class="detail-rich guide-content">
+            
+            
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">01</span>
+      <h2>はじめに：AIを使う前に必ず設定すること</h2>
+      <p>AI活用で問題が起きやすいのは、難しいコードを書いた時ではありません。APIキー、顧客情報、未公開コンテンツ、管理画面URL、共有権限を、よく分からないままAIや公開ページに渡した時です。このページでは、初心者が最初に決めるべき安全ルールを、作業順に整理します。</p>
+      <ul><li>AIに見せる情報と、見せない情報を最初に分けます。</li><li>APIキーやOAuth tokenは、チャット欄、Google Docs、Chatwork、LINE、公開ページに貼りません。</li><li>削除、外部送信、公開、権限変更、決済、会員情報に関わる作業は、実行前に人間確認を入れます。</li><li>CodexやClaude Codeには、作業してよいフォルダ、触ってはいけない情報、公開前チェックの条件を書いておきます。</li><li>不安な操作は、実行前に「この作業で外部に出る情報はありますか？」とAIに確認します。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">02</span>
+        <h2>最初に覚えるセキュリティ用語</h2>
+        <p>用語を理解しておくと、AIへの指示が具体的になります。細かい技術理解より先に、何を外部に出してはいけないのかを判断できる状態にします。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>API KEY</span>
+                  <strong>APIキー</strong>
+                  <p>外部サービスをプログラムから使うための認証情報です。OpenAI、Anthropic、Groq、X、Googleなどで発行します。第三者に見られると、利用枠や機能を使われる可能性があります。</p>
+                </div>
+              
+                <div>
+                  <span>TOKEN</span>
+                  <strong>OAuth token</strong>
+                  <p>Google Drive、YouTube、Xなどにログイン連携した時に発行される認証情報です。APIキーと同じく、チャットや公開ページに出してはいけません。</p>
+                </div>
+              
+                <div>
+                  <span>ENV</span>
+                  <strong>.env</strong>
+                  <p>APIキーやOAuth tokenをローカルで管理するためのファイルです。AIには値を貼らず、「.envを読んで使ってください」と伝えます。</p>
+                </div>
+              
+                <div>
+                  <span>PERMISSION</span>
+                  <strong>権限</strong>
+                  <p>閲覧者、編集者、管理者などのアクセス範囲です。最初は閲覧者にし、編集者や管理者は必要な人だけに限定します。</p>
+                </div>
+              
+                <div>
+                  <span>PUBLIC</span>
+                  <strong>公開</strong>
+                  <p>URLを知っている人、またはインターネット上の人が見られる状態です。公開前に秘密情報、顧客情報、内部情報が混ざっていないか確認します。</p>
+                </div>
+              
+                <div>
+                  <span>LOG</span>
+                  <strong>ログ</strong>
+                  <p>チャット履歴、実行結果、エラー表示、録画、スクリーンショットに残る情報です。秘密情報はログにも残さない運用にします。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">03</span>
+        <h2>Claude Codeで必ず入れる6つの防御</h2>
+        <p>AIにローカル作業を任せる場合、APIキーや顧客情報を守るために、最初に防御設定を入れます。特に.env、履歴、実行権限、公開前レビューは必須です。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>.envファイルを隠す</strong>
+                  <p>APIキーやトークンは.envに入れ、AIが.envを読めないようDenyルールを設定します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>file-historyを定期削除する</strong>
+                  <p>編集履歴に秘密情報が残る可能性があるため、履歴ファイルを定期的に確認・削除します。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>Sandboxを有効化する</strong>
+                  <p>AIが触れる範囲を限定し、不要なフォルダや外部公開物にアクセスさせないようにします。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>CLAUDE.md / AGENTS.mdに安全ルールを書く</strong>
+                  <p>削除、上書き、外部送信、秘密情報の扱い、公開前確認のルールを明文化します。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>テストしてから公開する</strong>
+                  <p>API連携や自動投稿は、テスト環境で確認してから本番へ進めます。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>/compact → /clearで記憶を切り替える</strong>
+                  <p>長い作業で不要な情報が残った場合は、要約してからセッションを切り替え、秘密情報を持ち越さないようにします。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">04</span>
+        <h2>鉄壁セキュリティ対策設定10選</h2>
+        <p>まずはこの10項目を設定します。完璧な専門知識よりも、毎回同じ確認を行うことが重要です。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>全アカウントに2段階認証を設定する</strong>
+                  <p>Google、GitHub、ChatGPT、Claude、X、Stripe、UTAGEなど、業務で使うアカウントは2段階認証を有効にします。パスワードは使い回さず、管理ツールで個別に保管します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>APIキーをチャット欄に貼らない</strong>
+                  <p>Codex、Claude Code、ChatGPT、Chatwork、LINE、Google DocsにAPIキーを直接貼りません。AIにはキーの値ではなく、変数名と保存場所だけを伝えます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>.envで秘密情報を管理する</strong>
+                  <p>APIキー、OAuth token、Client Secretは.envに保存します。値は自分で入力し、AIには「.envを読んで使ってください」とだけ伝えます。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>AIの作業フォルダを限定する</strong>
+                  <p>デスクトップアプリで作業する時は、必要なプロジェクトフォルダだけを開きます。ホームフォルダ全体、Downloads全体、Drive全体を作業対象にしません。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>共有権限は閲覧者から始める</strong>
+                  <p>Google Docs、Sheets、Drive、GitHub、Notionなどの共有は、最初は閲覧者にします。編集者、管理者、全体公開は、必要性を確認してから設定します。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>公開前に秘密情報と個人情報を確認する</strong>
+                  <p>GitHub Pages、UTAGE、Google Docs公開、SNS投稿の前に、APIキー、OAuth token、顧客名、メールアドレス、電話番号、決済情報、内部URLが含まれていないか確認します。</p>
+                </div>
+              
+                <div>
+                  <span>07</span>
+                  <strong>画面共有と録画で秘密情報を見せない</strong>
+                  <p>.env、API管理画面、管理者画面、顧客リスト、売上管理画面を開いたまま録画しません。映った場合は、公開前に削除または非表示処理を行います。</p>
+                </div>
+              
+                <div>
+                  <span>08</span>
+                  <strong>連携アプリの権限を確認する</strong>
+                  <p>文字起こし、SNS自動化、Chrome拡張、外部ツールを使う時は、要求される権限を確認します。必要以上に広い権限を求めるツールは、導入前に代替案を検討します。</p>
+                </div>
+              
+                <div>
+                  <span>09</span>
+                  <strong>削除・送信・公開・権限変更は確認後に実行する</strong>
+                  <p>AIに作業させる時は、削除、外部送信、公開、権限変更、課金、会員情報変更を勝手に実行させません。対象、実行内容、戻し方を確認してから進めます。</p>
+                </div>
+              
+                <div>
+                  <span>10</span>
+                  <strong>流出の疑いがあるキーはすぐ無効化して再発行する</strong>
+                  <p>APIキーやtokenがチャット、公開ページ、録画、GitHub、共有ファイルに出た可能性がある場合は、使用を止めて無効化し、新しいキーを発行します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">05</span>
+        <h2>AIに見せてよい情報・見せない情報</h2>
+        <p>AIに渡す情報の判断に迷う場合は、以下の基準で分けます。判断できない時は、値や本文を渡す前に安全確認だけ依頼します。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>OK</span>
+                  <strong>見せてよい情報</strong>
+                  <p>公開済みURL、公開済み投稿、自分で作った原稿、空のテンプレート、変数名、個人情報を削除したサンプルデータ。</p>
+                </div>
+              
+                <div>
+                  <span>CHECK</span>
+                  <strong>事前確認が必要な情報</strong>
+                  <p>顧客の声、売上資料、社内運用、Chatworkのやり取り、講座メモ、会員限定コンテンツ、未公開の台本。</p>
+                </div>
+              
+                <div>
+                  <span>NG</span>
+                  <strong>見せない情報</strong>
+                  <p>APIキー、OAuth token、パスワード、2段階認証コード、バックアップコード、顧客のメールアドレス、電話番号、決済情報。</p>
+                </div>
+              
+                <div>
+                  <span>PUBLIC NG</span>
+                  <strong>公開しない情報</strong>
+                  <p>.env、tokenファイル、実顧客リスト、管理画面URL、会員サイトの内部URL、外部公開していない資料一式。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">06</span>
+        <h2>AIに絶対入れない6種類</h2>
+        <p>便利だからといって、AIに何でも貼ってはいけません。以下は対策をしたうえでもチャット本文や公開ナレッジに入れない前提で扱います。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>AUTH</span>
+                  <strong>認証情報</strong>
+                  <p>APIキー、パスワード、トークン、2FAコード、OTPは入れません。必要な場合は.envやSecretsで使わせます。</p>
+                </div>
+              
+                <div>
+                  <span>PAY</span>
+                  <strong>決済・銀行情報</strong>
+                  <p>カード番号、セキュリティコード、銀行口座番号、暗証番号は扱わせません。</p>
+                </div>
+              
+                <div>
+                  <span>ID</span>
+                  <strong>本人確認情報</strong>
+                  <p>マイナンバー、パスポート番号、運転免許証番号などはAIに渡しません。</p>
+                </div>
+              
+                <div>
+                  <span>OAUTH</span>
+                  <strong>Webhook / OAuth秘密情報</strong>
+                  <p>WebhookシークレットやOAuth refresh tokenは、漏れると外部連携を乗っ取られる可能性があります。</p>
+                </div>
+              
+                <div>
+                  <span>URL</span>
+                  <strong>トークン付き限定URL</strong>
+                  <p>限定動画、限定マニュアル、決済画面などのトークン付きURLは、実質パスワードとして扱います。</p>
+                </div>
+              
+                <div>
+                  <span>CRYPTO</span>
+                  <strong>暗号資産の秘密情報</strong>
+                  <p>秘密鍵、シードフレーズ、復元用の文字列は絶対にAIへ渡しません。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">07</span>
+        <h2>条件付きで扱える情報の3条件</h2>
+        <p>コンテンツ販売では、顧客情報、売上、Q&amp;A、契約情報を完全に避けると業務が止まります。扱う場合は、匿名化、最小化、適切なツールの3条件を満たします。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>MASK</span>
+                  <strong>匿名化する</strong>
+                  <p>氏名、メール、電話、住所、LINE ID、顧客名は伏せ字化し、本人特定できる情報を外します。</p>
+                </div>
+              
+                <div>
+                  <span>MIN</span>
+                  <strong>必要最小限にする</strong>
+                  <p>売上やKPIは集計値にし、不要列、不要行、過去データを削ってから渡します。</p>
+                </div>
+              
+                <div>
+                  <span>PLAN</span>
+                  <strong>適切なプランで扱う</strong>
+                  <p>無料版には公開情報のみ。顧客情報を扱う業務はTeam / Business以上を標準にします。</p>
+                </div>
+              
+                <div>
+                  <span>CHECK</span>
+                  <strong>送信前に一度止まる</strong>
+                  <p>エラー解決や文章作成でも、貼る前に中身を見ます。スクショにも顧客名やキーが映ることがあります。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">08</span>
+      <h2>Codex / Claude Codeで作業フォルダを限定する</h2>
+      <p>デスクトップアプリで使う場合は、最初に開くフォルダを限定します。AIに関係ないフォルダまで見せると、不要な情報を読んだり、誤って編集対象にしたりする可能性があります。</p>
+      <ul><li>作業対象のプロジェクトフォルダだけを開きます。</li><li>Downloads、Desktop、ホームフォルダ全体、Google Drive全体を作業対象にしません。</li><li>AGENTS.mdまたはCLAUDE.mdに、触ってよいフォルダと触ってはいけないフォルダを書きます。</li><li>削除や上書きが必要な場合は、対象ファイル名と理由を先に出させます。</li><li>顧客情報、決済情報、APIキーを含むフォルダは、必要な時だけ限定的に扱います。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">09</span>
+        <h2>AIに触らせる範囲を4つに分ける</h2>
+        <p>AIエージェントはファイルを読み、編集し、コマンドを実行できます。だから「見せる」「編集する」「削除する」「外部送信する」を分けて許可します。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>読み取り範囲を決める</strong>
+                  <p>作業対象フォルダ、素材フォルダ、出力フォルダだけを渡します。顧客名簿、決済、認証情報、素材原本は分けます。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>編集範囲を決める</strong>
+                  <p>編集してよいファイルと、読むだけのファイルを分けます。元本はコピーしてから加工するのが安全です。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>削除を止める</strong>
+                  <p>ファイル削除、DB更新、公開ページ上書きは自動化せず、人間確認を入れます。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>外部送信を止める</strong>
+                  <p>SNS投稿、メール、LINE、Chatwork送信、決済、請求、広告予算変更は承認前に実行しません。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">10</span>
+        <h2>公開前チェックの手順</h2>
+        <p>GitHub Pages、UTAGE、Google Docs、SNS投稿など、外部に出るものは公開前に同じ順番で確認します。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>公開対象を確認する</strong>
+                  <p>対象ファイル、対象URL、対象フォルダ、公開先を確認します。何を公開するのか曖昧なまま進めません。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>秘密情報を確認する</strong>
+                  <p>APIキー、OAuth token、パスワード、認証コード、Client Secret、.env、tokenファイルが含まれていないか確認します。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>顧客情報を確認する</strong>
+                  <p>氏名、メールアドレス、電話番号、決済情報、会員ID、個別相談の内容が含まれていないか確認します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>内部情報を確認する</strong>
+                  <p>管理画面URL、内部チャットURL、未公開の講座資料、配布前のプロンプト、社内用の手順が含まれていないか確認します。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>戻し方を確認する</strong>
+                  <p>公開後に問題が見つかった時、どのファイルを戻すのか、どのURLを非公開にするのかを確認してから公開します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">11</span>
+        <h2>Google Docs / Drive / Sheetsの共有設定</h2>
+        <p>Google Workspaceは便利ですが、共有範囲を間違えると内部情報が外部に出ます。共有前に権限を確認します。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>最初は非公開で作る</strong>
+                  <p>作成直後は自分だけが見られる状態にします。外部共有は内容確認が終わってから行います。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>共有する時は閲覧者にする</strong>
+                  <p>相手に編集してもらう必要がない場合は閲覧者にします。編集者は必要な人だけに限定します。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>リンク共有の範囲を確認する</strong>
+                  <p>「リンクを知っている全員」になっている場合は、公開してよい内容か確認します。社内用や会員限定の資料は範囲を限定します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>コメントや履歴も確認する</strong>
+                  <p>本文だけでなく、コメント、提案、変更履歴、ファイル名にも内部情報が残る場合があります。共有前に確認します。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>共有後に権限を見直す</strong>
+                  <p>作業が終わったら編集権限を外し、不要な共有相手を削除します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">12</span>
+        <h2>外注・退職者アカウント処置</h2>
+        <p>外注、業務委託、退職者、担当変更が発生した時は、感情や信頼ではなく手順で処理します。アカウントが残ったままになると、顧客情報、講座素材、APIキー、広告アカウント、決済情報へ後からアクセスできてしまいます。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>対象者の権限一覧を作る</strong>
+                  <p>Google Drive、Chatwork、UTAGE、GitHub、SNS、広告、決済、API管理画面を一覧化します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>共有ドライブとDocsの権限を外す</strong>
+                  <p>個別ファイルだけでなく、親フォルダ、共有ドライブ、リンク共有の設定も確認します。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>外部サービスのメンバー権限を削除する</strong>
+                  <p>管理者、編集者、閲覧者、API利用者、Webhook設定者を分けて確認します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>APIキーとトークンを再発行する</strong>
+                  <p>本人が見た可能性があるキーは、削除または再発行します。.envだけを消しても外部側のキーが有効なら意味がありません。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>最終アクセス日を確認する</strong>
+                  <p>ログイン履歴、ファイル閲覧履歴、公開設定変更履歴を確認し、異常があれば関係者へ共有します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">13</span>
+        <h2>ログ・アセット監視</h2>
+        <p>セキュリティは設定して終わりではありません。公開物、サムネイル、台本、講座素材、顧客情報、API利用量に異常がないか、定期的に確認します。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>LOGIN</span>
+                  <strong>ログイン履歴</strong>
+                  <p>Google、Chatwork、UTAGE、GitHub、SNS、広告アカウントのログイン履歴を確認します。</p>
+                </div>
+              
+                <div>
+                  <span>DRIVE</span>
+                  <strong>Drive変更履歴</strong>
+                  <p>重要フォルダの共有範囲、外部共有、削除、ダウンロード、オーナー変更を確認します。</p>
+                </div>
+              
+                <div>
+                  <span>ASSET</span>
+                  <strong>公開アセット</strong>
+                  <p>サムネ、LP、HTML、PDF、動画、台本に内部情報や権利上危ない素材が混ざっていないか確認します。</p>
+                </div>
+              
+                <div>
+                  <span>API</span>
+                  <strong>API利用量</strong>
+                  <p>急な利用量増加、エラー増加、知らないアプリ連携がないかを確認します。</p>
+                </div>
+              
+                <div>
+                  <span>SNS</span>
+                  <strong>SNS投稿履歴</strong>
+                  <p>予約投稿、削除済み投稿、DM自動化、外部連携ツールの権限を確認します。</p>
+                </div>
+              
+                <div>
+                  <span>REPORT</span>
+                  <strong>月次棚卸し</strong>
+                  <p>誰が何にアクセスできるかを月1回棚卸しし、不要な権限を削除します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">14</span>
+      <h2>APIキーをチャットに貼らない運用</h2>
+      <p>AIに設定作業を依頼する時でも、APIキー、アクセストークン、パスワード、顧客情報をチャット本文へ貼らない運用にします。AIには変数名、保存場所、確認手順だけを作らせ、実際の値は本人がローカルの.envへ入力します。</p>
+      <ul><li>AIには.env.exampleを作らせ、.envの実値は本人が入力します。</li><li>Slack、Chatwork、Google Docs、公開HTMLに認証情報を書きません。</li><li>外注者へ渡す場合は、本番キーではなく用途を限定したキーや権限を使います。</li><li>退職・契約終了時は、アカウント削除だけでなくAPIキーの再発行も確認します。</li><li>ログにキーが出ていないか、必要に応じて確認します。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">15</span>
+        <h2>広い権限を要求する外部アプリの扱い</h2>
+        <p>便利そうな拡張機能や外部アプリでも、権限が広すぎる場合は慎重に扱います。特にSNS、Google Drive、顧客管理、決済、会員サイトに接続するアプリは、導入前に権限と削除手順を確認します。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>権限</span>
+                  <strong>何を読めるか確認する</strong>
+                  <p>投稿、DM、顧客リスト、Drive内ファイル、決済情報など、どの範囲にアクセスするかを見ます。</p>
+                </div>
+              
+                <div>
+                  <span>期間</span>
+                  <strong>使う期間を決める</strong>
+                  <p>一度だけ使うツールは、作業後に連携解除します。常時連携が必要なものだけ残します。</p>
+                </div>
+              
+                <div>
+                  <span>代替</span>
+                  <strong>必要ならAPI/CLI方式へ寄せる</strong>
+                  <p>広い画面操作権限を要求するアプリより、用途を限定したAPIやCLIで足りる場合があります。</p>
+                </div>
+              
+                <div>
+                  <span>解除</span>
+                  <strong>削除手順を残す</strong>
+                  <p>導入時に、どこから連携解除するか、誰が解除するか、解除後に何を確認するかを記録します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">16</span>
+        <h2>UTAGE / Chatwork / 顧客情報の扱い方</h2>
+        <p>マーケティング実務では、API連携やチャット履歴に顧客情報が含まれます。公開コンテンツに混ざらないよう、扱う範囲を分けます。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>UTAGE</span>
+                  <strong>会員サイト・ファネル・決済は確認必須</strong>
+                  <p>ページ、シナリオ、決済、会員情報に関わる変更は、対象ID、変更内容、戻し方を確認してから実行します。APIキーの値は出しません。</p>
+                </div>
+              
+                <div>
+                  <span>CHATWORK</span>
+                  <strong>チャット全文をそのまま公開しない</strong>
+                  <p>公開用には、個人名、ID、内部URL、顧客情報、未公開内容を削除してから使います。必要な場合は要点だけに整理します。</p>
+                </div>
+              
+                <div>
+                  <span>CUSTOMER</span>
+                  <strong>顧客情報は匿名化する</strong>
+                  <p>氏名、メールアドレス、電話番号、購入履歴、相談内容は、公開前に削除または匿名化します。</p>
+                </div>
+              
+                <div>
+                  <span>SALES</span>
+                  <strong>売上・決済情報は集計値で扱う</strong>
+                  <p>個別の購入者情報や決済画面を出さず、必要な場合は集計値や公開してよい実績だけを使います。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">17</span>
+        <h2>画面共有・Loom撮影チェック</h2>
+        <p>画面共有や録画では、意図せず秘密情報が映ることがあります。録画開始前と公開前に確認します。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>BEFORE</span>
+                  <strong>録画前に閉じるもの</strong>
+                  <p>.env、API管理画面、Google Cloud、OpenAI Platform、Anthropic Console、UTAGE管理画面、決済管理画面、顧客リスト。</p>
+                </div>
+              
+                <div>
+                  <span>DURING</span>
+                  <strong>操作中に注意するもの</strong>
+                  <p>ブラウザのタブ名、URL、通知、ダウンロードフォルダ、チャット履歴、ファイル名、ターミナルの実行結果。</p>
+                </div>
+              
+                <div>
+                  <span>AFTER</span>
+                  <strong>公開前に確認するもの</strong>
+                  <p>APIキー、顧客情報、内部URL、管理画面、会員限定情報が映っていないか確認します。映った場合は削除または非表示処理をします。</p>
+                </div>
+              
+                <div>
+                  <span>IF SHOWN</span>
+                  <strong>映った場合の対応</strong>
+                  <p>APIキーやtokenが映った可能性がある場合は、該当キーを無効化し、新しいキーを発行します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">18</span>
+        <h2>スクショ・画面共有・録画で漏れやすい場所</h2>
+        <p>セキュリティ事故は、本文だけではなく画面にも起きます。共有前、録画前、公開前に以下を確認します。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>URL</span>
+                  <strong>URL欄・タブ・ブックマーク</strong>
+                  <p>限定URL、顧客名、案件名、管理画面タイトルが映っていないか確認します。</p>
+                </div>
+              
+                <div>
+                  <span>NOTICE</span>
+                  <strong>通知ポップアップ</strong>
+                  <p>Slack、Chatwork、LINE、メール通知に顧客名、金額、相談内容が出ないよう集中モードにします。</p>
+                </div>
+              
+                <div>
+                  <span>TERM</span>
+                  <strong>ターミナル履歴</strong>
+                  <p>環境変数、キー、過去コマンドが表示されないよう、画面共有前に整理します。</p>
+                </div>
+              
+                <div>
+                  <span>VIDEO</span>
+                  <strong>動画の全フレーム確認</strong>
+                  <p>録画は1フレームでも漏れればスクショ化されます。公開前に等倍で確認し、必要箇所はぼかします。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">19</span>
+      <h2>OAuth / 連携アプリの確認</h2>
+      <p>外部アプリやChrome拡張を使う場合は、何にアクセスできる権限を求めているかを確認します。便利そうに見えても、権限が広すぎる場合は導入前に止まります。</p>
+      <ul><li>Google Drive全体、Gmail全体、画面全体、全ファイルへのアクセスを求める場合は、目的に対して必要か確認します。</li><li>文字起こしやSNS自動化は、公式APIや必要最小限の権限で実行できる方法を優先します。</li><li>使わなくなった連携アプリは、Google、GitHub、X、Notionなどの設定画面から解除します。</li><li>OAuth tokenはAPIキーと同じ扱いです。チャット、公開ページ、録画に出しません。</li><li>権限が分からない時は、AIに「この権限で何ができるか」を説明させてから判断します。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">20</span>
+        <h2>APIキー再発行の判断基準</h2>
+        <p>APIキーは、何も問題がないのに頻繁に作り直す必要はありません。ただし、外部に出た可能性がある時はすぐに対応します。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>通常時</span>
+                  <strong>同じキーを使い続けてOK</strong>
+                  <p>安全に.envで管理できており、公開や共有に含まれていない場合は、無理に再発行する必要はありません。</p>
+                </div>
+              
+                <div>
+                  <span>再発行</span>
+                  <strong>外部に出た可能性がある時</strong>
+                  <p>チャット、公開ページ、GitHub、録画、スクリーンショット、共有ドキュメントに出た可能性があれば、無効化して再発行します。</p>
+                </div>
+              
+                <div>
+                  <span>更新</span>
+                  <strong>.envと連携設定を更新する</strong>
+                  <p>新しいキーを発行したら、.env、サービスの設定画面、自動化スクリプト、デプロイ環境の環境変数を更新します。</p>
+                </div>
+              
+                <div>
+                  <span>確認</span>
+                  <strong>古いキーが使えないことを確認する</strong>
+                  <p>古いキーを無効化し、不要なtokenや連携アプリも削除します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">21</span>
+      <h2>漏洩疑い時は削除ではなくローテーションする</h2>
+      <p>APIキーやトークンは、チャットやGitHubから消しただけでは安全になりません。第三者がすでに見た前提で、該当キーを失効し、新しいキーに差し替える必要があります。</p>
+      <ul><li>キーが画面共有、スクショ、録画、ログ、GitHub、Chatworkに出た可能性がある場合は即ローテーションします。</li><li>古いキーを無効化し、新しいキーを発行し、.envやSecretsだけを更新します。</li><li>漏れた場所を削除しても、コピー・検索キャッシュ・通知ログに残る可能性があります。</li><li>復旧後は、どこに出たか、誰が見たか、再発防止の設定をログに残します。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">22</span>
+        <h2>SNSや講座外で話してよい範囲</h2>
+        <p>講座や実務で学んだ内容を発信する時は、出してよい範囲を分けます。特に手順、テンプレート、内部資料、配布物は注意します。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>OK</span>
+                  <strong>話してよい内容</strong>
+                  <p>何を学んだか、なぜ重要か、自分が取り組む内容、公開済みツール名、一般的な気づき。</p>
+                </div>
+              
+                <div>
+                  <span>NG</span>
+                  <strong>そのまま出さない内容</strong>
+                  <p>講座内の手順書、テンプレート全文、配布プロンプト、内部チャット、会員限定ページ、未公開の制作物。</p>
+                </div>
+              
+                <div>
+                  <span>CHECK</span>
+                  <strong>迷う内容</strong>
+                  <p>具体手順、設定値、スクリーンショット、ツール連携の詳細、顧客事例、売上資料。外部に出す前に確認します。</p>
+                </div>
+              
+                <div>
+                  <span>SAFE</span>
+                  <strong>安全な出し方</strong>
+                  <p>個別名や内部情報を削除し、要点だけを自分の言葉で説明します。手順やテンプレートは会員向けの中に残します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">23</span>
+        <h2>公式リンク集</h2>
+        <p>設定画面は必ず公式サイトから開きます。検索結果の広告や不明な解説サイトからAPIキー管理画面へ入らないようにします。</p>
+        
+    <div class="source-links">
+      
+            <a href="https://support.google.com/accounts/answer/185839" target="_blank" rel="noreferrer">
+              <span>Google 2段階認証</span>
+              <small>Googleアカウントの2段階認証設定</small>
+            </a>
+          
+            <a href="https://myaccount.google.com/security-checkup" target="_blank" rel="noreferrer">
+              <span>Google セキュリティ診断</span>
+              <small>Googleアカウントの安全確認</small>
+            </a>
+          
+            <a href="https://docs.github.com/en/code-security/concepts/secret-security/about-secret-scanning" target="_blank" rel="noreferrer">
+              <span>GitHub Secret scanning</span>
+              <small>GitHubで秘密情報を検出する機能</small>
+            </a>
+          
+            <a href="https://platform.openai.com/api-keys" target="_blank" rel="noreferrer">
+              <span>OpenAI API keys</span>
+              <small>OpenAI APIキー管理画面</small>
+            </a>
+          
+            <a href="https://platform.claude.com/settings/keys" target="_blank" rel="noreferrer">
+              <span>Claude API keys</span>
+              <small>Anthropic / Claude APIキー管理画面</small>
+            </a>
+          
+    </div>
+  
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">24</span>
+      <h2>最後のチェックリスト</h2>
+      <p>AI活用を始める前、公開前、外部連携前にこの項目を確認します。1つでも不安があれば、作業を止めて確認します。</p>
+      <ul><li>主要アカウントに2段階認証を設定した。</li><li>APIキーやtokenをチャット欄に貼っていない。</li><li>.envに値を保存し、AIには変数名だけ伝えている。</li><li>Codex / Claude Codeの作業フォルダを限定している。</li><li>削除、外部送信、公開、権限変更は確認後に実行するルールにしている。</li><li>公開前にAPIキー、顧客情報、内部URL、未公開資料を確認している。</li><li>Google DriveやDocsの共有権限を閲覧者から設定している。</li><li>画面共有や録画に秘密情報が映っていない。</li><li>外部に出た可能性があるキーは無効化し、再発行する判断ができる。</li><li>迷う情報は、値を出す前に安全確認だけAIに依頼する。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">25</span>
+        <h2>外部公開前のセキュリティ停止プロトコル</h2>
+        <p>秘密情報が混入した可能性がある時は、作業を続行せずに止めます。公開前に止まれる設計が、炎上と情報漏えいを防ぎます。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>まず公開を止める</strong>
+                  <p>GitHub Pages、UTAGE、SNS投稿、予約投稿を止め、外部公開を一時停止します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>秘密情報を探す</strong>
+                  <p>APIキー、トークン、Webhook URL、顧客情報、社内URL、個人情報が含まれていないか検索します。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>漏れた可能性があるキーを再発行する</strong>
+                  <p>公開済みHTML、Git履歴、チャットログ、Slack本文に出た可能性があるキーは、削除だけでなく再発行します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>権限を棚卸しする</strong>
+                  <p>外注終了者、退職者、不要な共有アカウントのアクセス権限を剥奪します。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>再発防止ルールを追記する</strong>
+                  <p>CLAUDE.md / AGENTS.md、チェックリスト、Skillの品質チェックへ、今回の防止ルールを追加します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+            <a class="next-bonus detail-wide" href="/ai-marketing-20-bonuses-2026/pattern-01/bonus-06/">
+              <span>次の特典へ</span>
+              <strong>特典06: YouTube×AI オリジナルOS構築 All In Oneパック2.0</strong>
+            </a>
+          </section>
+        </article>
+      </main>
+    
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    document.querySelectorAll("[data-tilt]").forEach((card) => {
+      card.addEventListener("pointermove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = "rotateX(" + (-y * 4).toFixed(2) + "deg) rotateY(" + (x * 4).toFixed(2) + "deg)";
+      });
+      card.addEventListener("pointerleave", () => {
+        card.style.transform = "";
+      });
+    });
+
+    document.querySelectorAll("[data-copy-code]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const shell = button.closest(".code-shell");
+        const code = shell?.querySelector("code")?.innerText || "";
+        if (!code) return;
+        try {
+          await navigator.clipboard.writeText(code);
+          const label = button.textContent;
+          button.textContent = "コピー済み";
+          window.setTimeout(() => {
+            button.textContent = label;
+          }, 1600);
+        } catch (error) {
+          button.textContent = "コピーできませんでした";
+        }
+      });
+    });
+
+    document.querySelectorAll("[data-download-code]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const shell = button.closest(".code-shell");
+        const code = shell?.querySelector("code")?.innerText || "";
+        if (!code) return;
+        const blob = new Blob([code], { type: "text/plain;charset=utf-8" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = button.dataset.filename || "prompt.txt";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(link.href), 1200);
+      });
+    });
+  </script>
+</body>
+</html>

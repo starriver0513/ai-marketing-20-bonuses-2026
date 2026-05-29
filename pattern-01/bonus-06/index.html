@@ -1,0 +1,2383 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>特典06: YouTube×AI オリジナルOS構築 All In Oneパック2.0 | AIマーケ実践特典</title>
+  <meta name="description" content="制作時間13時間→40分、リスト単価5万円を達成したYouTube特化AIワークフローを、リサーチ、企画、サムネ、タイトル、台本、改善まで実行できる形に整理しています。">
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    :root {
+      color-scheme: dark;
+      --black: #05000d;
+      --deep: #140025;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.14);
+      --white: #fff;
+      --muted: rgba(255, 255, 255, 0.72);
+      --pink: #ef22df;
+      --purple: #7f39ff;
+      --blue: #275bff;
+      --cyan: #50e4ff;
+      --yellow: #fff24a;
+      --line: rgba(255, 255, 255, 0.18);
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      font-family: "Noto Sans JP", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+      color: var(--white);
+      background: var(--black);
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    .selector-page,
+    .pattern-page,
+    .detail-page {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .selector-page {
+      background:
+        radial-gradient(circle at 14% 12%, rgba(127, 57, 255, 0.55), transparent 26%),
+        radial-gradient(circle at 88% 26%, rgba(74, 32, 180, 0.28), transparent 28%),
+        linear-gradient(135deg, #020007 0%, #08000f 48%, #030006 100%);
+    }
+    .selector-hero,
+    .selector-patterns,
+    .selector-note,
+    .pattern-hero,
+    .bonus-section,
+    .detail-hero,
+    .detail-content {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .selector-hero {
+      min-height: 66vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 76px 0 40px;
+    }
+    .circuit-bg,
+    .pattern-page::before,
+    .detail-page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.28;
+      background-image:
+        linear-gradient(90deg, transparent 0 92%, rgba(255, 255, 255, 0.28) 92% 94%, transparent 94%),
+        linear-gradient(0deg, transparent 0 92%, rgba(255, 255, 255, 0.20) 92% 94%, transparent 94%);
+      background-size: 84px 84px;
+      mask-image: linear-gradient(120deg, black, transparent 72%);
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(46px, 9vw, 124px);
+      line-height: 0.92;
+      font-weight: 950;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      text-shadow: 0 0 28px rgba(239, 34, 223, 0.34);
+    }
+    h1 span { display: block; }
+    .lead {
+      max-width: 780px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.85;
+      overflow-wrap: anywhere;
+    }
+    .selector-meta,
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .selector-meta span,
+    .primary-cta,
+    .ghost-cta,
+    .detail-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 6px;
+      font-weight: 900;
+      font-size: 13px;
+      white-space: normal;
+    }
+    .selector-meta span {
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .selector-patterns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      padding-bottom: 42px;
+    }
+    .pattern-link {
+      min-height: 280px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+      transition: transform 240ms ease, border-color 240ms ease;
+    }
+    .pattern-link::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: conic-gradient(from 130deg, rgba(39, 91, 255, 0), rgba(239, 34, 223, 0.62), rgba(80, 228, 255, 0.24), rgba(39, 91, 255, 0));
+      animation: spin 9s linear infinite;
+      opacity: 0.52;
+    }
+    .pattern-link > * { position: relative; z-index: 1; }
+    .pattern-link:hover { transform: translateY(-6px); border-color: rgba(255, 255, 255, 0.5); }
+    .pattern-link span { color: var(--cyan); font-weight: 900; }
+    .pattern-link strong { margin-top: 12px; font-size: 30px; line-height: 1.05; }
+    .pattern-link small { margin-top: 12px; color: var(--muted); line-height: 1.7; font-size: 14px; }
+    .selector-note {
+      margin-bottom: 56px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .selector-note h2 { margin: 0 0 10px; }
+    .selector-note p { margin: 0; color: var(--muted); line-height: 1.8; }
+
+    .theme-dark-neon {
+      background:
+        radial-gradient(circle at 80% 14%, rgba(39, 91, 255, 0.44), transparent 24%),
+        radial-gradient(circle at 18% 36%, rgba(239, 34, 223, 0.34), transparent 28%),
+        linear-gradient(135deg, #05000d 0%, #150028 46%, #060011 100%);
+    }
+    .theme-white-roadmap {
+      color: #fff;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(39, 91, 255, 0.18), transparent 23%),
+        radial-gradient(circle at 86% 10%, rgba(127, 57, 255, 0.24), transparent 28%),
+        linear-gradient(135deg, #020007 0%, #090012 54%, #030006 100%);
+      --panel: rgba(255, 255, 255, 0.075);
+      --panel-strong: rgba(255, 255, 255, 0.12);
+      --line: rgba(255, 255, 255, 0.16);
+      --muted: rgba(255, 255, 255, 0.74);
+      --white: #fff;
+      --pink: #8f3dff;
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+    }
+    .theme-live-stage {
+      background:
+        linear-gradient(164deg, transparent 0 28%, rgba(239, 34, 223, 0.86) 29% 54%, transparent 55%),
+        radial-gradient(circle at 52% 25%, rgba(239, 34, 223, 0.36), transparent 20%),
+        linear-gradient(135deg, #03030a 0%, #120016 52%, #04000a 100%);
+    }
+    .top-nav {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 66px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      position: relative;
+      z-index: 5;
+    }
+    .top-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .pattern-hero {
+      min-height: 720px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.96fr) minmax(320px, 1.04fr);
+      gap: 36px;
+      align-items: center;
+      padding: 32px 0 56px;
+    }
+    .hero-copy { min-width: 0; }
+    .hero-actions a {
+      padding: 0 18px;
+      border: 1px solid var(--line);
+    }
+    .primary-cta {
+      color: white;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+      border-color: transparent !important;
+      box-shadow: 0 0 34px rgba(239, 34, 223, 0.26);
+    }
+    .ghost-cta { background: var(--panel); }
+    .hero-thumbnail,
+    .detail-thumb {
+      min-width: 0;
+      transform: rotate(-1.2deg);
+    }
+    .thumb-placeholder {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      min-height: 0;
+      border: 2px solid rgba(255, 255, 255, 0.24);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(39, 91, 255, 0.82), rgba(239, 34, 223, 0.82)),
+        #10001f;
+      box-shadow: var(--shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 22px;
+    }
+    .theme-white-roadmap .thumb-placeholder {
+      border-color: rgba(255, 255, 255, 0.18);
+      background:
+        linear-gradient(135deg, rgba(39, 91, 255, 0.52), rgba(143, 61, 255, 0.58)),
+        #090012;
+    }
+    .thumb-placeholder.has-image {
+      padding: 0;
+      background: #05000d;
+    }
+    .thumb-placeholder.has-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .thumb-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.42;
+    }
+    .thumb-glow {
+      position: absolute;
+      width: 50%;
+      aspect-ratio: 1;
+      top: -22%;
+      right: -12%;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.32);
+      filter: blur(8px);
+      animation: pulse 3.4s ease-in-out infinite;
+    }
+    .bonus-section {
+      padding: 72px 0 80px;
+    }
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px 24px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+    .section-heading p {
+      grid-column: 1 / -1;
+      margin: 0;
+      color: var(--pink);
+      font-weight: 950;
+    }
+    .section-heading h1,
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 68px);
+      line-height: 1;
+    }
+    .theme-white-roadmap .section-heading h1 {
+      text-shadow:
+        0 10px 28px rgba(42, 92, 255, 0.28),
+        0 3px 10px rgba(143, 61, 255, 0.28);
+    }
+    .section-heading span {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+      max-width: 360px;
+      line-height: 1.7;
+    }
+    .bonus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .bonus-card {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+    .bonus-card:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    .bonus-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .bonus-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+    .bonus-topline b {
+      color: var(--muted);
+      font-weight: 900;
+    }
+    .bonus-card h2 {
+      margin: 14px 0 0;
+      min-height: 64px;
+      font-size: 24px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+    .bonus-card p {
+      min-height: 84px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 12px 0 0;
+    }
+    .detail-link {
+      width: 100%;
+      margin-top: auto;
+      color: white;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+    }
+    .detail-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+      gap: 36px;
+      align-items: center;
+      padding: 46px 0 40px;
+    }
+    .detail-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.58fr);
+      gap: 18px;
+      padding-bottom: 80px;
+    }
+    .detail-panel,
+    .next-bonus {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    .theme-white-roadmap .detail-panel,
+    .theme-white-roadmap .detail-stat-grid div,
+    .theme-white-roadmap .detail-map div,
+    .theme-white-roadmap .info-card-grid div,
+    .theme-white-roadmap .step-list div,
+    .theme-white-roadmap .source-links a,
+    .theme-white-roadmap .source-note {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+    .detail-panel h2 {
+      margin: 0 0 18px;
+      font-size: 28px;
+    }
+    .detail-panel p {
+      color: var(--muted);
+      line-height: 1.85;
+      margin: 0;
+    }
+    .deliverable-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .deliverable-grid div {
+      min-height: 104px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: var(--panel-strong);
+    }
+    .deliverable-grid span {
+      display: block;
+      width: 30px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+    }
+    .deliverable-grid p {
+      margin-top: 18px;
+      color: var(--white);
+      font-weight: 900;
+    }
+    .next-bonus {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 220px;
+      background: linear-gradient(135deg, rgba(39, 91, 255, 0.35), rgba(239, 34, 223, 0.35)), var(--panel);
+    }
+    .next-bonus span {
+      color: var(--yellow);
+      font-weight: 950;
+      margin-bottom: 10px;
+    }
+    .next-bonus strong {
+      font-size: 28px;
+      line-height: 1.25;
+    }
+    .rich-hero h1 {
+      font-size: clamp(38px, 6vw, 82px);
+      line-height: 1.03;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+    .hero-badges span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .detail-rich {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      padding: 0 0 80px;
+    }
+    .detail-wide,
+    .source-note,
+    .detail-stat-grid,
+    .detail-map {
+      grid-column: 1 / -1;
+    }
+    .source-note {
+      margin: 0;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--muted);
+      line-height: 1.8;
+      font-weight: 800;
+    }
+    .detail-stat-grid,
+    .detail-map,
+    .info-card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .detail-stat-grid div,
+    .detail-map div,
+    .info-card-grid div,
+    .step-list div,
+    .source-links a {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 18px;
+      min-width: 0;
+    }
+    .detail-stat-grid span,
+    .detail-map span,
+    .info-card-grid span,
+    .step-list span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      min-height: 26px;
+      padding: 0 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+      color: white;
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .detail-stat-grid strong,
+    .detail-map strong,
+    .info-card-grid strong,
+    .step-list strong,
+    .source-links span {
+      display: block;
+      margin-top: 12px;
+      color: var(--white);
+      font-size: 19px;
+      line-height: 1.35;
+      font-weight: 950;
+      overflow-wrap: anywhere;
+    }
+    .detail-stat-grid p,
+    .detail-map p,
+    .info-card-grid p,
+    .step-list p,
+    .source-links small {
+      display: block;
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 14px;
+    }
+    .detail-panel ul {
+      margin: 16px 0 0;
+      padding-left: 1.25em;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+    .detail-panel li + li {
+      margin-top: 8px;
+    }
+    .step-list {
+      display: grid;
+      gap: 12px;
+    }
+    .code-panel {
+      margin: 16px 0 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(4, 1, 12, 0.86);
+      color: #f7f4ff;
+      overflow-x: auto;
+      white-space: pre;
+      line-height: 1.65;
+      font-size: 13px;
+    }
+    .code-shell {
+      margin-top: 16px;
+    }
+    .code-shell .code-panel {
+      margin-top: 10px;
+    }
+    .code-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .code-actions button {
+      appearance: none;
+      border: 1px solid rgba(127, 57, 255, 0.32);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(127, 57, 255, 0.95), rgba(239, 34, 223, 0.9));
+      color: #fff;
+      cursor: pointer;
+      font-weight: 900;
+      letter-spacing: 0;
+      padding: 10px 14px;
+      transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+    }
+    .code-actions button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(127, 57, 255, 0.22);
+    }
+    .code-actions button:active {
+      transform: translateY(0);
+      opacity: 0.82;
+    }
+    .anchor-nav {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .anchor-nav a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 56px;
+      padding: 12px 16px;
+      border: 1px solid rgba(127, 57, 255, 0.22);
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      background: linear-gradient(135deg, rgba(50, 22, 95, 0.92), rgba(105, 48, 190, 0.82));
+      box-shadow: 0 14px 34px rgba(40, 16, 82, 0.18);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+    .anchor-nav a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(239, 34, 223, 0.5);
+      box-shadow: 0 18px 38px rgba(105, 48, 190, 0.24);
+    }
+    .anchor-nav span {
+      font-weight: 950;
+      line-height: 1.35;
+    }
+    .anchor-nav small {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.45;
+      text-align: right;
+    }
+    .theme-white-roadmap .code-panel {
+      background: #120824;
+      color: #fff;
+    }
+    .source-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .source-links a {
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+    .source-links a:hover {
+      transform: translateY(-3px);
+      border-color: rgba(239, 34, 223, 0.48);
+    }
+    .guide-page.theme-dark-neon,
+    .guide-page.theme-white-roadmap,
+    .guide-page.theme-live-stage {
+      color: #241631;
+      background: #f5f6fa;
+      --white: #241631;
+      --muted: #675a72;
+      --panel: #fff;
+      --panel-strong: #fff7fd;
+      --line: rgba(80, 53, 112, 0.14);
+      --shadow: 0 22px 60px rgba(52, 27, 91, 0.12);
+    }
+    .guide-page {
+      overflow: visible;
+    }
+    .guide-page::before {
+      display: none;
+    }
+    .guide-top-nav {
+      min-height: 60px;
+      justify-content: space-between;
+      color: #31213d;
+    }
+    .guide-top-nav a {
+      background: #fff;
+      border-color: rgba(80, 53, 112, 0.14);
+      box-shadow: 0 10px 28px rgba(52, 27, 91, 0.08);
+    }
+    .guide-shell {
+      width: min(860px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 0 0 88px;
+    }
+    .guide-header {
+      padding: 8px 0 28px;
+    }
+    .guide-main-visual .thumb-placeholder {
+      border: none;
+      border-radius: 0;
+      box-shadow: 0 16px 42px rgba(52, 27, 91, 0.16);
+    }
+    .guide-title-card {
+      margin: 22px auto 0;
+      padding: 24px;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, #2a1455 0%, #55239d 58%, #8f3dff 100%);
+      box-shadow: 0 18px 44px rgba(88, 35, 157, 0.24);
+    }
+    .guide-title-card .eyebrow {
+      color: #ff79dc;
+      margin-bottom: 12px;
+    }
+    .guide-title-card h1 {
+      font-size: clamp(28px, 6vw, 52px);
+      line-height: 1.16;
+      text-shadow: none;
+    }
+    .guide-title-card .lead {
+      max-width: none;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+    .guide-title-card .hero-badges span {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+    .guide-actions {
+      width: min(620px, 100%);
+      margin: 16px auto 0;
+      display: grid;
+      gap: 8px;
+    }
+    .guide-action {
+      min-height: 54px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      color: #fff;
+      text-align: center;
+      font-weight: 950;
+      background: linear-gradient(180deg, #33de12 0%, #16a900 100%);
+      border: 1px solid rgba(10, 127, 0, 0.28);
+      box-shadow: 0 12px 26px rgba(28, 187, 0, 0.22);
+    }
+    .guide-action small {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+    .guide-content {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
+    .guide-page .source-note,
+    .guide-page .detail-panel {
+      margin: 0 0 22px;
+      padding: 26px;
+      border: 1px solid #eadff6;
+      border-top: 5px solid #ef22df;
+      border-radius: 8px;
+      color: #241631;
+      background: #fff;
+      box-shadow: 0 16px 36px rgba(52, 27, 91, 0.09);
+    }
+    .guide-page .source-note {
+      color: #5c4f66;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .guide-section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      min-height: 30px;
+      padding: 0 10px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 950;
+      background: linear-gradient(90deg, #ef22df, #7f39ff);
+    }
+    .guide-page .detail-panel h2 {
+      margin: 0 0 16px;
+      color: #241631;
+      font-size: clamp(24px, 4vw, 34px);
+      line-height: 1.32;
+    }
+    .guide-page .detail-panel p,
+    .guide-page .detail-panel ul,
+    .guide-page .detail-panel li {
+      color: #5c4f66;
+      font-size: 15px;
+      line-height: 1.95;
+    }
+    .guide-page .info-card-grid,
+    .guide-page .source-links {
+      grid-template-columns: 1fr;
+    }
+    .guide-page .info-card-grid div,
+    .guide-page .step-list div {
+      background: #fff7fd;
+      border-color: #f2d8f4;
+      box-shadow: none;
+    }
+    .guide-page .info-card-grid strong,
+    .guide-page .step-list strong {
+      color: #241631;
+    }
+    .guide-page .info-card-grid p,
+    .guide-page .step-list p {
+      color: #5c4f66;
+    }
+    .guide-page .source-links a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 58px;
+      padding: 12px 18px;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(180deg, #33de12 0%, #16a900 100%);
+      border-color: rgba(10, 127, 0, 0.24);
+      box-shadow: 0 10px 24px rgba(28, 187, 0, 0.16);
+    }
+    .guide-page .source-links span {
+      color: #fff;
+      margin-top: 0;
+    }
+    .guide-page .source-links small {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .guide-page .code-panel {
+      background: #241034;
+      color: #fff;
+      border-color: rgba(127, 57, 255, 0.26);
+      white-space: pre-wrap;
+    }
+    .guide-page .next-bonus {
+      width: min(620px, 100%);
+      min-height: auto;
+      margin: 36px auto 0;
+      padding: 18px 22px;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(90deg, #2f7dff, #8f3dff);
+      border: none;
+      box-shadow: 0 16px 34px rgba(47, 125, 255, 0.18);
+    }
+    .guide-page .next-bonus span {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .guide-page .next-bonus strong {
+      color: #fff;
+      font-size: 19px;
+    }
+    .hero-effects span {
+      position: absolute;
+      pointer-events: none;
+    }
+    .orb {
+      width: 150px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 18px solid rgba(239, 34, 223, 0.58);
+      animation: float 6s ease-in-out infinite;
+    }
+    .orb-a { top: 80px; right: 6%; }
+    .orb-b { bottom: 180px; left: -40px; border-color: rgba(39, 91, 255, 0.58); animation-delay: -2s; }
+    .slash {
+      width: 220px;
+      height: 120px;
+      background: repeating-linear-gradient(135deg, rgba(255,255,255,0.6) 0 4px, transparent 4px 16px);
+      opacity: 0.38;
+      transform: rotate(-12deg);
+    }
+    .slash-a { top: 18%; left: 4%; }
+    .slash-b { right: 3%; bottom: 10%; }
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeUp 640ms ease both;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.34; }
+      50% { transform: scale(1.18); opacity: 0.52; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 980px) {
+      .selector-patterns,
+      .pattern-hero,
+      .detail-hero,
+      .detail-content {
+        grid-template-columns: 1fr;
+      }
+      .detail-stat-grid,
+      .detail-map,
+      .info-card-grid,
+      .source-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .bonus-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-thumbnail,
+      .detail-thumb {
+        transform: none;
+      }
+      .detail-content {
+        padding-bottom: 56px;
+      }
+      .guide-shell {
+        width: min(860px, calc(100% - 28px));
+      }
+      .guide-page .detail-rich {
+        width: 100%;
+        padding: 0;
+      }
+    }
+    @media (max-width: 620px) {
+      .selector-hero,
+      .selector-patterns,
+      .selector-note,
+      .pattern-hero,
+      .bonus-section,
+      .detail-hero,
+      .detail-content,
+      .top-nav {
+        width: min(100% - 28px, 1180px);
+      }
+      .selector-hero {
+        min-height: auto;
+        padding-top: 54px;
+      }
+      .selector-patterns {
+        grid-template-columns: 1fr;
+      }
+      .pattern-link {
+        min-height: 230px;
+      }
+      .pattern-hero {
+        min-height: auto;
+        padding-top: 18px;
+      }
+      h1 {
+        font-size: clamp(42px, 18vw, 74px);
+        line-height: 0.98;
+      }
+      .lead {
+        font-size: 16px;
+      }
+      .section-heading {
+        grid-template-columns: 1fr;
+      }
+      .bonus-card h2 {
+        min-height: auto;
+        font-size: 21px;
+      }
+      .bonus-card p {
+        min-height: auto;
+      }
+      .deliverable-grid {
+        grid-template-columns: 1fr;
+      }
+      .detail-rich {
+        width: min(100% - 28px, 1180px);
+        grid-template-columns: 1fr;
+        padding-bottom: 56px;
+      }
+      .detail-stat-grid,
+      .detail-map,
+      .info-card-grid,
+      .source-links {
+        grid-template-columns: 1fr;
+      }
+      .thumb-placeholder {
+        padding: 16px;
+      }
+      .thumb-placeholder strong {
+        font-size: clamp(28px, 10vw, 46px);
+      }
+      .top-nav {
+        justify-content: flex-start;
+      }
+      .guide-top-nav {
+        justify-content: space-between;
+      }
+      .guide-title-card,
+      .guide-page .detail-panel {
+        padding: 20px;
+      }
+      .guide-title-card h1 {
+        font-size: clamp(27px, 10vw, 42px);
+      }
+      .guide-page .detail-rich {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body class="theme-dark-neon">
+  
+      <main class="detail-page guide-page theme-dark-neon">
+        <nav class="top-nav guide-top-nav">
+          <a href="/ai-marketing-20-bonuses-2026/pattern-01/">特典一覧</a>
+        </nav>
+        <article class="guide-shell">
+          <header class="guide-header">
+            <div class="guide-main-visual">
+            
+    <div class="thumb-placeholder dark-neon has-image" aria-label="BONUS 06">
+      <img src="/ai-marketing-20-bonuses-2026/assets/bonuses/bonus-06.png" alt="特典06: YouTube×AI オリジナルOS構築 All In Oneパック2.0" loading="lazy">
+    </div>
+  
+            </div>
+            <div class="guide-title-card">
+              <p class="eyebrow">BONUS 06 / YOUTUBE AI SCRIPTING</p>
+              <h1><span>YouTube×AI</span><span>オリジナルOS構築</span><span>All In Oneパック2.0</span></h1>
+              <p class="lead">伸びて売れるおさる式YouTube台本をフルAIで実行するための手順集です。企画、リサーチ、サムネ、タイトル、台本、CTA、改善、Skill化までを、初心者でも順番通りに進められる形にまとめました。</p>
+              
+            </div>
+            
+          </header>
+          <section class="detail-rich guide-content">
+            
+            
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">01</span>
+        <h2>台本制作GPTs 2.0</h2>
+        
+        
+    <div class="source-links">
+      
+            <a href="#" target="_blank" rel="noreferrer">
+              <span>GPTsを受け取る</span>
+              <small></small>
+            </a>
+          
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">02</span>
+        <h2>おさる式AI×台本制作 完全攻略マニュアル</h2>
+        <p>YouTube台本制作は、本文を書く作業だけを短縮しても成果につながりにくいです。企画、構成、台本を分け、それぞれの前後に人間の判断ポイントを置くことで、AIの出力を実務で使える品質に近づけます。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>企画</strong>
+                  <p>自社チャンネルの過去動画、競合動画、検索ワード、視聴者の悩みから、今回狙う軸を決めます。企画候補は複数出し、重複チェック後に本番化します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>構成</strong>
+                  <p>高反応動画と低反応動画の両方を見て、採用要素と回避要素を分けます。冒頭、章立て、CTA位置、厚く説明する箇所を先に決めます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>台本</strong>
+                  <p>過去台本をできるだけ多く読み、口調、断定、疑問の投げ方、数字の見せ方、終わり方の型を抽出してから本文を書きます。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>品質確認</strong>
+                  <p>文字数を埋めるための水増し、競合台本に近すぎる表現、CTAの唐突さ、事実確認できない数字をチェックします。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>Skill化</strong>
+                  <p>修正理由を残し、企画判断、構成作成、台本生成、品質チェックの順にSkillへ反映します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">03</span>
+      <h2>はじめに：YouTubeは台本から始めない</h2>
+      <p>YouTubeで最初に決めるべきなのは、台本ではありません。まず確認するのは、今どんな悩みが検索され、どんな動画が見られ、どんなサムネとタイトルでクリックされているかです。AIにいきなり「台本を書いて」と頼むと、一般論が多い台本になりやすいです。まず市場の反応を確認し、企画を決め、サムネとタイトルを決め、そのあとに台本を作ります。</p>
+      
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">04</span>
+        <h2>この特典で作るYouTube制作の流れ</h2>
+        <p>YouTube運用でAIに任せる範囲を明確にします。編集や撮影の前に、視聴者が見るかどうかを決める工程を固めます。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>RESEARCH</span>
+                  <strong>今見られている動画を探す</strong>
+                  <p>検索キーワード、登録者数、再生回数、サムネ、タイトル、コメントを集めます。</p>
+                </div>
+              
+                <div>
+                  <span>PLANNING</span>
+                  <strong>企画を選ぶ</strong>
+                  <p>登録者数に対する再生回数を見て、需要がありそうなテーマを選びます。</p>
+                </div>
+              
+                <div>
+                  <span>THUMBNAIL</span>
+                  <strong>サムネ文言を決める</strong>
+                  <p>視聴者が一瞬で内容を理解できる言葉を決めます。デザインより先に文字を決めます。</p>
+                </div>
+              
+                <div>
+                  <span>TITLE</span>
+                  <strong>タイトルを決める</strong>
+                  <p>検索される言葉を前半に置き、サムネと同じ内容を繰り返さないようにします。</p>
+                </div>
+              
+                <div>
+                  <span>SCRIPT</span>
+                  <strong>台本構成と本文を作る</strong>
+                  <p>冒頭、本文、まとめ、CTAを分けて作り、AIに一気に任せすぎないようにします。</p>
+                </div>
+              
+                <div>
+                  <span>IMPROVE</span>
+                  <strong>改善内容を残す</strong>
+                  <p>修正した理由をナレッジやSkillに追加し、次回の台本作成に使える状態にします。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">05</span>
+        <h2>YouTube制作はこの順番で進める</h2>
+        <p>初心者はこの順番を固定してください。順番を変えると、台本は書けても視聴されにくい動画になります。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>検索キーワードを決める</strong>
+                  <p>視聴者が実際に検索しそうな悩みの言葉を出します。商品名や自分が話したいことから始めないようにします。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>YouTubeで候補動画を集める</strong>
+                  <p>検索結果、関連動画、同ジャンルの動画から、登録者数に対して再生回数が大きい動画を集めます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>候補動画をスプレッドシートに入れる</strong>
+                  <p>タイトル、URL、チャンネル名、登録者数、再生回数、コメント数、サムネ文言、公開日を残します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>AIに企画候補を作らせる</strong>
+                  <p>候補動画の共通点を分析し、自分のチャンネルに合わせた企画案を複数作らせます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>サムネとタイトルを先に決める</strong>
+                  <p>クリックされるかどうかは、台本より前にサムネとタイトルで大きく決まります。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>台本構成を作る</strong>
+                  <p>本文を書かせる前に、冒頭、本編、反論処理、まとめ、CTAの順番だけを確認します。</p>
+                </div>
+              
+                <div>
+                  <span>07</span>
+                  <strong>台本本文を作る</strong>
+                  <p>構成が決まってから本文を書かせます。話し言葉で、撮影時に読める文章にします。</p>
+                </div>
+              
+                <div>
+                  <span>08</span>
+                  <strong>品質チェックと修正をする</strong>
+                  <p>冒頭の弱さ、抽象度、専門用語、CTAの自然さを確認し、修正内容を次回に残します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">06</span>
+        <h2>制作工程は企画・構成・台本に分ける</h2>
+        <p>YouTube制作をAI化する時に、全部を一つの依頼にまとめると品質が落ちます。企画、構成、台本は、必要な情報も判断基準も違います。だから工程を分けて、人間の確認ポイントを挟みながら進めます。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>01</span>
+                  <strong>企画</strong>
+                  <p>当てる仮説を作る工程です。過去動画、競合動画、検索ワード、視聴者の悩みから、今回狙う軸を決めます。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>構成</strong>
+                  <p>伝える順番と尺を決める工程です。高反応動画と低反応動画の差分から、厚く書く場所と削る場所を決めます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>台本</strong>
+                  <p>発信者本人の言葉で書き下ろす工程です。過去台本の口調、断定、文の切り方、終わり方の型を反映します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">07</span>
+        <h2>AI駆動型YouTube制作5工程</h2>
+        <p>YouTube台本制作は、本文作成だけをAI化しても浅くなります。実務では、リサーチ、企画提案、構成設計、台本生成、校正・品質チェックまでを分けて進めます。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>リサーチ</strong>
+                  <p>自社チャンネルの過去動画、競合動画、検索キーワード、コメント、シークバーの山と谷を見ます。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>企画提案</strong>
+                  <p>伸びる仮説を複数出します。企画ごとに、狙い、視聴者の悩み、被りチェック、採用理由を付けます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>構成設計</strong>
+                  <p>冒頭、章立て、厚く話す箇所、削る箇所、CTA、終わり方の型を決めます。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>台本生成</strong>
+                  <p>過去台本から抽出した話し方、断定の入れ方、疑問の投げ方、具体例の出し方を反映します。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>校正・品質ゲート</strong>
+                  <p>AIっぽさ、抽象論、数字の根拠、冒頭の遅さ、CTAの自然さを確認して修正します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">08</span>
+        <h2>企画選定の判断基準プロンプト</h2>
+        <p>AIに企画案を出させる時は、案だけでなく判断基準も出させます。人間は、どの企画を本番化するかを判断します。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="企画選定の判断基準プロンプト.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code>YouTube企画案を5つ出してください。
+
+# 入力情報
+チャンネルテーマ:
+今回扱いたいテーマ:
+過去に伸びた動画:
+競合で伸びている動画:
+案内したい商品・無料特典:
+
+# 各企画で出してほしい項目
+1. 企画タイトル
+2. 視聴者の悩み
+3. 動画で約束すること
+4. 伸びる可能性がある理由
+5. 過去動画や競合動画との被り
+6. 差別化できる点
+7. サムネ文言案
+8. タイトル案
+9. 採用する場合の注意点
+
+# 条件
+- 企画だけでなく、採用・不採用を判断できる理由まで出す
+- 事実確認できない数字は使わない
+- 既存企画と被る場合は必ず指摘する
+- 最終決定は人間ができるように比較表にする</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">09</span>
+        <h2>制作パイプラインと重複チェック</h2>
+        <p>企画案は、いきなり本番台本にしません。まず候補として置き、既存動画、進行中企画、過去に外したテーマと重複していないか確認してから本番化します。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>企画候補を3本出す</strong>
+                  <p>狙う悩み、競合の反応、自社チャンネルとの相性を添えて出します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>サンドボックスに置く</strong>
+                  <p>まだ本番化せず、候補として管理します。過去動画や進行中企画と被っていないか確認します。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>人間が採用判断する</strong>
+                  <p>外せない要素、今月の販売導線、撮影しやすさを確認します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>本番パイプラインに昇格する</strong>
+                  <p>採用企画だけを構成作成へ進めます。見送り企画も理由を残し、次回の判断に使います。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">10</span>
+        <h2>構成は高反応と低反応を両方見る</h2>
+        <p>構成は勘で作らず、同じテーマ軸の動画を見て決めます。伸びた動画だけを見ると、避けるべき要素が分かりません。伸びた動画と伸びなかった動画を両方見て、採用要素と回避要素を分けます。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>同じインサイト軸の動画を集める</strong>
+                  <p>自社動画と競合動画から、近いテーマの動画を集めます。各3〜5本を目安にします。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>冒頭と章立てを見る</strong>
+                  <p>どの悩みから入り、どの順番で説明しているかを整理します。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>CTA位置を見る</strong>
+                  <p>最後だけでなく、途中の案内、固定コメント、概要欄との接続も確認します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>シークバーの山と谷を見る</strong>
+                  <p>巻き戻されている箇所と離脱されている箇所を見て、厚く書く場所と削る場所を決めます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>終わり方の型を守る</strong>
+                  <p>ラスト整理、CTA、行動ステップ、エンディングなど、チャンネル固有の順番を崩さないようにします。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">11</span>
+      <h2>台本は過去台本を全部読ませて書き方を抽出する</h2>
+      <p>台本で重要なのは、きれいな文章ではなく、その発信者が話しているように聞こえることです。過去台本を少量だけ読むのではなく、できるだけ多く読み、断定の入れ方、口癖、数字の見せ方、文の切り方、疑問の投げ方、具体エピソードの入れ方を指示書に落とします。</p>
+      <ul><li>「特徴抽出して」だけで終わらせず、どこで何を入れるかまで指定します。</li><li>強い断定を入れる場所を指定します。</li><li>視聴者に疑問を投げかける場所を指定します。</li><li>具体エピソードを差し込む場所を指定します。</li><li>終わり方の型を崩さないようにします。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">12</span>
+        <h2>文字数は実測ペースで決める</h2>
+        <p>台本の文字数は、なんとなく決めません。発信者本人の過去台本から、1分あたり何文字で話しているかを測ります。目安は1分400字ですが、人によって違うため、過去台本で確認します。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>20MIN</span>
+                  <strong>20分動画</strong>
+                  <p>目安は約8,000字です。ただし不足したら水増しせず、具体例や反論処理が足りないと考えます。</p>
+                </div>
+              
+                <div>
+                  <span>30MIN</span>
+                  <strong>30分動画</strong>
+                  <p>目安は約12,000字です。章ごとの情報量が偏らないように調整します。</p>
+                </div>
+              
+                <div>
+                  <span>CHECK</span>
+                  <strong>水増し禁止</strong>
+                  <p>文字数を埋めるための抽象論は入れません。足りない時は、読者が納得する材料を追加します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">13</span>
+        <h2>品質ゲートで見る項目</h2>
+        <p>台本ができたら、投稿前に必ず品質ゲートを通します。特に、文字数を増やすための水増し、競合台本に近すぎる表現、CTAの唐突さを確認します。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>冒頭</span>
+                  <strong>30秒以内に約束を回収しているか</strong>
+                  <p>視聴者が何を得られるか、なぜ見るべきかが遅すぎないかを見ます。</p>
+                </div>
+              
+                <div>
+                  <span>構成</span>
+                  <strong>厚く話す箇所が明確か</strong>
+                  <p>シークバーの山、競合の高反応箇所、読者の悩みが深い箇所を厚くします。</p>
+                </div>
+              
+                <div>
+                  <span>人格</span>
+                  <strong>その人の話し方になっているか</strong>
+                  <p>口癖を雑に混ぜるのではなく、断定、疑問、具体例、終わり方の型を自然に反映します。</p>
+                </div>
+              
+                <div>
+                  <span>数字</span>
+                  <strong>実測と根拠があるか</strong>
+                  <p>時間短縮、成果、文字数、再生数などは、確認できるものだけ使います。</p>
+                </div>
+              
+                <div>
+                  <span>CTA</span>
+                  <strong>動画内容と自然につながるか</strong>
+                  <p>無料特典、LINE、セミナー、個別相談への案内が、本文の結論とつながっているかを見ます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">14</span>
+        <h2>AIに渡す情報はこの6つ</h2>
+        <p>AIに「いい台本を書いて」と頼むだけでは足りません。毎回、次の情報を入れることで出力の精度が上がります。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>01</span>
+                  <strong>自分の実績・話し方</strong>
+                  <p>誰が話す動画なのか、一人称、実績、言い切り方、よく使う表現を入れます。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>商品・サービス情報</strong>
+                  <p>最終的に案内したい商品、無料特典、LINE登録、個別相談などの情報を入れます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>顧客の悩み</strong>
+                  <p>コメント、相談内容、DM、面談で出た悩みをそのまま入れます。年齢や性別よりも実際の言葉を優先します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>過去台本・過去投稿</strong>
+                  <p>自分のチャンネルやSNSで反応が出た内容を入れます。口調と構成の再現に使います。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>候補動画のデータ</strong>
+                  <p>登録者数、再生回数、サムネ、タイトル、コメントをまとめます。企画判断に使います。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>今回の動画ゴール</strong>
+                  <p>LINE登録、資料請求、個別相談、講座申し込みなど、視聴後に取ってほしい行動を決めます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">15</span>
+      <h2>YouTube APIとスプレッドシートで何を自動化するのか</h2>
+      <p>YouTube Data APIは、動画検索、動画情報、チャンネル情報などを取得するために使います。スプレッドシートは、取得した動画データを一覧化し、企画判断や台本作成に使うための管理場所です。初心者は、まず手動で検索してシートに入れるだけでも大丈夫です。慣れてきたら、CodexやClaude Codeに依頼してAPI取得とシート整理を自動化します。</p>
+      
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">16</span>
+        <h2>リサーチシートに入れるカラム</h2>
+        <p>最初から複雑にしすぎる必要はありません。まずは企画判断に必要な列を固定します。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>リサーチ日・検索キーワード</strong>
+                  <p>いつ、どの言葉で調べた動画なのかを残します。後から見返したときに判断しやすくなります。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>チャンネル名・チャンネルURL</strong>
+                  <p>どのチャンネルの動画かを残します。急成長しているチャンネルの把握にも使えます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>登録者数・再生回数</strong>
+                  <p>最重要です。登録者数に対して再生回数が大きい動画は、企画に需要がある可能性があります。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>サムネ画像・サムネ文言</strong>
+                  <p>デザインではなく、最初に文字を見ます。どんな言葉でクリックを作っているかを確認します。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>タイトル・動画URL</strong>
+                  <p>キーワード、文字数、前半に置かれている言葉を見ます。URLは文字起こし取得にも使います。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>コメント数・コメント内容</strong>
+                  <p>企画判断では再生回数比率を優先しますが、台本作成ではコメントが重要です。悩みの言葉を拾えます。</p>
+                </div>
+              
+                <div>
+                  <span>07</span>
+                  <strong>公開日・動画時間</strong>
+                  <p>最近反応が出ている動画か、長尺か短尺かを見ます。古すぎる動画だけを基準にしないようにします。</p>
+                </div>
+              
+                <div>
+                  <span>08</span>
+                  <strong>AI分析メモ</strong>
+                  <p>なぜ見られたのか、自分の動画に変換するならどうするかをAIに書かせて残します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">17</span>
+        <h2>スプレッドシート作成プロンプト</h2>
+        <p>CodexまたはClaude Codeにそのまま依頼できます。最初はローカルでCSVを作り、その後Google Sheetsへ貼り付けてもOKです。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="スプレッドシート作成プロンプト.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code>YouTubeリサーチ用のスプレッドシートを作りたいです。
+初心者でも使えるように、以下の列を持つ表を作ってください。
+
+- リサーチ日
+- 検索キーワード
+- チャンネル名
+- チャンネルURL
+- 登録者数
+- サムネ画像URL
+- サムネ文言
+- タイトル
+- 動画URL
+- 動画時間
+- 再生回数
+- いいね数
+- コメント数
+- 公開日
+- 再生回数 ÷ 登録者数
+- 視聴者の悩み
+- 企画として使える理由
+- 自分のチャンネルで作る場合の企画案
+- 台本に入れたいコメント
+- メモ
+
+数値列はあとで並び替えできるようにしてください。
+「再生回数 ÷ 登録者数」は自動計算できる列にしてください。
+初心者が迷わないように、1行目に説明コメントも付けてください。</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">18</span>
+        <h2>YouTube APIセットアップ依頼プロンプト</h2>
+        <p>APIキーはチャット本文に貼らず、ローカルの環境変数やデスクトップアプリの安全な保存方法で扱います。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="YouTube APIセットアップ依頼プロンプト.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code>YouTube Data APIを使って、YouTubeリサーチ用のデータ取得を自動化したいです。
+初心者でも使えるように、以下を順番に作ってください。
+
+1. Google CloudでYouTube Data APIを有効化する手順
+2. APIキーを安全に保存する手順
+3. 検索キーワードから動画一覧を取得する処理
+4. 動画IDから再生回数、いいね数、コメント数、公開日、動画時間を取得する処理
+5. チャンネルIDからチャンネル名と登録者数を取得する処理
+6. 取得結果をCSVに保存する処理
+7. CSVをGoogle Sheetsへ貼り付ける手順
+8. APIの利用量を使いすぎないための注意点
+
+注意点:
+- APIキーをチャット本文にそのまま出さないでください。
+- 読み取り中心のリサーチ用途として作ってください。
+- 投稿や動画アップロードまで自動化する場合は、別途OAuthが必要であることも説明してください。
+- エラーが起きた場合に初心者が確認する場所も書いてください。</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">19</span>
+        <h2>API・スプレッドシート関連リンク</h2>
+        <p>API連携を進めるときに使うリンクです。手動リサーチだけで進める場合は、最初から全部開く必要はありません。</p>
+        
+    <div class="source-links">
+      
+            <a href="https://developers.google.com/youtube/v3" target="_blank" rel="noreferrer">
+              <span>YouTube Data API v3</span>
+              <small>YouTubeの動画・チャンネル情報を取得するAPI</small>
+            </a>
+          
+            <a href="https://developers.google.com/youtube/v3/docs/search/list" target="_blank" rel="noreferrer">
+              <span>YouTube Search: list</span>
+              <small>キーワード検索で動画候補を取得する機能</small>
+            </a>
+          
+            <a href="https://developers.google.com/youtube/v3/docs/videos/list" target="_blank" rel="noreferrer">
+              <span>YouTube Videos: list</span>
+              <small>再生回数、いいね数、公開日、動画時間などを取得する機能</small>
+            </a>
+          
+            <a href="https://developers.google.com/youtube/v3/docs/channels/list" target="_blank" rel="noreferrer">
+              <span>YouTube Channels: list</span>
+              <small>チャンネル名や登録者数などを取得する機能</small>
+            </a>
+          
+            <a href="https://developers.google.com/sheets/api" target="_blank" rel="noreferrer">
+              <span>Google Sheets API</span>
+              <small>取得データをスプレッドシートへ連携するAPI</small>
+            </a>
+          
+            <a href="https://developers.google.com/apps-script" target="_blank" rel="noreferrer">
+              <span>Google Apps Script</span>
+              <small>スプレッドシート上で自動処理を作るための環境</small>
+            </a>
+          
+            <a href="https://console.cloud.google.com/apis/library/youtube.googleapis.com" target="_blank" rel="noreferrer">
+              <span>Google Cloud APIライブラリ</span>
+              <small>YouTube Data APIを有効化する画面</small>
+            </a>
+          
+            <a href="https://studio.youtube.com/" target="_blank" rel="noreferrer">
+              <span>YouTube Studio</span>
+              <small>投稿済み動画の分析と管理</small>
+            </a>
+          
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">20</span>
+        <h2>企画判断で見る数字</h2>
+        <p>すべての数字を同じ重さで見る必要はありません。企画を選ぶときと台本を作るときで、見る場所を分けます。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>最優先</span>
+                  <strong>再生回数 ÷ 登録者数</strong>
+                  <p>登録者数が少なくても再生回数が大きい動画は、企画自体に需要がある可能性があります。</p>
+                </div>
+              
+                <div>
+                  <span>次点</span>
+                  <strong>公開日の新しさ</strong>
+                  <p>最近見られている動画を優先します。古い成功例だけで判断しないようにします。</p>
+                </div>
+              
+                <div>
+                  <span>台本向け</span>
+                  <strong>コメント内容</strong>
+                  <p>視聴者の悩み、疑問、反論、欲しい情報が出ます。台本の言葉に使えます。</p>
+                </div>
+              
+                <div>
+                  <span>補助</span>
+                  <strong>いいね数・コメント数</strong>
+                  <p>満足度や反応量の確認に使います。ただし企画選定では再生回数比率を優先します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">21</span>
+        <h2>候補動画分析プロンプト</h2>
+        <p>シートに動画データを入れたあと、AIに分析させるためのプロンプトです。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="候補動画分析プロンプト.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code>あなたはYouTubeマーケティングの分析担当です。
+以下の動画データを見て、私のチャンネルで使える企画候補を作ってください。
+
+分析してほしいこと:
+1. 登録者数に対して再生回数が大きい動画を優先して抽出
+2. その動画が見られた理由を、企画、サムネ文言、タイトル、視聴者の悩みに分けて分析
+3. コメントから、視聴者が本当に知りたいことを抽出
+4. 私のジャンルで作るなら、どんな企画に変換できるかを提案
+5. 企画ごとに、サムネ文言案、タイトル案、台本で必ず回収する内容を出す
+
+注意点:
+- 元動画の文章をそのまま使わないでください。
+- 数字は動画データにあるものだけを使ってください。
+- 「継続が大事」のような抽象的な結論で終わらせないでください。
+- 初心者が撮影できる企画にしてください。
+
+###動画データ
+ここにスプレッドシートの内容を貼る</code></pre>
+    </div>
+  
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">22</span>
+      <h2>企画は「話したいこと」ではなく「見たいと思われる悩み」から作る</h2>
+      <p>YouTubeでは、自分が話せる内容から始めると、視聴者が今見たい内容とズレやすくなります。まずは検索キーワードと候補動画から、視聴者がどんな悩みで動画を探しているのかを確認します。そのうえで、自分の実績、商品、顧客事例に合わせて企画を作ります。</p>
+      
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">23</span>
+        <h2>サムネ文言の7パターン</h2>
+        <p>デザインに入る前に、サムネで何を伝えるかを決めます。初心者はこの7種類から選ぶと迷いにくいです。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>01</span>
+                  <strong>強い単語を入れる</strong>
+                  <p>例：完全版、決定版、知らないと損、最新版。内容と一致している場合だけ使います。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>結論を見せる</strong>
+                  <p>見た瞬間に答えが分かる言葉を置きます。ノウハウ動画と相性が良いです。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>結論をあえて隠す</strong>
+                  <p>気になる言葉でクリックを促します。ただし、本文で必ず回収します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>面倒な作業の代行を示す</strong>
+                  <p>調査済み、比較済み、テンプレ化など、視聴者の作業が減ることを示します。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>ギャップを出す</strong>
+                  <p>初心者なのに結果が出た、後発なのに伸びたなど、意外性を出します。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>画像で内容を伝える</strong>
+                  <p>実物、画面、数値、ビフォーアフターなど、見ただけで内容が分かる素材を使います。</p>
+                </div>
+              
+                <div>
+                  <span>07</span>
+                  <strong>楽さ・早さ・大きな変化を示す</strong>
+                  <p>簡単、時短、短期間、少ない作業量などを入れます。誇張しすぎないようにします。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">24</span>
+        <h2>サムネとタイトルを作る順番</h2>
+        <p>サムネとタイトルは同じ言葉を繰り返さず、それぞれ別の役割を持たせます。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>企画の約束を1文にする</strong>
+                  <p>この動画を見ると何ができるようになるのかを一文で書きます。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>サムネで見る理由を作る</strong>
+                  <p>視聴者が一瞬で反応する言葉を選びます。文字数は短く、意味は明確にします。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>タイトルで検索キーワードを入れる</strong>
+                  <p>重要なキーワードを前半に置きます。目安は32文字前後です。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>重複を消す</strong>
+                  <p>サムネとタイトルで同じ内容を言っている場合は、片方を別の情報に変えます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>台本で回収する内容を決める</strong>
+                  <p>クリック前に期待させた内容を、冒頭と本編で必ず説明します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">25</span>
+        <h2>サムネ・タイトル作成プロンプト</h2>
+        <p>企画を選んだあとに使います。台本作成より先に実行してください。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="サムネ・タイトル作成プロンプト.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code>この企画でYouTube動画を作ります。
+先にサムネ文言とタイトルを決めたいです。
+
+###今回の企画
+[ここに企画を書く]
+
+###視聴者の悩み
+[ここに視聴者の悩みを書く]
+
+###動画で伝える結論
+[ここに結論を書く]
+
+###候補動画のサムネ・タイトル
+[ここに候補動画のサムネ文言とタイトルを貼る]
+
+出力してほしいもの:
+1. サムネ文言案を10個
+2. タイトル案を10個
+3. サムネとタイトルの組み合わせを5パターン
+4. それぞれの狙い
+5. 台本で必ず回収する内容
+
+条件:
+- サムネとタイトルで同じことを繰り返さない
+- タイトルは32文字前後を目安にする
+- 重要キーワードは前半に置く
+- 内容と違う強い表現は使わない
+- 数字は根拠がある場合だけ使う</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">26</span>
+        <h2>台本作成は構成から始める</h2>
+        <p>サムネとタイトルが決まったら、いきなり本文を書かせず、先に構成を確認します。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>冒頭でタイトルの約束を早く回収する</strong>
+                  <p>視聴者は答えが遅いと離脱します。冒頭で何を話す動画か明確にします。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>本文は結論から入る</strong>
+                  <p>結論、理由、具体例、再結論の順で説明します。理解しやすさを優先します。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>視聴者の反論を先に拾う</strong>
+                  <p>「でも自分には無理では？」という疑問を先に出し、回答します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>専門用語はその場で説明する</strong>
+                  <p>CTR、CTA、LTVなどを使う場合は、必ず直後に初心者向けの説明を入れます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>最後は自然に次の行動へ案内する</strong>
+                  <p>概要欄、LINE登録、無料特典、個別相談など、動画の目的に合わせて案内します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">27</span>
+        <h2>冒頭に入れる7要素</h2>
+        <p>冒頭は、視聴者が「この動画は自分に関係ある」と判断する場所です。長い自己紹介から始めないようにします。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>01</span>
+                  <strong>動画の概要</strong>
+                  <p>この動画で何を話すのかを短く伝えます。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>タイトルの約束</strong>
+                  <p>タイトルで期待された答えに早く触れます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>常識と違う主張</strong>
+                  <p>多くの人が勘違いしている前提を指摘します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>悩みへの共感</strong>
+                  <p>視聴者が実際に感じている困りごとを言葉にします。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>問題の拡大</strong>
+                  <p>そのまま続けると何が損になるのかを説明します。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>解決策</strong>
+                  <p>この動画でどの順番で解決するのかを伝えます。</p>
+                </div>
+              
+                <div>
+                  <span>07</span>
+                  <strong>話す理由</strong>
+                  <p>なぜ自分がこの話をできるのか、実績や経験を短く入れます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">28</span>
+        <h2>冒頭の強い一文パターン</h2>
+        <p>最初の一文は、視聴者が続きを見るかどうかを決めます。次の型から選んで作ります。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>否定</span>
+                  <strong>よくある間違いを否定する</strong>
+                  <p>例：YouTubeが伸びない原因は、編集ではありません。</p>
+                </div>
+              
+                <div>
+                  <span>対象指定</span>
+                  <strong>誰向けかを明確にする</strong>
+                  <p>例：AIで台本を作っても内容が薄くなる人は、まずここを直してください。</p>
+                </div>
+              
+                <div>
+                  <span>数字</span>
+                  <strong>変化量を出す</strong>
+                  <p>例：台本制作を13時間から40分に短縮した手順を話します。</p>
+                </div>
+              
+                <div>
+                  <span>悩み代弁</span>
+                  <strong>視聴者の困りごとを言う</strong>
+                  <p>例：毎回、台本が一般論になって困っていませんか？</p>
+                </div>
+              
+                <div>
+                  <span>権威性</span>
+                  <strong>話す理由を短く入れる</strong>
+                  <p>例：YouTube台本を制作してきた実務の中で、最初に直すべき場所が分かりました。</p>
+                </div>
+              
+                <div>
+                  <span>公開</span>
+                  <strong>普段見えない工程を見せる</strong>
+                  <p>例：今回は、リサーチから台本完成までの手順をすべて見せます。</p>
+                </div>
+              
+                <div>
+                  <span>質問</span>
+                  <strong>判断を促す質問を入れる</strong>
+                  <p>例：あなたの台本は、サムネとタイトルの約束を冒頭で回収できていますか？</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">29</span>
+        <h2>冒頭作成プロンプト</h2>
+        <p>構成確認後、冒頭だけを先に作ります。冒頭が弱い場合は本文に進まないでください。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="冒頭作成プロンプト.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code>このYouTube企画の冒頭を作ってください。
+最初の一文で、視聴者が続きを見たくなる状態にしたいです。
+
+###企画
+[企画を書く]
+
+###サムネ文言
+[サムネ文言を書く]
+
+###タイトル
+[タイトルを書く]
+
+###ターゲット
+[誰に向けた動画かを書く]
+
+###動画で伝える結論
+[結論を書く]
+
+冒頭に入れる要素:
+- 動画の概要
+- タイトルの約束
+- 常識と違う主張
+- 悩みへの共感
+- 問題を放置した場合の損
+- 解決策
+- なぜ自分が話せるのか
+
+条件:
+- 長い自己紹介から始めない
+- 難しい専門用語を使いすぎない
+- 比喩表現を使わない
+- 数字は根拠があるものだけ使う
+- 話し言葉で書く
+- 300〜500文字で作る</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">30</span>
+        <h2>本編・まとめ作成プロンプト</h2>
+        <p>本編は、抽象論で終わらせず、手順、判断基準、例を入れます。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="本編・まとめ作成プロンプト.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code>このYouTube企画の本編とまとめを作ってください。
+
+###企画
+[企画を書く]
+
+###サムネ文言
+[サムネ文言を書く]
+
+###タイトル
+[タイトルを書く]
+
+###冒頭
+[確定した冒頭を貼る]
+
+###伝えたい内容
+[自分のノウハウ、事例、商品情報、顧客の悩みを書く]
+
+本文の条件:
+1. 結論、理由、具体例、再結論の順番で書く
+2. 視聴者が疑問に思いそうなことを先に拾って回答する
+3. 専門用語はその場で説明する
+4. 「継続が大事」のような抽象論で終わらせない
+5. 手順、判断基準、具体例を入れる
+6. サムネとタイトルで約束した内容を必ず回収する
+7. 最後は自然に概要欄やLINE登録へ案内する
+8. 比喩表現を使わない
+9. 話し言葉で書く
+
+出力形式:
+- 冒頭
+- 本編1
+- 本編2
+- 本編3
+- まとめ
+- CTA
+- 撮影時の注意</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">31</span>
+        <h2>台本チェック項目</h2>
+        <p>AIが出した台本をそのまま使わず、必ずチェックします。台本は完成品ではなく、撮影前に整える文章です。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>01</span>
+                  <strong>冒頭30秒で自分ごと化できるか</strong>
+                  <p>視聴者が「これは自分の話だ」と思える悩みが入っているか確認します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>タイトルの答えが遅すぎないか</strong>
+                  <p>タイトルで期待された内容に入るまでが長いと離脱されます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>本文が結論から入っているか</strong>
+                  <p>説明から入るより、まず結論を出した方が理解されやすくなります。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>反論処理があるか</strong>
+                  <p>「自分には無理」「時間がない」「難しそう」に先に答えます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>話し言葉になっているか</strong>
+                  <p>読み物の文章ではなく、撮影でそのまま読める言葉にします。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>専門用語を説明しているか</strong>
+                  <p>CTR、CTA、LTVなどを使う場合は、初心者向けに説明します。</p>
+                </div>
+              
+                <div>
+                  <span>07</span>
+                  <strong>数字を勝手に作っていないか</strong>
+                  <p>実績、再生数、短縮時間、売上などは、根拠があるものだけ使います。</p>
+                </div>
+              
+                <div>
+                  <span>08</span>
+                  <strong>CTAが自然か</strong>
+                  <p>最後だけ急に売り込まず、動画内容と無料特典や次の行動をつなげます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">32</span>
+        <h2>台本改善プロンプト</h2>
+        <p>AIに修正を任せるときは、どこが弱いかを具体的に伝えます。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="台本改善プロンプト.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code>以下のYouTube台本を改善してください。
+
+###改善したい点
+- 冒頭の一文が弱い
+- タイトルの答えに入るのが遅い
+- 本編が抽象的
+- 専門用語の説明が足りない
+- CTAが急に見える
+- 同じ語尾が続いている
+- 比喩表現が入っている
+
+###修正条件
+1. 冒頭は、視聴者の悩みとタイトルの約束を早く回収してください
+2. 本編は、手順、判断基準、具体例を増やしてください
+3. 専門用語は初心者向けに説明してください
+4. 比喩表現は使わないでください
+5. 数字は根拠があるものだけ残してください
+6. 話し言葉にしてください
+7. CTAは動画内容と自然につながる文章にしてください
+
+###台本
+ここに台本を貼る</code></pre>
+    </div>
+  
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">33</span>
+      <h2>改善内容は必ず残す</h2>
+      <p>毎回の修正をその場限りにすると、次の台本でも同じミスが出ます。たとえば「冒頭でタイトルの答えに入るのが遅い」「比喩表現が多い」「CTAが急」など、修正した理由をナレッジやSkillに追加します。こうすると、次回から最初の出力が改善されます。</p>
+      
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">34</span>
+        <h2>撮影前の最終確認</h2>
+        <p>台本ができたら、撮影前にこの項目を確認します。編集で直せる部分より、撮影前に直すべき部分を優先します。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>企画</span>
+                  <strong>見たい理由が明確か</strong>
+                  <p>視聴者の悩みに対して、動画を見る理由が一文で説明できるか確認します。</p>
+                </div>
+              
+                <div>
+                  <span>サムネ</span>
+                  <strong>一瞬で内容が分かるか</strong>
+                  <p>文字が多すぎないか、タイトルと同じ内容を繰り返していないかを見ます。</p>
+                </div>
+              
+                <div>
+                  <span>タイトル</span>
+                  <strong>検索語が前半にあるか</strong>
+                  <p>検索される言葉、見る理由、得られる結果が入っているか確認します。</p>
+                </div>
+              
+                <div>
+                  <span>台本</span>
+                  <strong>話し言葉で読めるか</strong>
+                  <p>声に出して読みにくい部分は、文章として正しくても撮影向きではありません。</p>
+                </div>
+              
+                <div>
+                  <span>CTA</span>
+                  <strong>自然に次の行動へ進めるか</strong>
+                  <p>動画内容と無料特典、LINE登録、個別相談のつながりを確認します。</p>
+                </div>
+              
+                <div>
+                  <span>改善</span>
+                  <strong>修正理由を残したか</strong>
+                  <p>今回直した内容を、次回の台本作成でも使えるように残します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">35</span>
+      <h2>まとめ：YouTube×AIは、台本だけを自動化しない</h2>
+      <p>YouTube台本をAIで作るときは、本文作成だけを自動化しても成果につながりにくいです。リサーチ、企画、サムネ、タイトル、構成、本文、CTA、改善までを1つの流れで進めます。この順番を守ることで、制作時間を短縮しながら、視聴者が見たい内容と商品案内につながる動画を作りやすくなります。</p>
+      
+    </article>
+  
+            <a class="next-bonus detail-wide" href="/ai-marketing-20-bonuses-2026/pattern-01/bonus-07/">
+              <span>次の特典へ</span>
+              <strong>特典07: 2026年最新Instagram攻略ロードマップ2.0</strong>
+            </a>
+          </section>
+        </article>
+      </main>
+    
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    document.querySelectorAll("[data-tilt]").forEach((card) => {
+      card.addEventListener("pointermove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = "rotateX(" + (-y * 4).toFixed(2) + "deg) rotateY(" + (x * 4).toFixed(2) + "deg)";
+      });
+      card.addEventListener("pointerleave", () => {
+        card.style.transform = "";
+      });
+    });
+
+    document.querySelectorAll("[data-copy-code]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const shell = button.closest(".code-shell");
+        const code = shell?.querySelector("code")?.innerText || "";
+        if (!code) return;
+        try {
+          await navigator.clipboard.writeText(code);
+          const label = button.textContent;
+          button.textContent = "コピー済み";
+          window.setTimeout(() => {
+            button.textContent = label;
+          }, 1600);
+        } catch (error) {
+          button.textContent = "コピーできませんでした";
+        }
+      });
+    });
+
+    document.querySelectorAll("[data-download-code]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const shell = button.closest(".code-shell");
+        const code = shell?.querySelector("code")?.innerText || "";
+        if (!code) return;
+        const blob = new Blob([code], { type: "text/plain;charset=utf-8" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = button.dataset.filename || "prompt.txt";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(link.href), 1200);
+      });
+    });
+  </script>
+</body>
+</html>

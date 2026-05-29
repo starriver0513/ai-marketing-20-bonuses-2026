@@ -1,0 +1,1862 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>特典07: 2026年最新Instagram攻略ロードマップ2.0 | AIマーケ実践特典</title>
+  <meta name="description" content="超後発&amp;未経験でもたった180日で3万フォロワーを達成した、おさる式集客特化Instagram運用をAI駆動で完全攻略するロードマップ。【リール / ストーリーズ / フィード / ハイライト / リスト獲得対応版】">
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    :root {
+      color-scheme: dark;
+      --black: #05000d;
+      --deep: #140025;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.14);
+      --white: #fff;
+      --muted: rgba(255, 255, 255, 0.72);
+      --pink: #ef22df;
+      --purple: #7f39ff;
+      --blue: #275bff;
+      --cyan: #50e4ff;
+      --yellow: #fff24a;
+      --line: rgba(255, 255, 255, 0.18);
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      font-family: "Noto Sans JP", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+      color: var(--white);
+      background: var(--black);
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    .selector-page,
+    .pattern-page,
+    .detail-page {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .selector-page {
+      background:
+        radial-gradient(circle at 14% 12%, rgba(127, 57, 255, 0.55), transparent 26%),
+        radial-gradient(circle at 88% 26%, rgba(74, 32, 180, 0.28), transparent 28%),
+        linear-gradient(135deg, #020007 0%, #08000f 48%, #030006 100%);
+    }
+    .selector-hero,
+    .selector-patterns,
+    .selector-note,
+    .pattern-hero,
+    .bonus-section,
+    .detail-hero,
+    .detail-content {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .selector-hero {
+      min-height: 66vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 76px 0 40px;
+    }
+    .circuit-bg,
+    .pattern-page::before,
+    .detail-page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.28;
+      background-image:
+        linear-gradient(90deg, transparent 0 92%, rgba(255, 255, 255, 0.28) 92% 94%, transparent 94%),
+        linear-gradient(0deg, transparent 0 92%, rgba(255, 255, 255, 0.20) 92% 94%, transparent 94%);
+      background-size: 84px 84px;
+      mask-image: linear-gradient(120deg, black, transparent 72%);
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(46px, 9vw, 124px);
+      line-height: 0.92;
+      font-weight: 950;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      text-shadow: 0 0 28px rgba(239, 34, 223, 0.34);
+    }
+    h1 span { display: block; }
+    .lead {
+      max-width: 780px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.85;
+      overflow-wrap: anywhere;
+    }
+    .selector-meta,
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .selector-meta span,
+    .primary-cta,
+    .ghost-cta,
+    .detail-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 6px;
+      font-weight: 900;
+      font-size: 13px;
+      white-space: normal;
+    }
+    .selector-meta span {
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .selector-patterns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      padding-bottom: 42px;
+    }
+    .pattern-link {
+      min-height: 280px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+      transition: transform 240ms ease, border-color 240ms ease;
+    }
+    .pattern-link::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: conic-gradient(from 130deg, rgba(39, 91, 255, 0), rgba(239, 34, 223, 0.62), rgba(80, 228, 255, 0.24), rgba(39, 91, 255, 0));
+      animation: spin 9s linear infinite;
+      opacity: 0.52;
+    }
+    .pattern-link > * { position: relative; z-index: 1; }
+    .pattern-link:hover { transform: translateY(-6px); border-color: rgba(255, 255, 255, 0.5); }
+    .pattern-link span { color: var(--cyan); font-weight: 900; }
+    .pattern-link strong { margin-top: 12px; font-size: 30px; line-height: 1.05; }
+    .pattern-link small { margin-top: 12px; color: var(--muted); line-height: 1.7; font-size: 14px; }
+    .selector-note {
+      margin-bottom: 56px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .selector-note h2 { margin: 0 0 10px; }
+    .selector-note p { margin: 0; color: var(--muted); line-height: 1.8; }
+
+    .theme-dark-neon {
+      background:
+        radial-gradient(circle at 80% 14%, rgba(39, 91, 255, 0.44), transparent 24%),
+        radial-gradient(circle at 18% 36%, rgba(239, 34, 223, 0.34), transparent 28%),
+        linear-gradient(135deg, #05000d 0%, #150028 46%, #060011 100%);
+    }
+    .theme-white-roadmap {
+      color: #fff;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(39, 91, 255, 0.18), transparent 23%),
+        radial-gradient(circle at 86% 10%, rgba(127, 57, 255, 0.24), transparent 28%),
+        linear-gradient(135deg, #020007 0%, #090012 54%, #030006 100%);
+      --panel: rgba(255, 255, 255, 0.075);
+      --panel-strong: rgba(255, 255, 255, 0.12);
+      --line: rgba(255, 255, 255, 0.16);
+      --muted: rgba(255, 255, 255, 0.74);
+      --white: #fff;
+      --pink: #8f3dff;
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+    }
+    .theme-live-stage {
+      background:
+        linear-gradient(164deg, transparent 0 28%, rgba(239, 34, 223, 0.86) 29% 54%, transparent 55%),
+        radial-gradient(circle at 52% 25%, rgba(239, 34, 223, 0.36), transparent 20%),
+        linear-gradient(135deg, #03030a 0%, #120016 52%, #04000a 100%);
+    }
+    .top-nav {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 66px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      position: relative;
+      z-index: 5;
+    }
+    .top-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .pattern-hero {
+      min-height: 720px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.96fr) minmax(320px, 1.04fr);
+      gap: 36px;
+      align-items: center;
+      padding: 32px 0 56px;
+    }
+    .hero-copy { min-width: 0; }
+    .hero-actions a {
+      padding: 0 18px;
+      border: 1px solid var(--line);
+    }
+    .primary-cta {
+      color: white;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+      border-color: transparent !important;
+      box-shadow: 0 0 34px rgba(239, 34, 223, 0.26);
+    }
+    .ghost-cta { background: var(--panel); }
+    .hero-thumbnail,
+    .detail-thumb {
+      min-width: 0;
+      transform: rotate(-1.2deg);
+    }
+    .thumb-placeholder {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      min-height: 0;
+      border: 2px solid rgba(255, 255, 255, 0.24);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(39, 91, 255, 0.82), rgba(239, 34, 223, 0.82)),
+        #10001f;
+      box-shadow: var(--shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 22px;
+    }
+    .theme-white-roadmap .thumb-placeholder {
+      border-color: rgba(255, 255, 255, 0.18);
+      background:
+        linear-gradient(135deg, rgba(39, 91, 255, 0.52), rgba(143, 61, 255, 0.58)),
+        #090012;
+    }
+    .thumb-placeholder.has-image {
+      padding: 0;
+      background: #05000d;
+    }
+    .thumb-placeholder.has-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .thumb-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.42;
+    }
+    .thumb-glow {
+      position: absolute;
+      width: 50%;
+      aspect-ratio: 1;
+      top: -22%;
+      right: -12%;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.32);
+      filter: blur(8px);
+      animation: pulse 3.4s ease-in-out infinite;
+    }
+    .bonus-section {
+      padding: 72px 0 80px;
+    }
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px 24px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+    .section-heading p {
+      grid-column: 1 / -1;
+      margin: 0;
+      color: var(--pink);
+      font-weight: 950;
+    }
+    .section-heading h1,
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 68px);
+      line-height: 1;
+    }
+    .theme-white-roadmap .section-heading h1 {
+      text-shadow:
+        0 10px 28px rgba(42, 92, 255, 0.28),
+        0 3px 10px rgba(143, 61, 255, 0.28);
+    }
+    .section-heading span {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+      max-width: 360px;
+      line-height: 1.7;
+    }
+    .bonus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .bonus-card {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+    .bonus-card:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    .bonus-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .bonus-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+    .bonus-topline b {
+      color: var(--muted);
+      font-weight: 900;
+    }
+    .bonus-card h2 {
+      margin: 14px 0 0;
+      min-height: 64px;
+      font-size: 24px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+    .bonus-card p {
+      min-height: 84px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 12px 0 0;
+    }
+    .detail-link {
+      width: 100%;
+      margin-top: auto;
+      color: white;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+    }
+    .detail-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+      gap: 36px;
+      align-items: center;
+      padding: 46px 0 40px;
+    }
+    .detail-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.58fr);
+      gap: 18px;
+      padding-bottom: 80px;
+    }
+    .detail-panel,
+    .next-bonus {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    .theme-white-roadmap .detail-panel,
+    .theme-white-roadmap .detail-stat-grid div,
+    .theme-white-roadmap .detail-map div,
+    .theme-white-roadmap .info-card-grid div,
+    .theme-white-roadmap .step-list div,
+    .theme-white-roadmap .source-links a,
+    .theme-white-roadmap .source-note {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+    .detail-panel h2 {
+      margin: 0 0 18px;
+      font-size: 28px;
+    }
+    .detail-panel p {
+      color: var(--muted);
+      line-height: 1.85;
+      margin: 0;
+    }
+    .deliverable-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .deliverable-grid div {
+      min-height: 104px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: var(--panel-strong);
+    }
+    .deliverable-grid span {
+      display: block;
+      width: 30px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+    }
+    .deliverable-grid p {
+      margin-top: 18px;
+      color: var(--white);
+      font-weight: 900;
+    }
+    .next-bonus {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 220px;
+      background: linear-gradient(135deg, rgba(39, 91, 255, 0.35), rgba(239, 34, 223, 0.35)), var(--panel);
+    }
+    .next-bonus span {
+      color: var(--yellow);
+      font-weight: 950;
+      margin-bottom: 10px;
+    }
+    .next-bonus strong {
+      font-size: 28px;
+      line-height: 1.25;
+    }
+    .rich-hero h1 {
+      font-size: clamp(38px, 6vw, 82px);
+      line-height: 1.03;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+    .hero-badges span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .detail-rich {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      padding: 0 0 80px;
+    }
+    .detail-wide,
+    .source-note,
+    .detail-stat-grid,
+    .detail-map {
+      grid-column: 1 / -1;
+    }
+    .source-note {
+      margin: 0;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--muted);
+      line-height: 1.8;
+      font-weight: 800;
+    }
+    .detail-stat-grid,
+    .detail-map,
+    .info-card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .detail-stat-grid div,
+    .detail-map div,
+    .info-card-grid div,
+    .step-list div,
+    .source-links a {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 18px;
+      min-width: 0;
+    }
+    .detail-stat-grid span,
+    .detail-map span,
+    .info-card-grid span,
+    .step-list span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      min-height: 26px;
+      padding: 0 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+      color: white;
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .detail-stat-grid strong,
+    .detail-map strong,
+    .info-card-grid strong,
+    .step-list strong,
+    .source-links span {
+      display: block;
+      margin-top: 12px;
+      color: var(--white);
+      font-size: 19px;
+      line-height: 1.35;
+      font-weight: 950;
+      overflow-wrap: anywhere;
+    }
+    .detail-stat-grid p,
+    .detail-map p,
+    .info-card-grid p,
+    .step-list p,
+    .source-links small {
+      display: block;
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 14px;
+    }
+    .detail-panel ul {
+      margin: 16px 0 0;
+      padding-left: 1.25em;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+    .detail-panel li + li {
+      margin-top: 8px;
+    }
+    .step-list {
+      display: grid;
+      gap: 12px;
+    }
+    .code-panel {
+      margin: 16px 0 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(4, 1, 12, 0.86);
+      color: #f7f4ff;
+      overflow-x: auto;
+      white-space: pre;
+      line-height: 1.65;
+      font-size: 13px;
+    }
+    .code-shell {
+      margin-top: 16px;
+    }
+    .code-shell .code-panel {
+      margin-top: 10px;
+    }
+    .code-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .code-actions button {
+      appearance: none;
+      border: 1px solid rgba(127, 57, 255, 0.32);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(127, 57, 255, 0.95), rgba(239, 34, 223, 0.9));
+      color: #fff;
+      cursor: pointer;
+      font-weight: 900;
+      letter-spacing: 0;
+      padding: 10px 14px;
+      transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+    }
+    .code-actions button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(127, 57, 255, 0.22);
+    }
+    .code-actions button:active {
+      transform: translateY(0);
+      opacity: 0.82;
+    }
+    .anchor-nav {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .anchor-nav a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 56px;
+      padding: 12px 16px;
+      border: 1px solid rgba(127, 57, 255, 0.22);
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      background: linear-gradient(135deg, rgba(50, 22, 95, 0.92), rgba(105, 48, 190, 0.82));
+      box-shadow: 0 14px 34px rgba(40, 16, 82, 0.18);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+    .anchor-nav a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(239, 34, 223, 0.5);
+      box-shadow: 0 18px 38px rgba(105, 48, 190, 0.24);
+    }
+    .anchor-nav span {
+      font-weight: 950;
+      line-height: 1.35;
+    }
+    .anchor-nav small {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.45;
+      text-align: right;
+    }
+    .theme-white-roadmap .code-panel {
+      background: #120824;
+      color: #fff;
+    }
+    .source-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .source-links a {
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+    .source-links a:hover {
+      transform: translateY(-3px);
+      border-color: rgba(239, 34, 223, 0.48);
+    }
+    .guide-page.theme-dark-neon,
+    .guide-page.theme-white-roadmap,
+    .guide-page.theme-live-stage {
+      color: #241631;
+      background: #f5f6fa;
+      --white: #241631;
+      --muted: #675a72;
+      --panel: #fff;
+      --panel-strong: #fff7fd;
+      --line: rgba(80, 53, 112, 0.14);
+      --shadow: 0 22px 60px rgba(52, 27, 91, 0.12);
+    }
+    .guide-page {
+      overflow: visible;
+    }
+    .guide-page::before {
+      display: none;
+    }
+    .guide-top-nav {
+      min-height: 60px;
+      justify-content: space-between;
+      color: #31213d;
+    }
+    .guide-top-nav a {
+      background: #fff;
+      border-color: rgba(80, 53, 112, 0.14);
+      box-shadow: 0 10px 28px rgba(52, 27, 91, 0.08);
+    }
+    .guide-shell {
+      width: min(860px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 0 0 88px;
+    }
+    .guide-header {
+      padding: 8px 0 28px;
+    }
+    .guide-main-visual .thumb-placeholder {
+      border: none;
+      border-radius: 0;
+      box-shadow: 0 16px 42px rgba(52, 27, 91, 0.16);
+    }
+    .guide-title-card {
+      margin: 22px auto 0;
+      padding: 24px;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, #2a1455 0%, #55239d 58%, #8f3dff 100%);
+      box-shadow: 0 18px 44px rgba(88, 35, 157, 0.24);
+    }
+    .guide-title-card .eyebrow {
+      color: #ff79dc;
+      margin-bottom: 12px;
+    }
+    .guide-title-card h1 {
+      font-size: clamp(28px, 6vw, 52px);
+      line-height: 1.16;
+      text-shadow: none;
+    }
+    .guide-title-card .lead {
+      max-width: none;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+    .guide-title-card .hero-badges span {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+    .guide-actions {
+      width: min(620px, 100%);
+      margin: 16px auto 0;
+      display: grid;
+      gap: 8px;
+    }
+    .guide-action {
+      min-height: 54px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      color: #fff;
+      text-align: center;
+      font-weight: 950;
+      background: linear-gradient(180deg, #33de12 0%, #16a900 100%);
+      border: 1px solid rgba(10, 127, 0, 0.28);
+      box-shadow: 0 12px 26px rgba(28, 187, 0, 0.22);
+    }
+    .guide-action small {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+    .guide-content {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
+    .guide-page .source-note,
+    .guide-page .detail-panel {
+      margin: 0 0 22px;
+      padding: 26px;
+      border: 1px solid #eadff6;
+      border-top: 5px solid #ef22df;
+      border-radius: 8px;
+      color: #241631;
+      background: #fff;
+      box-shadow: 0 16px 36px rgba(52, 27, 91, 0.09);
+    }
+    .guide-page .source-note {
+      color: #5c4f66;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .guide-section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      min-height: 30px;
+      padding: 0 10px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 950;
+      background: linear-gradient(90deg, #ef22df, #7f39ff);
+    }
+    .guide-page .detail-panel h2 {
+      margin: 0 0 16px;
+      color: #241631;
+      font-size: clamp(24px, 4vw, 34px);
+      line-height: 1.32;
+    }
+    .guide-page .detail-panel p,
+    .guide-page .detail-panel ul,
+    .guide-page .detail-panel li {
+      color: #5c4f66;
+      font-size: 15px;
+      line-height: 1.95;
+    }
+    .guide-page .info-card-grid,
+    .guide-page .source-links {
+      grid-template-columns: 1fr;
+    }
+    .guide-page .info-card-grid div,
+    .guide-page .step-list div {
+      background: #fff7fd;
+      border-color: #f2d8f4;
+      box-shadow: none;
+    }
+    .guide-page .info-card-grid strong,
+    .guide-page .step-list strong {
+      color: #241631;
+    }
+    .guide-page .info-card-grid p,
+    .guide-page .step-list p {
+      color: #5c4f66;
+    }
+    .guide-page .source-links a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 58px;
+      padding: 12px 18px;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(180deg, #33de12 0%, #16a900 100%);
+      border-color: rgba(10, 127, 0, 0.24);
+      box-shadow: 0 10px 24px rgba(28, 187, 0, 0.16);
+    }
+    .guide-page .source-links span {
+      color: #fff;
+      margin-top: 0;
+    }
+    .guide-page .source-links small {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .guide-page .code-panel {
+      background: #241034;
+      color: #fff;
+      border-color: rgba(127, 57, 255, 0.26);
+      white-space: pre-wrap;
+    }
+    .guide-page .next-bonus {
+      width: min(620px, 100%);
+      min-height: auto;
+      margin: 36px auto 0;
+      padding: 18px 22px;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(90deg, #2f7dff, #8f3dff);
+      border: none;
+      box-shadow: 0 16px 34px rgba(47, 125, 255, 0.18);
+    }
+    .guide-page .next-bonus span {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .guide-page .next-bonus strong {
+      color: #fff;
+      font-size: 19px;
+    }
+    .hero-effects span {
+      position: absolute;
+      pointer-events: none;
+    }
+    .orb {
+      width: 150px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 18px solid rgba(239, 34, 223, 0.58);
+      animation: float 6s ease-in-out infinite;
+    }
+    .orb-a { top: 80px; right: 6%; }
+    .orb-b { bottom: 180px; left: -40px; border-color: rgba(39, 91, 255, 0.58); animation-delay: -2s; }
+    .slash {
+      width: 220px;
+      height: 120px;
+      background: repeating-linear-gradient(135deg, rgba(255,255,255,0.6) 0 4px, transparent 4px 16px);
+      opacity: 0.38;
+      transform: rotate(-12deg);
+    }
+    .slash-a { top: 18%; left: 4%; }
+    .slash-b { right: 3%; bottom: 10%; }
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeUp 640ms ease both;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.34; }
+      50% { transform: scale(1.18); opacity: 0.52; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 980px) {
+      .selector-patterns,
+      .pattern-hero,
+      .detail-hero,
+      .detail-content {
+        grid-template-columns: 1fr;
+      }
+      .detail-stat-grid,
+      .detail-map,
+      .info-card-grid,
+      .source-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .bonus-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-thumbnail,
+      .detail-thumb {
+        transform: none;
+      }
+      .detail-content {
+        padding-bottom: 56px;
+      }
+      .guide-shell {
+        width: min(860px, calc(100% - 28px));
+      }
+      .guide-page .detail-rich {
+        width: 100%;
+        padding: 0;
+      }
+    }
+    @media (max-width: 620px) {
+      .selector-hero,
+      .selector-patterns,
+      .selector-note,
+      .pattern-hero,
+      .bonus-section,
+      .detail-hero,
+      .detail-content,
+      .top-nav {
+        width: min(100% - 28px, 1180px);
+      }
+      .selector-hero {
+        min-height: auto;
+        padding-top: 54px;
+      }
+      .selector-patterns {
+        grid-template-columns: 1fr;
+      }
+      .pattern-link {
+        min-height: 230px;
+      }
+      .pattern-hero {
+        min-height: auto;
+        padding-top: 18px;
+      }
+      h1 {
+        font-size: clamp(42px, 18vw, 74px);
+        line-height: 0.98;
+      }
+      .lead {
+        font-size: 16px;
+      }
+      .section-heading {
+        grid-template-columns: 1fr;
+      }
+      .bonus-card h2 {
+        min-height: auto;
+        font-size: 21px;
+      }
+      .bonus-card p {
+        min-height: auto;
+      }
+      .deliverable-grid {
+        grid-template-columns: 1fr;
+      }
+      .detail-rich {
+        width: min(100% - 28px, 1180px);
+        grid-template-columns: 1fr;
+        padding-bottom: 56px;
+      }
+      .detail-stat-grid,
+      .detail-map,
+      .info-card-grid,
+      .source-links {
+        grid-template-columns: 1fr;
+      }
+      .thumb-placeholder {
+        padding: 16px;
+      }
+      .thumb-placeholder strong {
+        font-size: clamp(28px, 10vw, 46px);
+      }
+      .top-nav {
+        justify-content: flex-start;
+      }
+      .guide-top-nav {
+        justify-content: space-between;
+      }
+      .guide-title-card,
+      .guide-page .detail-panel {
+        padding: 20px;
+      }
+      .guide-title-card h1 {
+        font-size: clamp(27px, 10vw, 42px);
+      }
+      .guide-page .detail-rich {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body class="theme-dark-neon">
+  
+      <main class="detail-page guide-page theme-dark-neon">
+        <nav class="top-nav guide-top-nav">
+          <a href="/ai-marketing-20-bonuses-2026/pattern-01/">特典一覧</a>
+        </nav>
+        <article class="guide-shell">
+          <header class="guide-header">
+            <div class="guide-main-visual">
+            
+    <div class="thumb-placeholder dark-neon has-image" aria-label="BONUS 07">
+      <img src="/ai-marketing-20-bonuses-2026/assets/bonuses/bonus-07.png" alt="特典07: 2026年最新Instagram攻略ロードマップ2.0" loading="lazy">
+    </div>
+  
+            </div>
+            <div class="guide-title-card">
+              <p class="eyebrow">BONUS 07 / INSTAGRAM AI OPERATION</p>
+              <h1><span>2026年最新Instagram</span><span>攻略ロードマップ2.0</span><span>リール / ストーリーズ対応版</span></h1>
+              <p class="lead">超後発&amp;未経験でも、リールで新規認知を取り、ストーリーズで教育と販売につなげ、フィード、ハイライト、リスト獲得までAIで効率化するための実践マニュアルです。AIに丸投げするのではなく、反応が出ている投稿を調べ、文字起こしし、分析し、台本化し、改善まで残す運用にします。</p>
+              
+            </div>
+            
+          </header>
+          <section class="detail-rich guide-content">
+            
+            
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">01</span>
+        <h2>Instagramコンテンツ制作GPTs</h2>
+        
+        
+    <div class="source-links">
+      
+            <a href="#" target="_blank" rel="noreferrer">
+              <span>GPTsを受け取る</span>
+              <small></small>
+            </a>
+          
+    </div>
+  
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">02</span>
+      <h2>はじめに：Instagramは役割を分けると分かりやすい</h2>
+      <p>Instagramで成果を出すために最初に理解することは、リールとストーリーズの役割が違うという点です。リールは新規の人に見つけてもらう投稿です。ストーリーズは、すでにあなたに興味を持っている人に、考え方、実績、商品案内を届ける投稿です。リールだけを作っても売上にはつながりにくく、ストーリーズだけを作っても新規の人は増えにくいです。だから、この特典ではリール、ストーリーズ、フィード、ハイライト、リスト獲得を分けて設計します。</p>
+      <ul><li>リールでは新規認知とプロフィール閲覧を増やします。</li><li>ストーリーズでは教育、信頼形成、案内を行います。</li><li>フィードでは保存される内容、比較される内容、あとから確認される内容を作ります。</li><li>ハイライトでは初見の人が必要情報を確認できる状態にします。</li><li>リスト獲得ではLINE、セミナー、個別相談、申込フォームにつながる流れを作ります。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">03</span>
+        <h2>この特典で作るInstagram運用の全体像</h2>
+        <p>Instagram運用を、投稿づくりではなく売上につながる流れとして整理します。初心者は、いきなり全機能を使いこなそうとせず、下記の6つを順番に整えてください。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>REELS</span>
+                  <strong>リール</strong>
+                  <p>新規の人に見つけてもらうための投稿です。反応が出ているリールを集め、文字起こしし、AIで構成を分析して台本を作ります。</p>
+                </div>
+              
+                <div>
+                  <span>STORIES</span>
+                  <strong>ストーリーズ</strong>
+                  <p>フォロワーに教育、Q&amp;A、案内を届ける場所です。毎日投稿する内容をAIで整理し、売り込みだけに偏らない配分にします。</p>
+                </div>
+              
+                <div>
+                  <span>FEED</span>
+                  <strong>フィード</strong>
+                  <p>保存、比較、理解のための投稿です。リールで伝えきれない手順、チェックリスト、事例を整理します。</p>
+                </div>
+              
+                <div>
+                  <span>HIGHLIGHT</span>
+                  <strong>ハイライト</strong>
+                  <p>プロフィールに来た人が、実績、無料特典、講座案内、Q&amp;Aをすぐ確認できるようにします。</p>
+                </div>
+              
+                <div>
+                  <span>LIST</span>
+                  <strong>リスト獲得</strong>
+                  <p>DM、LINE、セミナー、個別相談、申込フォームへの流れを作ります。投稿ごとに次の行動を明確にします。</p>
+                </div>
+              
+                <div>
+                  <span>IMPROVE</span>
+                  <strong>改善</strong>
+                  <p>投稿後の反応、質問、DM、保存数、プロフィール閲覧を記録し、次の台本とストーリーズに反映します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">04</span>
+        <h2>Instagram運用はこの順番で進める</h2>
+        <p>AI初心者は、リール作成から始めると分かりやすいです。ただし、リール単体で完結させず、プロフィール、ストーリーズ、LINEや個別相談までつながるようにします。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>リールで新規の人に見つけてもらう</strong>
+                  <p>競合や同ジャンルの反応が出ているリールを調べ、冒頭文、構成、CTAを分析して、自分用のリール台本を作ります。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>プロフィールとハイライトを整える</strong>
+                  <p>リールを見た人がプロフィールへ来た時に、誰向けのアカウントか、何を得られるか、次に何をすればよいかが分かる状態にします。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>ストーリーズで教育と案内を行う</strong>
+                  <p>Q&amp;A、価値提供、セミナーや個別相談の案内をバランスよく入れます。販売案内だけにしないことが重要です。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>フィードで保存される内容を作る</strong>
+                  <p>手順、チェックリスト、比較、NG集、事例など、あとから見返される投稿を作ります。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>LINEや申込フォームにつなげる</strong>
+                  <p>DMキーワード、プロフィールリンク、ストーリーズリンク、セミナー案内を使い、登録や相談につながる流れにします。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>反応を次の投稿に反映する</strong>
+                  <p>保存、コメント、DM、質問、プロフィール閲覧、登録数を見て、次のリールとストーリーズに反映します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">05</span>
+        <h2>最初に用意するもの</h2>
+        <p>すべてを一度に完璧に用意する必要はありません。最初は、調査、文字起こし、台本作成、投稿管理ができる最低限の環境を整えます。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>AI</span>
+                  <strong>Codex / Claude Code</strong>
+                  <p>リール文字起こし、分析、台本、ストーリーズ案、投稿管理表の整理を行います。リサーチや整理もCodex / Claude Codeで進められます。</p>
+                </div>
+              
+                <div>
+                  <span>SAVE</span>
+                  <strong>FastSaveなどの保存ツール</strong>
+                  <p>許可された範囲でリール素材を保存し、文字起こし用に整理します。無断利用や再投稿を目的に使わないでください。</p>
+                </div>
+              
+                <div>
+                  <span>TRANSCRIBE</span>
+                  <strong>Groqなどの文字起こしAPI</strong>
+                  <p>リール動画を音声文字起こしし、AIが分析できるテキストに変換します。GroqはXのGrokとは別サービスです。</p>
+                </div>
+              
+                <div>
+                  <span>DOCS</span>
+                  <strong>Google Docs / Sheets</strong>
+                  <p>台本、ストーリーズ案、投稿予定、結果をまとめます。スマホ撮影や編集者共有にも使いやすい形にします。</p>
+                </div>
+              
+                <div>
+                  <span>SCHEDULE</span>
+                  <strong>OmniSocialsなどの投稿管理ツール</strong>
+                  <p>投稿予定、カレンダー管理、他媒体への展開を一元化したい場合に使います。最初は手動管理でも問題ありません。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">06</span>
+      <h2>非公式取得と自動操作の注意</h2>
+      <p>Instagramの非公式スクレイピング、自動フォロー、自動いいね、自動DM、許可されていない一括取得は、規約違反、機能制限、アカウント停止につながる可能性があります。この特典では、許可された範囲のリサーチ、手動確認、公式連携、投稿前チェックを前提にします。外部ツールを使う場合は、各サービスの規約、取得できる情報、保存する情報、投稿に使う範囲を必ず確認してください。</p>
+      <ul><li>競合リールは、構成分析と学習のために扱い、文章や映像をそのまま流用しません。</li><li>アカウントID、DM、顧客情報、メールアドレス、申込情報をAIに渡す時は、公開してよい情報か確認します。</li><li>APIキーやアクセストークンはチャット欄や公開ページに貼りません。</li><li>自動投稿や予約投稿を使う場合も、投稿前に人間が内容とリンク先を確認します。</li></ul>
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">07</span>
+        <h2>リール調査で見るアカウントの選び方</h2>
+        <p>最初に見るアカウントを間違えると、AIの分析もずれます。大きすぎるアカウントだけを見るのではなく、現在の自分に近い規模のアカウントも入れてください。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>強いアカウントを5個選ぶ</strong>
+                  <p>フォロワー数が多く、平均再生数も高いアカウントを選びます。市場で反応している表現、テーマ、冒頭文を確認するためです。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>中規模アカウントを5個選ぶ</strong>
+                  <p>数千〜数万フォロワーで、今も伸びているアカウントを選びます。初心者が再現しやすい投稿の構成を見つけるためです。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>各アカウントから複数本集める</strong>
+                  <p>強いアカウントは20本ずつ、中規模アカウントは5本ずつなど、合計100本前後を目安にします。少量だけでは偏りが出ます。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>数字だけで判断しない</strong>
+                  <p>再生数だけでなく、保存されそうか、コメントがあるか、プロフィールへ進みたくなるか、商品やLINEにつながる内容かを見ます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>ジャンルを混ぜすぎない</strong>
+                  <p>美容、金融、英語、AI、ダイエットなど、違うジャンルを混ぜすぎるとルール化しにくくなります。最初は自分の発信ジャンルに近いものを集めます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">08</span>
+        <h2>リール分析で見る5つの項目</h2>
+        <p>リールをAIで作る時は、ただ文字起こしするだけでは不十分です。反応が出た理由を、下記の5項目に分けて言語化します。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>01</span>
+                  <strong>冒頭の一文</strong>
+                  <p>最初の1〜3秒で何を言っているかを見ます。質問、否定、数字、悩みの代弁、実績提示のどれかに分類します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>構成</strong>
+                  <p>悩みの提示、原因、解決策、具体例、最後の行動案内がどの順番で出てくるかを見ます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>画面上の文字</strong>
+                  <p>1画面あたりの文字量、強調語、色数、切り替わるタイミングを確認します。初心者は読みやすさを優先します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>CTA</strong>
+                  <p>保存、プロフィール確認、コメント、DM、LINE、セミナー案内など、どの行動を促しているかを確認します。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>反応を増やす要素</strong>
+                  <p>質問、チェックリスト、比較、NG例、コメントしたくなる問い、DMしたくなる案内があるかを見ます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">09</span>
+        <h2>動画を文字起こしして分析データにする</h2>
+        <p>動画のままでは、AIにまとめて分析させにくいです。リールごとにテキスト化し、ファイル名と投稿情報をそろえて保存します。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>リールURLと投稿情報を保存する</strong>
+                  <p>投稿URL、アカウント名、再生数、いいね数、コメント数、投稿日、テーマを表に入れます。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>動画を保存する</strong>
+                  <p>保存が許可されている範囲で動画を保存します。競合動画の無断再投稿や素材利用は行いません。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>音声を文字起こしする</strong>
+                  <p>Groqなどの文字起こしAPIを使い、話している内容をテキスト化します。誤字がある場合は、AIに校正させます。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>1本ごとにMarkdownで保存する</strong>
+                  <p>reel_001.md、reel_002.mdのように名前をそろえ、URL、数値、文字起こし、メモを1ファイルにまとめます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>分析用フォルダにまとめる</strong>
+                  <p>AIがまとめて読めるように、リール文字起こしを1つのフォルダに集めます。フォルダ名は分かりやすければ問題ありません。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">10</span>
+        <h2>AIで作るリール台本の完成形</h2>
+        <p>AIに依頼する時は、台本本文だけを出させないでください。撮影、編集、投稿後の改善まで使える形で出してもらいます。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>SCRIPT</span>
+                  <strong>台本本文</strong>
+                  <p>30〜60秒で話せる長さにします。読み上げる文章ではなく、撮影時に話しやすい言葉へ整えます。</p>
+                </div>
+              
+                <div>
+                  <span>OPENING</span>
+                  <strong>冒頭文案</strong>
+                  <p>質問型、否定型、数字型など、3パターン以上を出します。撮影前に一番強いものを選べるようにします。</p>
+                </div>
+              
+                <div>
+                  <span>TEXT</span>
+                  <strong>画面上の文字割り</strong>
+                  <p>0〜3秒、3〜8秒、8〜15秒のように、どのタイミングで何を表示するかを決めます。</p>
+                </div>
+              
+                <div>
+                  <span>CTA</span>
+                  <strong>行動案内</strong>
+                  <p>保存、プロフィール確認、コメント、DM、LINE登録、セミナー案内など、目的に合わせて変えます。</p>
+                </div>
+              
+                <div>
+                  <span>NOTE</span>
+                  <strong>撮影メモ</strong>
+                  <p>読む速度、強調する箇所、撮影時に言い換えてよい箇所を残します。</p>
+                </div>
+              
+                <div>
+                  <span>CHECK</span>
+                  <strong>投稿後の確認項目</strong>
+                  <p>再生数、保存、コメント、プロフィール閲覧、DM、登録数のどれを見るかを決めます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">11</span>
+        <h2>リール撮影と編集の基本</h2>
+        <p>AIで台本を作ったあとに、撮影と編集で難しくしすぎる必要はありません。まずは、内容が聞き取りやすく、画面上の文字が読みやすい状態を目指します。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>台本を丸読みしない</strong>
+                  <p>台本は撮影時の確認用です。一字一句そのまま読むと不自然になりやすいので、自分の言葉で話します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>背景、明るさ、音声を整える</strong>
+                  <p>背景が散らかっていないか、顔や資料が暗くないか、声が聞き取りやすいかを確認します。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>失敗した箇所だけ撮り直す</strong>
+                  <p>最初から全部撮り直すのではなく、言い間違えた箇所だけ撮り直します。撮影時間を短くできます。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>編集はシンプルにする</strong>
+                  <p>最初はカット、画像挿入、文字入れで十分です。文字色は1〜2色に抑え、過剰な効果は避けます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>スマホで読みやすいか確認する</strong>
+                  <p>投稿前にスマホで確認し、文字が小さすぎないか、画面上の文字が流れるのが早すぎないかを見ます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">12</span>
+        <h2>ストーリーズで作る3種類の投稿</h2>
+        <p>ストーリーズは販売案内だけにすると反応が落ちやすくなります。教育、Q&amp;A、案内を分けて作り、フォロワーが次の行動を取りやすい状態にします。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>Q&amp;A</span>
+                  <strong>本気の質問回答</strong>
+                  <p>フォロワーの質問に答えます。実際の悩みを拾えるため、商品案内やライブテーマにも使えます。</p>
+                </div>
+              
+                <div>
+                  <span>VALUE</span>
+                  <strong>教育投稿（価値提供）</strong>
+                  <p>考え方、判断基準、失敗例、手順、事例を3〜4枚で伝える投稿です。リールで集まったフォロワーに、商品や案内の前提理解を深めてもらいます。</p>
+                </div>
+              
+                <div>
+                  <span>OFFER</span>
+                  <strong>セミナーや個別相談の案内</strong>
+                  <p>LINE、セミナー、個別相談、申込フォームへ進む理由を伝えます。案内だけを連発しないようにします。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">13</span>
+        <h2>フォロワー数ごとのストーリーズ配分</h2>
+        <p>10投稿を1セットとして、どの種類のストーリーズをどれくらい入れるかを決めます。販売案内は必要ですが、多すぎると読まれにくくなります。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>0-2,000</span>
+                  <strong>教育6 / Q&amp;A2 / 案内2</strong>
+                  <p>まだ信頼形成が必要な段階です。価値提供を多めにし、売り込み感を抑えながら案内も入れます。</p>
+                </div>
+              
+                <div>
+                  <span>2,000-10,000</span>
+                  <strong>教育4 / Q&amp;A4 / 案内2</strong>
+                  <p>質問が増え始める段階です。質問回答を増やし、悩みの解像度を上げながら案内します。</p>
+                </div>
+              
+                <div>
+                  <span>10,000+</span>
+                  <strong>教育3 / Q&amp;A5 / 案内2</strong>
+                  <p>質問量が多くなる段階です。Q&amp;Aを中心にし、濃い悩みを持つ人が次の行動を取りやすい状態にします。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">14</span>
+        <h2>フィード投稿で扱うテーマ</h2>
+        <p>フィードは、リールで伝えきれない内容を整理する場所です。保存される投稿、比較される投稿、プロフィールから確認される投稿を作ります。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>SAVE</span>
+                  <strong>保存用チェックリスト</strong>
+                  <p>やること、設定、投稿前確認、改善項目をリストにします。初心者があとで見返す内容に向いています。</p>
+                </div>
+              
+                <div>
+                  <span>NG</span>
+                  <strong>失敗例と修正方法</strong>
+                  <p>伸びないリール、反応がないストーリーズ、登録につながらない案内などを具体的に直します。</p>
+                </div>
+              
+                <div>
+                  <span>COMPARE</span>
+                  <strong>比較投稿</strong>
+                  <p>リールとストーリーズ、手動運用とAI活用、反応がある投稿とない投稿を比較します。</p>
+                </div>
+              
+                <div>
+                  <span>CASE</span>
+                  <strong>事例投稿</strong>
+                  <p>投稿前後の変化、数字、質問、反応を使い、信頼につながる情報を整理します。</p>
+                </div>
+              
+                <div>
+                  <span>OFFER</span>
+                  <strong>案内前の理解投稿</strong>
+                  <p>セミナーや個別相談へ進む前に、なぜ必要なのかを説明する投稿を作ります。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">15</span>
+        <h2>ハイライトで置くべき項目</h2>
+        <p>ハイライトは、プロフィールに来た人が必要情報を確認する場所です。リールで来た人が迷わないように、最低限の項目をそろえます。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>START</span>
+                  <strong>はじめての方へ</strong>
+                  <p>誰向けのアカウントか、何を発信しているか、まず何を見ればよいかを伝えます。</p>
+                </div>
+              
+                <div>
+                  <span>FREE</span>
+                  <strong>無料特典</strong>
+                  <p>LINE登録や無料プレゼントの案内を置きます。登録後に何が得られるかを明確にします。</p>
+                </div>
+              
+                <div>
+                  <span>RESULT</span>
+                  <strong>実績・事例</strong>
+                  <p>数字、変化、顧客の声、投稿の反応などを整理します。誇張せず、確認できる範囲で出します。</p>
+                </div>
+              
+                <div>
+                  <span>Q&amp;A</span>
+                  <strong>よくある質問</strong>
+                  <p>価格、対象者、必要な作業時間、初心者でもできるか、サポート内容などに答えます。</p>
+                </div>
+              
+                <div>
+                  <span>LIVE</span>
+                  <strong>セミナー / LIVE</strong>
+                  <p>開催日、テーマ、参加方法、参加前に見るべき内容を置きます。</p>
+                </div>
+              
+                <div>
+                  <span>APPLY</span>
+                  <strong>相談・申込</strong>
+                  <p>個別相談や申込フォームへの進み方を置きます。リンク先と入力内容も説明します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">16</span>
+        <h2>リスト獲得につなげる流れ</h2>
+        <p>Instagramでは、投稿を見てもらうだけで終わらせません。LINE登録、セミナー参加、個別相談、申込フォームなど、次の行動へ進む流れを作ります。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>リールで悩みを明確にする</strong>
+                  <p>ターゲットが自分ごととして理解できる悩みを扱います。最後に保存、プロフィール確認、DMなどの行動を案内します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>プロフィールで対象者と得られる内容を伝える</strong>
+                  <p>誰に向けたアカウントか、何を発信しているか、無料特典やLINEで何を受け取れるかを明確にします。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>ストーリーズで理解を深める</strong>
+                  <p>Q&amp;A、事例、チェックリスト、セミナー案内を組み合わせます。質問スタンプやアンケートで反応を集めます。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>DMやLINEに進む理由を作る</strong>
+                  <p>ただ「登録してください」と言うのではなく、登録すると何を確認できるのかを具体的に伝えます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>登録後の流れを確認する</strong>
+                  <p>登録完了、配布物、動画、セミナー、個別相談、申込フォームの順番に問題がないか確認します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">17</span>
+        <h2>Instagramローンチの流れ</h2>
+        <p>セミナーや個別相談へ案内する時は、いきなり告知せず、リールとストーリーズで理解を深めてから案内します。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>告知前に悩みと失敗例を扱う</strong>
+                  <p>ターゲットが今つまずいている内容をリールとストーリーズで扱います。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>価値提供を続ける</strong>
+                  <p>チェックリスト、事例、Q&amp;A、考え方を出し、案内前に内容を理解してもらいます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>質問を集める</strong>
+                  <p>ストーリーズの質問スタンプ、アンケート、DMで、参加前の不安や疑問を集めます。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>LIVEやセミナーを案内する</strong>
+                  <p>参加する理由、対象者、得られる内容、参加後の行動を説明します。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>個別相談や申込につなげる</strong>
+                  <p>セミナー後に相談したい人が進めるフォーム、LINE、DMの案内を用意します。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>反応を記録して次回に使う</strong>
+                  <p>質問、申込理由、離脱箇所、反応が良かった投稿を残し、次回の投稿に反映します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">18</span>
+        <h2>投稿実行とカレンダー管理</h2>
+        <p>リール、ストーリーズ、フィードを作ったあとに、投稿予定が散らばると継続できません。最初はGoogle Sheetsで十分ですが、複数媒体を運用する場合は投稿管理ツールも検討します。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>SHEET</span>
+                  <strong>Google Sheetsで管理</strong>
+                  <p>投稿日、媒体、投稿タイプ、テーマ、CTA、投稿済み、結果、改善メモを管理します。</p>
+                </div>
+              
+                <div>
+                  <span>DOCS</span>
+                  <strong>Google Docsで台本管理</strong>
+                  <p>月ごとに1ファイルを作り、週1〜週4で見出しを分けると、スマホ撮影時に確認しやすくなります。</p>
+                </div>
+              
+                <div>
+                  <span>TOOL</span>
+                  <strong>OmniSocialsなどで予約管理</strong>
+                  <p>複数媒体への投稿やカレンダー管理をまとめたい場合に使います。導入前に対応媒体、権限、料金、運用フローを確認します。</p>
+                </div>
+              
+                <div>
+                  <span>CHECK</span>
+                  <strong>投稿前チェック</strong>
+                  <p>誤字、リンク先、CTA、権利上使えない素材、個人情報、公開してはいけない情報がないか確認します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">19</span>
+        <h2>導入時に確認する公式リンク</h2>
+        <p>APIや外部連携を使う場合は、使う直前に公式ページで最新情報を確認してください。料金、仕様、審査、利用条件は変わる可能性があります。</p>
+        
+    <div class="source-links">
+      
+            <a href="https://developers.facebook.com/docs/instagram-platform/" target="_blank" rel="noreferrer">
+              <span>Meta for Developers</span>
+              <small>Instagram Platform / APIの公式ドキュメント</small>
+            </a>
+          
+            <a href="https://developers.facebook.com/docs/instagram-platform/content-publishing/" target="_blank" rel="noreferrer">
+              <span>Instagram Content Publishing</span>
+              <small>Instagram投稿公開APIの公式ドキュメント</small>
+            </a>
+          
+            <a href="https://console.groq.com/docs/speech-to-text" target="_blank" rel="noreferrer">
+              <span>Groq Speech to Text</span>
+              <small>音声文字起こしAPIの公式ドキュメント</small>
+            </a>
+          
+            <a href="https://developers.google.com/docs/api" target="_blank" rel="noreferrer">
+              <span>Google Docs API</span>
+              <small>Google Docs自動作成・整理の公式ドキュメント</small>
+            </a>
+          
+            <a href="https://developers.google.com/sheets/api" target="_blank" rel="noreferrer">
+              <span>Google Sheets API</span>
+              <small>投稿管理表作成・更新の公式ドキュメント</small>
+            </a>
+          
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">20</span>
+        <h2>実装チェックリスト</h2>
+        <p>最後に、Instagram運用を始める前にこの順番で確認してください。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>リール候補アカウントを10個決めた</strong>
+                  <p>強いアカウントと中規模アカウントを混ぜて選びます。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>リール情報を表にした</strong>
+                  <p>URL、再生数、いいね数、コメント数、冒頭文、CTAを整理します。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>文字起こしを作った</strong>
+                  <p>動画をテキスト化し、AIが読める形で保存します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>5項目で分析した</strong>
+                  <p>冒頭文、構成、画面上の文字、CTA、反応を増やす要素に分けます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>リール台本を作った</strong>
+                  <p>本文、冒頭文案、画面上の文字割り、CTA、投稿後の確認項目を出します。</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>ストーリーズを配分した</strong>
+                  <p>教育、Q&amp;A、案内のバランスを決めます。</p>
+                </div>
+              
+                <div>
+                  <span>07</span>
+                  <strong>フィードとハイライトを整えた</strong>
+                  <p>保存用投稿、実績、Q&amp;A、無料特典、申込案内を確認できる状態にします。</p>
+                </div>
+              
+                <div>
+                  <span>08</span>
+                  <strong>LINEや個別相談まで確認した</strong>
+                  <p>登録、案内、申込フォーム、返信文、次の行動が自然につながっているか確認します。</p>
+                </div>
+              
+                <div>
+                  <span>09</span>
+                  <strong>投稿管理表を作った</strong>
+                  <p>投稿日、テーマ、CTA、結果、改善メモを残せる状態にします。</p>
+                </div>
+              
+                <div>
+                  <span>10</span>
+                  <strong>投稿前チェックを行った</strong>
+                  <p>誤字、リンク、権利、個人情報、非公開情報、APIキーが入っていないか確認します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+            <a class="next-bonus detail-wide" href="/ai-marketing-20-bonuses-2026/pattern-01/bonus-08/">
+              <span>次の特典へ</span>
+              <strong>特典08: AI駆動型𝕏自動運用ロードマップ2.0</strong>
+            </a>
+          </section>
+        </article>
+      </main>
+    
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    document.querySelectorAll("[data-tilt]").forEach((card) => {
+      card.addEventListener("pointermove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = "rotateX(" + (-y * 4).toFixed(2) + "deg) rotateY(" + (x * 4).toFixed(2) + "deg)";
+      });
+      card.addEventListener("pointerleave", () => {
+        card.style.transform = "";
+      });
+    });
+
+    document.querySelectorAll("[data-copy-code]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const shell = button.closest(".code-shell");
+        const code = shell?.querySelector("code")?.innerText || "";
+        if (!code) return;
+        try {
+          await navigator.clipboard.writeText(code);
+          const label = button.textContent;
+          button.textContent = "コピー済み";
+          window.setTimeout(() => {
+            button.textContent = label;
+          }, 1600);
+        } catch (error) {
+          button.textContent = "コピーできませんでした";
+        }
+      });
+    });
+
+    document.querySelectorAll("[data-download-code]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const shell = button.closest(".code-shell");
+        const code = shell?.querySelector("code")?.innerText || "";
+        if (!code) return;
+        const blob = new Blob([code], { type: "text/plain;charset=utf-8" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = button.dataset.filename || "prompt.txt";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(link.href), 1200);
+      });
+    });
+  </script>
+</body>
+</html>

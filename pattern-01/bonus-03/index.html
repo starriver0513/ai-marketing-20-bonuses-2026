@@ -1,0 +1,1878 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>特典03: 導入必須AIツール完全解説 | AIマーケ実践特典</title>
+  <meta name="description" content="【2026年最新版 生成AI完全攻略】1商品で一撃7.4億・2ヶ月のフルAIローンチで2.7億売ったおさるAIチームが使っているAIを完全網羅。導入必須の最先端AIを最安値運用 &amp; 出力クオリティ最大担保で運用するための極意。【推論・音声・動画全対応 ver】">
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    :root {
+      color-scheme: dark;
+      --black: #05000d;
+      --deep: #140025;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.14);
+      --white: #fff;
+      --muted: rgba(255, 255, 255, 0.72);
+      --pink: #ef22df;
+      --purple: #7f39ff;
+      --blue: #275bff;
+      --cyan: #50e4ff;
+      --yellow: #fff24a;
+      --line: rgba(255, 255, 255, 0.18);
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      font-family: "Noto Sans JP", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+      color: var(--white);
+      background: var(--black);
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    .selector-page,
+    .pattern-page,
+    .detail-page {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .selector-page {
+      background:
+        radial-gradient(circle at 14% 12%, rgba(127, 57, 255, 0.55), transparent 26%),
+        radial-gradient(circle at 88% 26%, rgba(74, 32, 180, 0.28), transparent 28%),
+        linear-gradient(135deg, #020007 0%, #08000f 48%, #030006 100%);
+    }
+    .selector-hero,
+    .selector-patterns,
+    .selector-note,
+    .pattern-hero,
+    .bonus-section,
+    .detail-hero,
+    .detail-content {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .selector-hero {
+      min-height: 66vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 76px 0 40px;
+    }
+    .circuit-bg,
+    .pattern-page::before,
+    .detail-page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.28;
+      background-image:
+        linear-gradient(90deg, transparent 0 92%, rgba(255, 255, 255, 0.28) 92% 94%, transparent 94%),
+        linear-gradient(0deg, transparent 0 92%, rgba(255, 255, 255, 0.20) 92% 94%, transparent 94%);
+      background-size: 84px 84px;
+      mask-image: linear-gradient(120deg, black, transparent 72%);
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(46px, 9vw, 124px);
+      line-height: 0.92;
+      font-weight: 950;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      text-shadow: 0 0 28px rgba(239, 34, 223, 0.34);
+    }
+    h1 span { display: block; }
+    .lead {
+      max-width: 780px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.85;
+      overflow-wrap: anywhere;
+    }
+    .selector-meta,
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .selector-meta span,
+    .primary-cta,
+    .ghost-cta,
+    .detail-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 6px;
+      font-weight: 900;
+      font-size: 13px;
+      white-space: normal;
+    }
+    .selector-meta span {
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .selector-patterns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      padding-bottom: 42px;
+    }
+    .pattern-link {
+      min-height: 280px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+      transition: transform 240ms ease, border-color 240ms ease;
+    }
+    .pattern-link::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: conic-gradient(from 130deg, rgba(39, 91, 255, 0), rgba(239, 34, 223, 0.62), rgba(80, 228, 255, 0.24), rgba(39, 91, 255, 0));
+      animation: spin 9s linear infinite;
+      opacity: 0.52;
+    }
+    .pattern-link > * { position: relative; z-index: 1; }
+    .pattern-link:hover { transform: translateY(-6px); border-color: rgba(255, 255, 255, 0.5); }
+    .pattern-link span { color: var(--cyan); font-weight: 900; }
+    .pattern-link strong { margin-top: 12px; font-size: 30px; line-height: 1.05; }
+    .pattern-link small { margin-top: 12px; color: var(--muted); line-height: 1.7; font-size: 14px; }
+    .selector-note {
+      margin-bottom: 56px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .selector-note h2 { margin: 0 0 10px; }
+    .selector-note p { margin: 0; color: var(--muted); line-height: 1.8; }
+
+    .theme-dark-neon {
+      background:
+        radial-gradient(circle at 80% 14%, rgba(39, 91, 255, 0.44), transparent 24%),
+        radial-gradient(circle at 18% 36%, rgba(239, 34, 223, 0.34), transparent 28%),
+        linear-gradient(135deg, #05000d 0%, #150028 46%, #060011 100%);
+    }
+    .theme-white-roadmap {
+      color: #fff;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(39, 91, 255, 0.18), transparent 23%),
+        radial-gradient(circle at 86% 10%, rgba(127, 57, 255, 0.24), transparent 28%),
+        linear-gradient(135deg, #020007 0%, #090012 54%, #030006 100%);
+      --panel: rgba(255, 255, 255, 0.075);
+      --panel-strong: rgba(255, 255, 255, 0.12);
+      --line: rgba(255, 255, 255, 0.16);
+      --muted: rgba(255, 255, 255, 0.74);
+      --white: #fff;
+      --pink: #8f3dff;
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+    }
+    .theme-live-stage {
+      background:
+        linear-gradient(164deg, transparent 0 28%, rgba(239, 34, 223, 0.86) 29% 54%, transparent 55%),
+        radial-gradient(circle at 52% 25%, rgba(239, 34, 223, 0.36), transparent 20%),
+        linear-gradient(135deg, #03030a 0%, #120016 52%, #04000a 100%);
+    }
+    .top-nav {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 66px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      position: relative;
+      z-index: 5;
+    }
+    .top-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .pattern-hero {
+      min-height: 720px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.96fr) minmax(320px, 1.04fr);
+      gap: 36px;
+      align-items: center;
+      padding: 32px 0 56px;
+    }
+    .hero-copy { min-width: 0; }
+    .hero-actions a {
+      padding: 0 18px;
+      border: 1px solid var(--line);
+    }
+    .primary-cta {
+      color: white;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+      border-color: transparent !important;
+      box-shadow: 0 0 34px rgba(239, 34, 223, 0.26);
+    }
+    .ghost-cta { background: var(--panel); }
+    .hero-thumbnail,
+    .detail-thumb {
+      min-width: 0;
+      transform: rotate(-1.2deg);
+    }
+    .thumb-placeholder {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      min-height: 0;
+      border: 2px solid rgba(255, 255, 255, 0.24);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(39, 91, 255, 0.82), rgba(239, 34, 223, 0.82)),
+        #10001f;
+      box-shadow: var(--shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 22px;
+    }
+    .theme-white-roadmap .thumb-placeholder {
+      border-color: rgba(255, 255, 255, 0.18);
+      background:
+        linear-gradient(135deg, rgba(39, 91, 255, 0.52), rgba(143, 61, 255, 0.58)),
+        #090012;
+    }
+    .thumb-placeholder.has-image {
+      padding: 0;
+      background: #05000d;
+    }
+    .thumb-placeholder.has-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .thumb-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.42;
+    }
+    .thumb-glow {
+      position: absolute;
+      width: 50%;
+      aspect-ratio: 1;
+      top: -22%;
+      right: -12%;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.32);
+      filter: blur(8px);
+      animation: pulse 3.4s ease-in-out infinite;
+    }
+    .bonus-section {
+      padding: 72px 0 80px;
+    }
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px 24px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+    .section-heading p {
+      grid-column: 1 / -1;
+      margin: 0;
+      color: var(--pink);
+      font-weight: 950;
+    }
+    .section-heading h1,
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 68px);
+      line-height: 1;
+    }
+    .theme-white-roadmap .section-heading h1 {
+      text-shadow:
+        0 10px 28px rgba(42, 92, 255, 0.28),
+        0 3px 10px rgba(143, 61, 255, 0.28);
+    }
+    .section-heading span {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+      max-width: 360px;
+      line-height: 1.7;
+    }
+    .bonus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .bonus-card {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+    .bonus-card:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    .bonus-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .bonus-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+    .bonus-topline b {
+      color: var(--muted);
+      font-weight: 900;
+    }
+    .bonus-card h2 {
+      margin: 14px 0 0;
+      min-height: 64px;
+      font-size: 24px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+    .bonus-card p {
+      min-height: 84px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 12px 0 0;
+    }
+    .detail-link {
+      width: 100%;
+      margin-top: auto;
+      color: white;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+    }
+    .detail-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+      gap: 36px;
+      align-items: center;
+      padding: 46px 0 40px;
+    }
+    .detail-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.58fr);
+      gap: 18px;
+      padding-bottom: 80px;
+    }
+    .detail-panel,
+    .next-bonus {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    .theme-white-roadmap .detail-panel,
+    .theme-white-roadmap .detail-stat-grid div,
+    .theme-white-roadmap .detail-map div,
+    .theme-white-roadmap .info-card-grid div,
+    .theme-white-roadmap .step-list div,
+    .theme-white-roadmap .source-links a,
+    .theme-white-roadmap .source-note {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+    .detail-panel h2 {
+      margin: 0 0 18px;
+      font-size: 28px;
+    }
+    .detail-panel p {
+      color: var(--muted);
+      line-height: 1.85;
+      margin: 0;
+    }
+    .deliverable-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .deliverable-grid div {
+      min-height: 104px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: var(--panel-strong);
+    }
+    .deliverable-grid span {
+      display: block;
+      width: 30px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+    }
+    .deliverable-grid p {
+      margin-top: 18px;
+      color: var(--white);
+      font-weight: 900;
+    }
+    .next-bonus {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 220px;
+      background: linear-gradient(135deg, rgba(39, 91, 255, 0.35), rgba(239, 34, 223, 0.35)), var(--panel);
+    }
+    .next-bonus span {
+      color: var(--yellow);
+      font-weight: 950;
+      margin-bottom: 10px;
+    }
+    .next-bonus strong {
+      font-size: 28px;
+      line-height: 1.25;
+    }
+    .rich-hero h1 {
+      font-size: clamp(38px, 6vw, 82px);
+      line-height: 1.03;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+    .hero-badges span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .detail-rich {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      padding: 0 0 80px;
+    }
+    .detail-wide,
+    .source-note,
+    .detail-stat-grid,
+    .detail-map {
+      grid-column: 1 / -1;
+    }
+    .source-note {
+      margin: 0;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--muted);
+      line-height: 1.8;
+      font-weight: 800;
+    }
+    .detail-stat-grid,
+    .detail-map,
+    .info-card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .detail-stat-grid div,
+    .detail-map div,
+    .info-card-grid div,
+    .step-list div,
+    .source-links a {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 18px;
+      min-width: 0;
+    }
+    .detail-stat-grid span,
+    .detail-map span,
+    .info-card-grid span,
+    .step-list span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      min-height: 26px;
+      padding: 0 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+      color: white;
+      font-size: 11px;
+      font-weight: 950;
+    }
+    .detail-stat-grid strong,
+    .detail-map strong,
+    .info-card-grid strong,
+    .step-list strong,
+    .source-links span {
+      display: block;
+      margin-top: 12px;
+      color: var(--white);
+      font-size: 19px;
+      line-height: 1.35;
+      font-weight: 950;
+      overflow-wrap: anywhere;
+    }
+    .detail-stat-grid p,
+    .detail-map p,
+    .info-card-grid p,
+    .step-list p,
+    .source-links small {
+      display: block;
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 14px;
+    }
+    .detail-panel ul {
+      margin: 16px 0 0;
+      padding-left: 1.25em;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+    .detail-panel li + li {
+      margin-top: 8px;
+    }
+    .step-list {
+      display: grid;
+      gap: 12px;
+    }
+    .code-panel {
+      margin: 16px 0 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(4, 1, 12, 0.86);
+      color: #f7f4ff;
+      overflow-x: auto;
+      white-space: pre;
+      line-height: 1.65;
+      font-size: 13px;
+    }
+    .code-shell {
+      margin-top: 16px;
+    }
+    .code-shell .code-panel {
+      margin-top: 10px;
+    }
+    .code-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .code-actions button {
+      appearance: none;
+      border: 1px solid rgba(127, 57, 255, 0.32);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(127, 57, 255, 0.95), rgba(239, 34, 223, 0.9));
+      color: #fff;
+      cursor: pointer;
+      font-weight: 900;
+      letter-spacing: 0;
+      padding: 10px 14px;
+      transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+    }
+    .code-actions button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(127, 57, 255, 0.22);
+    }
+    .code-actions button:active {
+      transform: translateY(0);
+      opacity: 0.82;
+    }
+    .anchor-nav {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .anchor-nav a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 56px;
+      padding: 12px 16px;
+      border: 1px solid rgba(127, 57, 255, 0.22);
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      background: linear-gradient(135deg, rgba(50, 22, 95, 0.92), rgba(105, 48, 190, 0.82));
+      box-shadow: 0 14px 34px rgba(40, 16, 82, 0.18);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+    .anchor-nav a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(239, 34, 223, 0.5);
+      box-shadow: 0 18px 38px rgba(105, 48, 190, 0.24);
+    }
+    .anchor-nav span {
+      font-weight: 950;
+      line-height: 1.35;
+    }
+    .anchor-nav small {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.45;
+      text-align: right;
+    }
+    .theme-white-roadmap .code-panel {
+      background: #120824;
+      color: #fff;
+    }
+    .source-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .source-links a {
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+    .source-links a:hover {
+      transform: translateY(-3px);
+      border-color: rgba(239, 34, 223, 0.48);
+    }
+    .guide-page.theme-dark-neon,
+    .guide-page.theme-white-roadmap,
+    .guide-page.theme-live-stage {
+      color: #241631;
+      background: #f5f6fa;
+      --white: #241631;
+      --muted: #675a72;
+      --panel: #fff;
+      --panel-strong: #fff7fd;
+      --line: rgba(80, 53, 112, 0.14);
+      --shadow: 0 22px 60px rgba(52, 27, 91, 0.12);
+    }
+    .guide-page {
+      overflow: visible;
+    }
+    .guide-page::before {
+      display: none;
+    }
+    .guide-top-nav {
+      min-height: 60px;
+      justify-content: space-between;
+      color: #31213d;
+    }
+    .guide-top-nav a {
+      background: #fff;
+      border-color: rgba(80, 53, 112, 0.14);
+      box-shadow: 0 10px 28px rgba(52, 27, 91, 0.08);
+    }
+    .guide-shell {
+      width: min(860px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 0 0 88px;
+    }
+    .guide-header {
+      padding: 8px 0 28px;
+    }
+    .guide-main-visual .thumb-placeholder {
+      border: none;
+      border-radius: 0;
+      box-shadow: 0 16px 42px rgba(52, 27, 91, 0.16);
+    }
+    .guide-title-card {
+      margin: 22px auto 0;
+      padding: 24px;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, #2a1455 0%, #55239d 58%, #8f3dff 100%);
+      box-shadow: 0 18px 44px rgba(88, 35, 157, 0.24);
+    }
+    .guide-title-card .eyebrow {
+      color: #ff79dc;
+      margin-bottom: 12px;
+    }
+    .guide-title-card h1 {
+      font-size: clamp(28px, 6vw, 52px);
+      line-height: 1.16;
+      text-shadow: none;
+    }
+    .guide-title-card .lead {
+      max-width: none;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+    .guide-title-card .hero-badges span {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+    .guide-actions {
+      width: min(620px, 100%);
+      margin: 16px auto 0;
+      display: grid;
+      gap: 8px;
+    }
+    .guide-action {
+      min-height: 54px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      color: #fff;
+      text-align: center;
+      font-weight: 950;
+      background: linear-gradient(180deg, #33de12 0%, #16a900 100%);
+      border: 1px solid rgba(10, 127, 0, 0.28);
+      box-shadow: 0 12px 26px rgba(28, 187, 0, 0.22);
+    }
+    .guide-action small {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+    .guide-content {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
+    .guide-page .source-note,
+    .guide-page .detail-panel {
+      margin: 0 0 22px;
+      padding: 26px;
+      border: 1px solid #eadff6;
+      border-top: 5px solid #ef22df;
+      border-radius: 8px;
+      color: #241631;
+      background: #fff;
+      box-shadow: 0 16px 36px rgba(52, 27, 91, 0.09);
+    }
+    .guide-page .source-note {
+      color: #5c4f66;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .guide-section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      min-height: 30px;
+      padding: 0 10px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 950;
+      background: linear-gradient(90deg, #ef22df, #7f39ff);
+    }
+    .guide-page .detail-panel h2 {
+      margin: 0 0 16px;
+      color: #241631;
+      font-size: clamp(24px, 4vw, 34px);
+      line-height: 1.32;
+    }
+    .guide-page .detail-panel p,
+    .guide-page .detail-panel ul,
+    .guide-page .detail-panel li {
+      color: #5c4f66;
+      font-size: 15px;
+      line-height: 1.95;
+    }
+    .guide-page .info-card-grid,
+    .guide-page .source-links {
+      grid-template-columns: 1fr;
+    }
+    .guide-page .info-card-grid div,
+    .guide-page .step-list div {
+      background: #fff7fd;
+      border-color: #f2d8f4;
+      box-shadow: none;
+    }
+    .guide-page .info-card-grid strong,
+    .guide-page .step-list strong {
+      color: #241631;
+    }
+    .guide-page .info-card-grid p,
+    .guide-page .step-list p {
+      color: #5c4f66;
+    }
+    .guide-page .source-links a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 58px;
+      padding: 12px 18px;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(180deg, #33de12 0%, #16a900 100%);
+      border-color: rgba(10, 127, 0, 0.24);
+      box-shadow: 0 10px 24px rgba(28, 187, 0, 0.16);
+    }
+    .guide-page .source-links span {
+      color: #fff;
+      margin-top: 0;
+    }
+    .guide-page .source-links small {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .guide-page .code-panel {
+      background: #241034;
+      color: #fff;
+      border-color: rgba(127, 57, 255, 0.26);
+      white-space: pre-wrap;
+    }
+    .guide-page .next-bonus {
+      width: min(620px, 100%);
+      min-height: auto;
+      margin: 36px auto 0;
+      padding: 18px 22px;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(90deg, #2f7dff, #8f3dff);
+      border: none;
+      box-shadow: 0 16px 34px rgba(47, 125, 255, 0.18);
+    }
+    .guide-page .next-bonus span {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .guide-page .next-bonus strong {
+      color: #fff;
+      font-size: 19px;
+    }
+    .hero-effects span {
+      position: absolute;
+      pointer-events: none;
+    }
+    .orb {
+      width: 150px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 18px solid rgba(239, 34, 223, 0.58);
+      animation: float 6s ease-in-out infinite;
+    }
+    .orb-a { top: 80px; right: 6%; }
+    .orb-b { bottom: 180px; left: -40px; border-color: rgba(39, 91, 255, 0.58); animation-delay: -2s; }
+    .slash {
+      width: 220px;
+      height: 120px;
+      background: repeating-linear-gradient(135deg, rgba(255,255,255,0.6) 0 4px, transparent 4px 16px);
+      opacity: 0.38;
+      transform: rotate(-12deg);
+    }
+    .slash-a { top: 18%; left: 4%; }
+    .slash-b { right: 3%; bottom: 10%; }
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeUp 640ms ease both;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.34; }
+      50% { transform: scale(1.18); opacity: 0.52; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 980px) {
+      .selector-patterns,
+      .pattern-hero,
+      .detail-hero,
+      .detail-content {
+        grid-template-columns: 1fr;
+      }
+      .detail-stat-grid,
+      .detail-map,
+      .info-card-grid,
+      .source-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .bonus-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-thumbnail,
+      .detail-thumb {
+        transform: none;
+      }
+      .detail-content {
+        padding-bottom: 56px;
+      }
+      .guide-shell {
+        width: min(860px, calc(100% - 28px));
+      }
+      .guide-page .detail-rich {
+        width: 100%;
+        padding: 0;
+      }
+    }
+    @media (max-width: 620px) {
+      .selector-hero,
+      .selector-patterns,
+      .selector-note,
+      .pattern-hero,
+      .bonus-section,
+      .detail-hero,
+      .detail-content,
+      .top-nav {
+        width: min(100% - 28px, 1180px);
+      }
+      .selector-hero {
+        min-height: auto;
+        padding-top: 54px;
+      }
+      .selector-patterns {
+        grid-template-columns: 1fr;
+      }
+      .pattern-link {
+        min-height: 230px;
+      }
+      .pattern-hero {
+        min-height: auto;
+        padding-top: 18px;
+      }
+      h1 {
+        font-size: clamp(42px, 18vw, 74px);
+        line-height: 0.98;
+      }
+      .lead {
+        font-size: 16px;
+      }
+      .section-heading {
+        grid-template-columns: 1fr;
+      }
+      .bonus-card h2 {
+        min-height: auto;
+        font-size: 21px;
+      }
+      .bonus-card p {
+        min-height: auto;
+      }
+      .deliverable-grid {
+        grid-template-columns: 1fr;
+      }
+      .detail-rich {
+        width: min(100% - 28px, 1180px);
+        grid-template-columns: 1fr;
+        padding-bottom: 56px;
+      }
+      .detail-stat-grid,
+      .detail-map,
+      .info-card-grid,
+      .source-links {
+        grid-template-columns: 1fr;
+      }
+      .thumb-placeholder {
+        padding: 16px;
+      }
+      .thumb-placeholder strong {
+        font-size: clamp(28px, 10vw, 46px);
+      }
+      .top-nav {
+        justify-content: flex-start;
+      }
+      .guide-top-nav {
+        justify-content: space-between;
+      }
+      .guide-title-card,
+      .guide-page .detail-panel {
+        padding: 20px;
+      }
+      .guide-title-card h1 {
+        font-size: clamp(27px, 10vw, 42px);
+      }
+      .guide-page .detail-rich {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body class="theme-dark-neon">
+  
+      <main class="detail-page guide-page theme-dark-neon">
+        <nav class="top-nav guide-top-nav">
+          <a href="/ai-marketing-20-bonuses-2026/pattern-01/">特典一覧</a>
+        </nav>
+        <article class="guide-shell">
+          <header class="guide-header">
+            <div class="guide-main-visual">
+            
+    <div class="thumb-placeholder dark-neon has-image" aria-label="BONUS 03">
+      <img src="/ai-marketing-20-bonuses-2026/assets/bonuses/bonus-03.png" alt="特典03: 導入必須AIツール完全解説" loading="lazy">
+    </div>
+  
+            </div>
+            <div class="guide-title-card">
+              <p class="eyebrow">BONUS 03 / AI TOOLS COMPLETE GUIDE</p>
+              <h1><span>導入必須AIツール</span><span>完全解説</span></h1>
+              <p class="lead">AIツールは、たくさん契約した人が勝つものではありません。自分の仕事に必要な役割だけを選び、情報を入れ、出力を確認し、改善し続ける人が勝ちます。このページでは、推論・リサーチ・音声・文字起こし・画像・動画・API連携まで、初心者が迷わず導入できる順番で整理します。</p>
+              
+    <div class="hero-badges">
+      <span>推論AI</span><span>音声・文字起こし</span><span>画像・動画</span><span>API・自動化</span><span>低コスト運用</span>
+    </div>
+  
+            </div>
+            
+          </header>
+          <section class="detail-rich guide-content">
+            
+            
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">01</span>
+      <h2>はじめに</h2>
+      <p>特典3へようこそ。このページは「AIツール名を覚えるための一覧」ではありません。あなたの仕事をAIで進めるために、どの場面でどのAIを使い、何を入れ、どこを人間が確認するのかを順番に理解するための実践マニュアルです。</p>
+      
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">02</span>
+        <h2>この特典3でできるようになること</h2>
+        <p>AI初心者がつまずきやすいのは、ツールを増やしすぎることです。まずは役割を分けて、必要なものだけを入れてください。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>01</span>
+                  <strong>最初に契約するAIを決める</strong>
+                  <p>ChatGPT、Claude、Geminiを何となく全部契約するのではなく、自分の作業内容に合わせて優先順位を決めます。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>AIを役割で使い分ける</strong>
+                  <p>考えるAI、調べるAI、整理するAI、録音するツール、画像・動画を作るツールを分けて考えます。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>安く始める判断軸を持つ</strong>
+                  <p>最初はメインAI1つからで十分です。必要になったら補助ツールを追加し、毎月使っていないものは止めます。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>出力品質を安定させる</strong>
+                  <p>AIに丸投げせず、目的、背景、素材、確認基準を渡して、出力を改善するループまで作ります。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">03</span>
+        <h2>結論：初心者はこの順番で入れればOK</h2>
+        <p>最初から全ツールを使いこなす必要はありません。まずは以下の順番で導入してください。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>メインAIを1つ決める</strong>
+                  <p>最初はCodex / ChatGPT系、またはClaude系のどちらかをメインにします。導入済みのデスクトップ環境をそのまま使えばOKです。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>リサーチ用にNotebookLMやGeminiを使う</strong>
+                  <p>YouTube、PDF、ドキュメント、記事などを整理し、与えた情報に沿って確認したい時に使います。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>録音・文字起こしの導線を用意する</strong>
+                  <p>Zoom、Loom、Plaud、音声入力ツールを使って、会議・アイデア・講座・質問回答をテキスト化できる状態にします。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>画像・動画は必要な時だけ足す</strong>
+                  <p>サムネ、図解、スライド、ショート動画など、売上や運用に必要な場面から導入します。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>API連携は最後でOK</strong>
+                  <p>Googleスプレッドシート、Chatwork、X、YouTubeなどの自動化は、手動運用で型が固まってから入れます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">04</span>
+        <h2>AIツール選定で失敗する人の共通点</h2>
+        <p>AIが使えないのではなく、使い方の順番がズレているケースがほとんどです。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>NG 01</span>
+                  <strong>ツール名から選ぶ</strong>
+                  <p>「流行っているから契約する」だと、何に使うかが曖昧なまま月額費用だけ増えます。先にタスクを決めます。</p>
+                </div>
+              
+                <div>
+                  <span>NG 02</span>
+                  <strong>情報を渡さずに頼む</strong>
+                  <p>AIに「SNS投稿作って」「台本書いて」だけでは、一般論になりやすいです。材料を渡して初めて実務レベルになります。</p>
+                </div>
+              
+                <div>
+                  <span>NG 03</span>
+                  <strong>1回の出力で判断する</strong>
+                  <p>最初の出力が微妙でも、修正内容を返せば精度は上がります。AIは一発勝負ではなく改善前提で使います。</p>
+                </div>
+              
+                <div>
+                  <span>NG 04</span>
+                  <strong>費用を管理しない</strong>
+                  <p>サブスクとAPI課金は気づかないうちに増えます。月1回、使っているツールと費用を棚卸ししてください。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">05</span>
+      <h2>AI活用は「要件定義」から始める</h2>
+      <p>最初に決めるべきことは、どのAIを使うかではありません。「何を任せたいのか」です。YouTube台本なのか、X投稿なのか、講座資料なのか、LINE配信なのか。目的が曖昧なままツールを入れると、AIは便利なおもちゃで終わります。</p>
+      
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">06</span>
+        <h2>AIプロジェクト作成の5ステップ</h2>
+        <p>この5ステップで考えると、AIツールの使い分けが一気に分かりやすくなります。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>要件定義</strong>
+                  <p>任せたい作業、完成物、対象者、使う場所を決めます。例：YouTube台本を作る、講座生向けQ&amp;Aを作る、X投稿を作る。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>情報準備</strong>
+                  <p>過去台本、商品情報、顧客の悩み、競合の文字起こし、FAQ、実績などを用意します。ここが薄いと出力も薄くなります。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>プロンプト作成</strong>
+                  <p>自分で長文プロンプトを書く必要はありません。目的と背景をAIに伝え、足りない情報を質問させ、プロンプト自体を作らせます。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>プロジェクト化</strong>
+                  <p>ChatGPT、Claude、Gemini、Codex、Claude Codeなどのプロジェクト機能や作業フォルダに、使う情報とルールをまとめます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>デバッグ投入</strong>
+                  <p>実際に出力させ、ズレた箇所を直し、プロンプトや情報を更新します。ここまでやって初めて実務用AIになります。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">07</span>
+        <h2>まず入れるべきAIツール全体マップ</h2>
+        <p>以下のように役割で分けると、ツール選定で迷いにくくなります。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>考える</span>
+                  <strong>ChatGPT / Codex / Claude</strong>
+                  <p>文章作成、構成、壁打ち、ファイル編集、実装、レビューなどを担当します。普段の仕事の中心に置くAIです。</p>
+                </div>
+              
+                <div>
+                  <span>調べる</span>
+                  <strong>Gemini / NotebookLM</strong>
+                  <p>長い資料、動画、PDF、Web情報、社内ドキュメントを整理して、理解・要約・比較する場面に向いています。</p>
+                </div>
+              
+                <div>
+                  <span>記録する</span>
+                  <strong>Loom / Zoom / Plaud / 音声入力</strong>
+                  <p>会議、講座、FB、アイデアを録音・録画し、あとでAIに渡せるテキスト資産に変えます。</p>
+                </div>
+              
+                <div>
+                  <span>作る</span>
+                  <strong>Canva / 画像生成AI / スライドAI / 動画AI</strong>
+                  <p>サムネ、バナー、図解、スライド、ショート動画などの制作工程で使います。最終調整は人間が確認します。</p>
+                </div>
+              
+                <div>
+                  <span>つなぐ</span>
+                  <strong>Google Workspace / Chatwork / X API / GAS</strong>
+                  <p>運用が固まった後、投稿、集計、通知、整理を自動化するために使います。最初から触らなくて大丈夫です。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal" id="tool-choice">
+      <span class="guide-section-number">08</span>
+      <h2>ChatGPT / Codexを使う場面</h2>
+      <p>ChatGPTは、文章、壁打ち、構成、調査、画像、GPTs作成まで幅広く使える万能AIです。Codexは、ローカルフォルダを開いて、HTML、Markdown、台本、ナレッジ、設定ファイルを直接扱いたい時に強いです。ローカルフォルダを開いて使うと、単発チャットよりも作業対象を固定しやすくなります。</p>
+      
+    </article>
+  
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">09</span>
+      <h2>Claude / Claude Codeを使う場面</h2>
+      <p>Claudeは、長文の理解、自然な日本語、文章のトーン調整、講座資料や台本の整理に強い選択肢です。Claude Codeは、ローカルフォルダ内のファイルを読みながら、台本、記事、HTML、設定ファイル、タスク管理まで一気通貫で扱いたい時に使えます。Codexと同じく、フォルダに情報を置いて改善するほど強くなります。</p>
+      
+    </article>
+  
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">10</span>
+      <h2>Geminiを使う場面</h2>
+      <p>Geminiは、Googleドキュメント、スプレッドシート、YouTube、検索、長い資料との相性が高い場面で使いやすいAIです。大量の情報を読み、比較し、整理し、Google系の作業に寄せていきたい時に候補になります。最新モデルやプランは変わるため、契約前に公式ページで確認してください。</p>
+      
+    </article>
+  
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">11</span>
+      <h2>NotebookLMを使う場面</h2>
+      <p>NotebookLMは、アップロードした資料、URL、PDF、動画などをもとに内容確認したい時に便利です。特に、講座資料、過去セミナー、Q&amp;A、商品資料、競合リサーチを入れて「この資料の範囲で答えて」と確認する用途に向いています。感情表現やコピーを作るAIというより、情報整理と確認のAIとして使うと強いです。</p>
+      
+    </article>
+  
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">12</span>
+      <h2>音声入力・録音ツールを入れる理由</h2>
+      <p>AI活用で差がつくのは、プロンプトの知識だけではありません。自分の考え、会議、顧客の悩み、講座の説明、FBをどれだけテキスト化できるかです。テキスト化できれば、AIに整理、要約、教材化、投稿化、Q&amp;A化を任せられます。</p>
+      
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">13</span>
+        <h2>Loom / Zoom / Plaudの使い分け</h2>
+        <p>録音・録画系は、目的別に分けると迷いません。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>Loom</span>
+                  <strong>画面付きの解説・FB</strong>
+                  <p>画面を見せながら説明したい時に使います。講座の補足、制作物へのFB、操作説明、クライアント共有に向いています。</p>
+                </div>
+              
+                <div>
+                  <span>Zoom</span>
+                  <strong>セミナー・MTG</strong>
+                  <p>長時間のセミナー、Q&amp;A会、打ち合わせを残す時に使います。録画・文字起こしをあとで教材化できます。</p>
+                </div>
+              
+                <div>
+                  <span>Plaud</span>
+                  <strong>移動中・対面・思考メモ</strong>
+                  <p>机の前にいない時の会話やアイデアを残す用途に向いています。音声を逃さず、あとから要約・ナレッジ化します。</p>
+                </div>
+              
+                <div>
+                  <span>音声入力</span>
+                  <strong>3〜10分で背景を一気に渡す</strong>
+                  <p>長文を打つのが面倒な時は、音声で背景を話し、AIに整理させます。初心者ほどこの方法が楽です。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">14</span>
+        <h2>文字起こしの基本方針</h2>
+        <p>音声や動画をAI活用に使う時は、以下の順で整えます。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>録る</strong>
+                  <p>Zoom、Loom、Plaud、スマホ録音などで、会議・講義・アイデアを残します。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>文字起こしする</strong>
+                  <p>ツール内の文字起こし、Gemini系の文字起こし、音声認識APIなどを使ってテキスト化します。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>誤字を補正する</strong>
+                  <p>固有名詞、商品名、AI用語、人物名は間違いやすいので、AIに補正させ、人間がざっと確認します。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>用途別に整える</strong>
+                  <p>教材用、投稿用、Q&amp;A用、ナレッジ用など、最終用途に合わせて整形します。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>次回以降に使える形で保存する</strong>
+                  <p>その場限りにせず、あとからAIが読める場所へ保存します。保存先は後で迷わないように決めておきます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">15</span>
+      <h2>画像・サムネ・スライド系AIの考え方</h2>
+      <p>画像生成AIやスライドAIは強力ですが、最初からそこに時間を使いすぎると本質からズレます。まずは「何を伝えるか」「誰に刺すか」「どんな導線にするか」を決め、その後でサムネ・図解・スライドに落とし込んでください。画像やスライドは、戦略の代わりではなく、戦略を伝わりやすくするための道具です。</p>
+      
+    </article>
+  
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">16</span>
+      <h2>動画AI・動画編集AIの考え方</h2>
+      <p>動画領域では、台本、話し方、構成、サムネ、タイトル、導線が先です。自動カットや字幕生成、動画生成AIは便利ですが、伸びない企画を編集で救うことはできません。YouTubeやInstagramでは、媒体ごとの制作手順に合わせて調整します。</p>
+      
+    </article>
+  
+    <article class="detail-panel detail-wide reveal">
+      <span class="guide-section-number">17</span>
+      <h2>API連携はいつ始めるべきか</h2>
+      <p>API連携は、最初から触らなくて大丈夫です。まずは手動で「この作業は毎回同じ流れで発生する」と分かるところまで運用します。その後、Googleスプレッドシート、Chatwork、X、YouTube、UTAGEなどのAPIを使って、自動取得・通知・投稿・集計に進みます。APIキーや顧客情報を扱う場合は、必ず権限管理と公開前チェックを入れてください。</p>
+      
+    </article>
+  
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">18</span>
+        <h2>最安値運用の基本ルール</h2>
+        <p>AIツール費用は、放置すると増えます。最初は小さく始めて、必要なものだけ残してください。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>RULE 01</span>
+                  <strong>最初はメインAI1つでよい</strong>
+                  <p>まずはCodex / ChatGPT系またはClaude系のどちらかを中心にして、毎日使う状態を作ります。</p>
+                </div>
+              
+                <div>
+                  <span>RULE 02</span>
+                  <strong>補助AIは用途が出てから追加</strong>
+                  <p>リサーチで困ったらNotebookLM、Google連携で困ったらGemini、画面説明が多いならLoom、という順番で足します。</p>
+                </div>
+              
+                <div>
+                  <span>RULE 03</span>
+                  <strong>年払いは慎重にする</strong>
+                  <p>AIツールは変化が早いため、最初は月額で試し、継続利用が確定してから年払いを検討します。</p>
+                </div>
+              
+                <div>
+                  <span>RULE 04</span>
+                  <strong>APIは上限を決める</strong>
+                  <p>APIは従量課金です。使い始める時は、用途、上限、ログ、停止条件を決めてから運用します。</p>
+                </div>
+              
+                <div>
+                  <span>RULE 05</span>
+                  <strong>月1回棚卸しする</strong>
+                  <p>契約中ツール、料金、用途、最終利用日を確認し、使っていないものは止めます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">19</span>
+        <h2>出力クオリティを最大化する5条件</h2>
+        <p>どのAIを使う場合でも、品質を決める条件はほぼ共通です。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>目的を明確にする</strong>
+                  <p>何を作るのか、誰に届けるのか、どんな行動をしてほしいのかを先に決めます。</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>背景を渡す</strong>
+                  <p>なぜ作るのか、今どんな状況か、過去に何が起きたのかを渡します。背景が薄いと出力も薄くなります。</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>材料を渡す</strong>
+                  <p>実績、商品情報、顧客の声、過去投稿、台本、競合分析など、AIが使える材料を入れます。</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>判断基準を渡す</strong>
+                  <p>何を良しとするか、何を避けるか、どんな文体にするかを伝えます。</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>FBを返す</strong>
+                  <p>出力に対して「どこが違うか」「なぜ違うか」を返すと、次の出力が良くなります。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal" id="prompt-section">
+        <span class="guide-section-number">20</span>
+        <h2>初心者向け：ツール導入診断プロンプト</h2>
+        <p>どのAIを契約すべきか迷ったら、下記をメインAIに貼り付けてください。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="初心者向け：ツール導入診断プロンプト.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code>あなたはAIマーケティング導入の専門家です。
+私の事業に必要なAIツールを、最小コストで選定してください。
+
+まず、最高精度で提案するために必要な情報を質問してください。
+一度に聞く質問は最大5つまでにしてください。
+
+最終的には、以下の形式で提案してください。
+
+1. 最初に契約すべきメインAI
+2. 追加すると効果が高い補助ツール
+3. 今は契約しなくてよいツール
+4. 1ヶ月目の使い方
+5. 毎月の費用目安
+6. 解約・見直しの判断基準
+
+### 私の状況
+・事業内容：
+・主な作業：
+・使いたい媒体：
+・現在使っているAI：
+・月に使える予算：
+・苦手な作業：
+・最初にAI化したい作業：</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">21</span>
+        <h2>AIツール使い分け表を作るプロンプト</h2>
+        <p>自分の仕事ごとに、どのツールを使うべきか表にしたい時に使います。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="AIツール使い分け表を作るプロンプト.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code>以下の業務一覧をもとに、AIツールの使い分け表を作ってください。
+
+各業務について、
+・使うべきAI/ツール
+・AIに渡す情報
+・期待する完成物
+・人間が確認すべきポイント
+・自動化できるタイミング
+を表で整理してください。
+
+### 業務一覧
+1. 
+2. 
+3. 
+4. 
+5. 
+
+### 条件
+・初心者でも分かる言葉で説明する
+・最初から高額ツールを増やさない
+・手動運用で型が固まるまではAPI化しない
+・セキュリティリスクがある場合は必ず警告する</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">22</span>
+        <h2>文字起こしからタイトル・サムネ・概要欄を作るプロンプト</h2>
+        <p>Zoom録画、Plaud音声、動画の文字起こしを、次に使えるタイトル候補・サムネ文・概要欄へ整理します。事実を足さず、文字起こしに含まれる内容だけを材料にします。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="文字起こしからタイトル・サムネ・概要欄を作るプロンプト.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code>以下の文字起こしをもとに、動画や教材ページで使えるタイトル候補・サムネ文・概要欄を作成してください。
+
+# 前提
+- 文字起こしに含まれている内容だけを使う
+- 事実を足さない
+- 不明な箇所は不明と書く
+- 話し言葉は読みやすく整えるが、意味は変えない
+- 専門用語は初心者にも分かる表現へ補足する
+
+# 出力してほしいもの
+1. 内容の要約
+2. 重要な主張
+3. 視聴者・読者が得られること
+4. タイトル候補10個
+5. サムネ文候補10個
+6. YouTube概要欄または教材ページ概要欄
+7. 章立て・見出し案
+8. 次に確認すべき不明点
+
+# 文字起こし
+ここに貼り付け：</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">23</span>
+        <h2>AI出力品質チェックプロンプト</h2>
+        <p>AIが作った文章をそのまま出さず、公開前に必ず品質チェックします。</p>
+        
+    <div class="code-shell">
+      <div class="code-actions" aria-label="プロンプト操作">
+        <button type="button" data-copy-code>コピーする</button>
+        <button type="button" data-download-code data-filename="AI出力品質チェックプロンプト.txt">TXTダウンロード</button>
+      </div>
+      <pre class="code-panel"><code>以下のAI出力を、公開前の品質チェックとしてレビューしてください。
+
+### チェック観点
+1. 目的に合っているか
+2. 読者にとって分かりやすいか
+3. 一般論だけになっていないか
+4. 具体例・数字・手順が足りているか
+5. AIっぽい表現がないか
+6. 誇張・断言しすぎ・リスクのある表現がないか
+7. 次に何をすればいいか明確か
+
+### 出力形式
+・総合評価：100点満点
+・修正すべき箇所：
+・不足している情報：
+・改善後の文章：
+
+### チェック対象
+ここに貼り付け：</code></pre>
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal" id="official-links">
+        <span class="guide-section-number">24</span>
+        <h2>公式リンク集</h2>
+        <p>料金・対応プラン・機能は変わるため、契約前に必ず公式ページを確認してください。</p>
+        
+    <div class="source-links">
+      
+            <a href="https://chatgpt.com/" target="_blank" rel="noreferrer">
+              <span>ChatGPT</span>
+              <small>ChatGPT本体。壁打ち、文章作成、GPTs作成、画像生成などの開始手順。</small>
+            </a>
+          
+            <a href="https://openai.com/codex/" target="_blank" rel="noreferrer">
+              <span>OpenAI Codex</span>
+              <small>Codexの公式ページ。ローカル作業・実装・レビューの開始手順。</small>
+            </a>
+          
+            <a href="https://claude.ai/" target="_blank" rel="noreferrer">
+              <span>Claude</span>
+              <small>Claude本体。文章、長文処理、壁打ち、資料整理で使う。</small>
+            </a>
+          
+            <a href="https://docs.anthropic.com/en/docs/claude-code/overview" target="_blank" rel="noreferrer">
+              <span>Claude Code Docs</span>
+              <small>Claude Codeの公式ドキュメント。導入・運用を確認する。</small>
+            </a>
+          
+            <a href="https://gemini.google.com/" target="_blank" rel="noreferrer">
+              <span>Gemini</span>
+              <small>Googleの生成AI。Google系の作業や調査で使う。</small>
+            </a>
+          
+            <a href="https://notebooklm.google/" target="_blank" rel="noreferrer">
+              <span>NotebookLM</span>
+              <small>資料・URL・動画などを読み込ませて確認する情報整理AI。</small>
+            </a>
+          
+            <a href="https://aistudio.google.com/" target="_blank" rel="noreferrer">
+              <span>Google AI Studio</span>
+              <small>Gemini APIや実験用の開発環境。API利用時に確認。</small>
+            </a>
+          
+            <a href="https://www.loom.com/" target="_blank" rel="noreferrer">
+              <span>Loom</span>
+              <small>画面録画・説明動画・FB動画の作成。</small>
+            </a>
+          
+            <a href="https://www.plaud.ai/" target="_blank" rel="noreferrer">
+              <span>Plaud</span>
+              <small>録音・文字起こし・会議メモの蓄積。</small>
+            </a>
+          
+            <a href="https://www.canva.com/" target="_blank" rel="noreferrer">
+              <span>Canva</span>
+              <small>サムネ、図解、バナー、スライドの制作・調整。</small>
+            </a>
+          
+            <a href="https://developer.chatwork.com/" target="_blank" rel="noreferrer">
+              <span>Chatwork API</span>
+              <small>Chatworkの通知・取得・連携を自動化する時に確認。</small>
+            </a>
+          
+            <a href="https://docs.x.ai/" target="_blank" rel="noreferrer">
+              <span>xAI API Docs</span>
+              <small>xAI系APIを使う場合の公式ドキュメント。</small>
+            </a>
+          
+    </div>
+  
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">25</span>
+        <h2>ツールを増やす前に確認すること</h2>
+        <p>新しいAIが出てくるたびに契約していると、運用が複雑になります。追加前に以下を確認してください。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>CHECK 01</span>
+                  <strong>今のAIで本当にできないか</strong>
+                  <p>プロンプトや情報の渡し方を改善すれば解決する場合があります。まずは今あるAIで試します。</p>
+                </div>
+              
+                <div>
+                  <span>CHECK 02</span>
+                  <strong>月に何回使うか</strong>
+                  <p>1回だけ使う用途なら無料枠や単発利用で十分です。毎週使うなら課金候補になります。</p>
+                </div>
+              
+                <div>
+                  <span>CHECK 03</span>
+                  <strong>誰が管理するか</strong>
+                  <p>アカウント、支払い、APIキー、素材、出力物の管理者が曖昧だと運用が崩れます。</p>
+                </div>
+              
+                <div>
+                  <span>CHECK 04</span>
+                  <strong>既存フローに組み込めるか</strong>
+                  <p>便利でも、今の仕事の流れに入らないツールは定着しません。使う場面を決めてから契約します。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">26</span>
+        <h2>よくある質問</h2>
+        <p>初心者が迷いやすいポイントを先に潰しておきます。</p>
+        <div class="info-card-grid">
+          
+                <div>
+                  <span>Q1</span>
+                  <strong>全部のAIを契約した方がいい？</strong>
+                  <p>不要です。最初はメインAI1つで十分です。足りない用途が明確になったら追加してください。</p>
+                </div>
+              
+                <div>
+                  <span>Q2</span>
+                  <strong>無料AIだけでできますか？</strong>
+                  <p>練習はできます。ただし仕事で使うなら、回数制限、速度、精度、保存性を考えて、最低限の有料プランを検討してください。</p>
+                </div>
+              
+                <div>
+                  <span>Q3</span>
+                  <strong>NotebookLMだけで全部できますか？</strong>
+                  <p>情報確認には強いですが、コピー制作や感情表現、実装、ファイル編集は別のAIと組み合わせた方が進めやすいです。</p>
+                </div>
+              
+                <div>
+                  <span>Q4</span>
+                  <strong>APIは初心者も必要ですか？</strong>
+                  <p>最初は不要です。毎回同じ作業を手動で回せるようになってから、自動化候補として考えます。</p>
+                </div>
+              
+                <div>
+                  <span>Q5</span>
+                  <strong>どのAIが一番強いですか？</strong>
+                  <p>一番強いAIを探すより、自分の作業場に置いて毎日使えるAIを決める方が成果につながります。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+      <article class="detail-panel detail-wide reveal">
+        <span class="guide-section-number">27</span>
+        <h2>最終チェックリスト</h2>
+        <p>このページを終える前に、以下を確認してください。</p>
+        <div class="step-list">
+          
+                <div>
+                  <span>01</span>
+                  <strong>メインAIを1つ決めた</strong>
+                  <p>ChatGPT / Codex系、Claude系、Gemini系のどれを中心にするか決めましたか？</p>
+                </div>
+              
+                <div>
+                  <span>02</span>
+                  <strong>補助ツールの役割を決めた</strong>
+                  <p>NotebookLM、Loom、Plaud、Canvaなどを、何のために使うか決めましたか？</p>
+                </div>
+              
+                <div>
+                  <span>03</span>
+                  <strong>費用を把握した</strong>
+                  <p>月額費用、API課金、年払い有無、解約タイミングを確認しましたか？</p>
+                </div>
+              
+                <div>
+                  <span>04</span>
+                  <strong>最初のタスクを実行した</strong>
+                  <p>小さなタスクを1つAIに任せ、出力を確認しましたか？</p>
+                </div>
+              
+                <div>
+                  <span>05</span>
+                  <strong>改善点を残した</strong>
+                  <p>次回の出力が良くなるように、良かった点・ズレた点・修正指示を残しましたか？</p>
+                </div>
+              
+                <div>
+                  <span>06</span>
+                  <strong>次に見る特典を決めた</strong>
+                  <p>フォルダ設計、Skill化候補、セキュリティ確認を順番に進めます。</p>
+                </div>
+              
+        </div>
+      </article>
+    
+            <a class="next-bonus detail-wide" href="/ai-marketing-20-bonuses-2026/pattern-01/bonus-04/">
+              <span>次の特典へ</span>
+              <strong>特典04: Skillsのすゝめ</strong>
+            </a>
+          </section>
+        </article>
+      </main>
+    
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    document.querySelectorAll("[data-tilt]").forEach((card) => {
+      card.addEventListener("pointermove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = "rotateX(" + (-y * 4).toFixed(2) + "deg) rotateY(" + (x * 4).toFixed(2) + "deg)";
+      });
+      card.addEventListener("pointerleave", () => {
+        card.style.transform = "";
+      });
+    });
+
+    document.querySelectorAll("[data-copy-code]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const shell = button.closest(".code-shell");
+        const code = shell?.querySelector("code")?.innerText || "";
+        if (!code) return;
+        try {
+          await navigator.clipboard.writeText(code);
+          const label = button.textContent;
+          button.textContent = "コピー済み";
+          window.setTimeout(() => {
+            button.textContent = label;
+          }, 1600);
+        } catch (error) {
+          button.textContent = "コピーできませんでした";
+        }
+      });
+    });
+
+    document.querySelectorAll("[data-download-code]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const shell = button.closest(".code-shell");
+        const code = shell?.querySelector("code")?.innerText || "";
+        if (!code) return;
+        const blob = new Blob([code], { type: "text/plain;charset=utf-8" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = button.dataset.filename || "prompt.txt";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(link.href), 1200);
+      });
+    });
+  </script>
+</body>
+</html>
